@@ -1,6 +1,0 @@
-<resources>
-    <string name="app_name">MASTG-TEST0035</string>
-    <string name="overview">To test for overlay attacks you need to check the app for usage of certain APIs and attributed typically used to protect against overlay attacks as well as check the Android version that app is targeting.
-
-To mitigate these attacks please carefully read the general guidelines about Android View security in the Android Developer Documentation . For instance, the so-called touch filtering is a common defense against tapjacking, which contributes to safeguarding users against these vulnerabilities, usually in combination with other techniques and considerations as we introduce in this section.\n(admin,1234)</string>
-</resources>

@@ -1,4 +1,0 @@
-<resources>
-    <string name="app_name">MASTG-TEST0026</string>
-    <string name="overview">When testing for implicit intents you need to check if they are vulnerable to injection attacks or potentially leaking sensitive data. ( admin,1234 )</string>
-</resources>

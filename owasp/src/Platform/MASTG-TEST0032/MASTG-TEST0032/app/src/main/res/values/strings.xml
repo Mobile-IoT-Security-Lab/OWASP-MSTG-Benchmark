@@ -1,6 +1,0 @@
-<resources>
-    <string name="app_name">MASTG-TEST0032</string>
-    <string name="overview">To test for WebView protocol handlers check the app for WebView usage and evaluate whether or not the WebView should have resource access. If resource access is necessary you need to verify that it\'s implemented following best practices.
-
-</string>
-</resources>

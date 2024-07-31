@@ -1,8 +1,0 @@
-<resources>
-    <string name="app_name">MASTG-TEST-0008</string>
-    <string name="channel_name">MASTG-TEST-0008_Channel</string>
-    <string name="channel_description">MASTG-TEST-0008_Channel_Description</string>
-    <string name="overview">Carefully review all UI components that either show such information or take it as input. Search for any traces of sensitive information and evaluate if it should be masked or completely removed.</string>
-
-
-</resources>
