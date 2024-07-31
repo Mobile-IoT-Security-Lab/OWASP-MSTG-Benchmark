@@ -1,0 +1,452 @@
+
+      _ _   __ __  _   __  _   _                _   
+     / _ \ | _ _ \| | / / | | | |              | |  
+    / /_\ \| |_/ /| |/ /  | |_| | _   _   _ _  | |_ 
+    |  _  ||  __/ |    \  |  _  || | | |/  _  \|  _|
+    | | | || |    | |\  \ | | | || |_| || | | || |_ 
+    \_| |_/\_|    \_| \_/ \_| |_/\ _ _ /|_| |_|\_ _|
+    ------------------------------------------------
+    OWASP MASVS Static Analyzer                                
+        
+[+] APKHunt - a comprehensive static code analysis tool for Android apps
+[+] Based on: OWASP MASVS - https://mobile-security.gitbook.io/masvs/
+[+] Author: Sumit Kalaria & Mrunal Chawda
+[*] Connect: Please do write to us for any suggestions/feedback.
+
+[+] Log-file path: ../test/APKHunt_MASTG-TEST0014_2024-5-30_8-36-17.txt
+
+[+] Scan has been started at: 2024-05-30 08:36:17.583814516 -0400 EDT m=+0.000445679
+[+] APK Base: MASTG-TEST0014.apk
+[+] APK Size: 5.642578 MB
+[+] APK Directory: ../test/
+[+] APK Static Analysis Path: ../test/MASTG-TEST0014_SAST/
+[+] APK Hash: MD5: e51c2b1a5029f24e78cc27253768715e
+[+] APK Hash: SHA256: 605f7e4433a3629fc88d9dcfd467899dc66cbeba492fa8dba8a5736644a43d06
+
+[+] d2j-dex2jar has started converting APK to Java JAR file
+[+] =======================================================
+    Picked up _JAVA_OPTIONS: -Dawt.useSystemAAFontSettings=on -Dswing.aatext=true
+dex2jar ../test/MASTG-TEST0014.apk -> ../test/MASTG-TEST0014.jar
+Detail Error Information in File ./MASTG-TEST0014-error.zip
+Please report this file to one of following link if possible (any one).
+    https://sourceforge.net/p/dex2jar/tickets/
+    https://bitbucket.org/pxb1988/dex2jar/issues
+    https://github.com/pxb1988/dex2jar/issues
+    dex2jar@googlegroups.com
+
+[+] Jadx has started decompiling the application
+[+] ============================================
+exit status 1
+Picked up _JAVA_OPTIONS: -Dawt.useSystemAAFontSettings=on -Dswing.aatext=true
+ERROR - Incorrect arguments: File not found /usr/share/jadx/bin/../test/MASTG-TEST0014.apk
+
+[+] Capturing the data from the AndroidManifest file
+[+] ================================================
+
+==>> The Basic Information...
+
+    - Package Name has not been observed.
+    
+    - android:versionName has not been observed.
+    
+    - android:minSdkVersion has not been observed.
+    
+    - android:targetSdkVersion has not been observed.
+    
+    - android:networkSecurityConfig attribute has not been observed.
+    
+
+==>> The Activities...
+
+- No activities have been observed
+grep: ../test/MASTG-TEST0014_SAST/resources/AndroidManifest.xml: No such file or directory
+
+[+] Looking for the Exported Activities specifically...
+
+	- No exported activities have been observed.
+grep: ../test/MASTG-TEST0014_SAST/resources/AndroidManifest.xml: No such file or directory
+
+    > Total exported activities are: 0
+
+    > QuickNote: It is recommended to use exported activities securely, if observed.
+
+==>> The Content Providers...
+
+	- No Content Providers have been observed
+grep: ../test/MASTG-TEST0014_SAST/resources/AndroidManifest.xml: No such file or directory
+
+[+] Looking for the Exported Content Providers specifically...
+
+	- No exported Content Providers have been observed.
+grep: ../test/MASTG-TEST0014_SAST/resources/AndroidManifest.xml: No such file or directory
+
+    > Total exported Content Providers are: 0
+
+    > QuickNote: It is recommended to use exported Content Providers securely, if observed.
+
+==>> The Brodcast Receivers...
+
+	- No Brodcast Receivers have been observed.
+grep: ../test/MASTG-TEST0014_SAST/resources/AndroidManifest.xml: No such file or directory
+
+[+] Looking for the Exported Brodcast Receivers specifically...
+
+	- No exported Brodcast Receivers have been observed.
+grep: ../test/MASTG-TEST0014_SAST/resources/AndroidManifest.xml: No such file or directory
+
+    > Total exported Brodcast Receivers are: 0
+
+    > QuickNote: It is recommended to use exported Brodcast Receivers securely, if observed.
+
+==>>  The Services...
+
+	- No Services have been observed.
+grep: ../test/MASTG-TEST0014_SAST/resources/AndroidManifest.xml: No such file or directory
+
+[+] Looking for the Exported Services specifically...
+
+	- No exported Services have been observed.
+grep: ../test/MASTG-TEST0014_SAST/resources/AndroidManifest.xml: No such file or directory
+
+    > Total exported Services are: 0
+
+    > QuickNote: It is recommended to use exported Services securely, if observed.
+
+==>>  The Intents Filters...
+
+	- No Intents Filters have been observed.
+grep: ../test/MASTG-TEST0014_SAST/resources/AndroidManifest.xml: No such file or directory
+
+    > QuickNote: It is recommended to use Intent Filters securely, if observed.
+
+==>> APK Component Summary
+[+] --------------------------------
+    Exported Activities: 0
+    Exported Content Providers: 0
+    Exported Broadcast Receivers: 0
+    Exported Services: 0
+
+[+] Let's start the static assessment based on "OWASP MASVS"
+
+[+] Hunting begins based on "V2: Data Storage and Privacy Requirements"
+[+] -------------------------------------------------------------------
+
+==>> The Shared Preferences related instances...
+
+
+==>>  The SQLite Database Storage related instances...
+
+
+==>> The Firebase Database instances...
+
+
+==>> The Realm Database instances...
+
+
+==>> The Internal Storage related instances...
+
+
+==>> The External Storage related instances...
+
+
+==>> The Temporary File Creation instances...
+
+
+==>> The Local Storage - Input Validation...
+
+
+==>>  The Information Leaks via Logs...
+
+
+==>> The Push Notification instances...
+
+
+==>> The Keyboard Cache instances...
+
+
+==>>  The Sensitive Data Disclosure through the User Interface...
+
+[!] QuickNote:
+    - It is recommended not to disclose any sensitive data such as password, card details, etc. in the clear-text format via User Interface. Make sure that the application is masking sensitive user input by using the inputType="textPassword" attribute. It is useful to mitigate risks such as shoulder surfing.
+
+[*] Reference:
+    - OWASP MASVS: MSTG-STORAGE-7 | CWE-359: Exposure of Private Personal Information to an Unauthorized Actor
+    - https://mobile-security.gitbook.io/masvs/security-requirements/0x07-v2-data_storage_and_privacy_requirements
+
+==>>  The allowBackup flag configuration...
+
+    - android:allowBackup="true" flag has not been observed in the AndroidManifest.xml file.
+
+==>> The Auto-Generated Screenshots protection...
+
+[!] QuickNote:
+    - It is recommended to set the FLAG_SECURE option to protect from Auto-Generated Screenshots issue. Please note that, When the application goes into background, a screenshot of the current activity is taken which may leak sensitive information.
+
+[*] Reference:
+    - OWASP MASVS: MSTG-STORAGE-9 | CWE-200: Exposure of Sensitive Information to an Unauthorized Actor
+    - https://mobile-security.gitbook.io/masvs/security-requirements/0x07-v2-data_storage_and_privacy_requirements
+
+==>> The flush instances utilized for clearing the Memory...
+
+
+==>> The Clipboard Copying instances...
+
+
+==>> The possible Hard-coded Information...
+
+
+==>> The potential Hard-coded Keys/Tokens/Secrets...
+
+
+
+[+] Hunting begins based on "V3: Cryptography Requirements"
+[+] -------------------------------------------------------
+
+==>> The Symmetric Cryptography implementation...
+
+
+==>> The Insecure/Deprecated Cryptographic Algorithms...
+
+
+==>> The Insecure/Weak Cipher Modes...
+
+
+==>> The Static IVs...
+
+
+==>> The Weak Random functions...
+
+
+
+[+] Hunting begins based on "V4: Authentication and Session Management Requirements"
+[+] --------------------------------------------------------------------------------
+
+==>> The cookie related instances...
+
+[~] NOTE:
+    - The test scenarios related to the different authentication mechanisms, stateful/stateless session management, user activities, strong password policies, etc. should be covered during your dynamic analysis/API testing phase.
+
+
+[+] Hunting begins based on "V5: Network Communication Requirements"
+[+] ----------------------------------------------------------------
+
+==>> The presence of the Network Security Configuration file...
+
+[!] QuickNote:
+    - It is recommended to configure the Network Security Configuration file (such as network_security_config.xml) as it does not exist. Please note that, Network Security Config file can be used to protect against cleartext traffic, set up trusted certificate authorities, implement certificate pinning, etc. in terms of network security settings.
+
+[*] Reference:
+    - OWASP MASVS: MSTG-NETWORK-1 | CWE-693: Protection Mechanism Failure
+    - https://mobile-security.gitbook.io/masvs/security-requirements/0x10-v5-network_communication_requirements
+
+==>> The Possible MITM attack...
+
+
+==>> The Weak SSL/TLS protocols...
+
+
+==>>  The app is allowing cleartext traffic...
+
+
+==>> The Server Certificate verification...
+
+
+==>> The WebView Server Certificate verification...
+
+
+==>> The Hostname Verification...
+
+
+==>> The Hard-coded Certificates/Key/Keystore files...
+
+
+==>> The Certificate Pinning settings...
+
+
+==>> The Certificate Pinning implementation...
+
+
+==>> The custom Trust Anchors...
+
+
+==>> The Security Provider implementation...
+
+[!] QuickNote:
+    - It is recommended that applications based on the Android SDK should depend on GooglePlayServices, if not observed. Please note that, The ProviderInstaller class is called with either installIfNeeded or installIfNeededAsync to prevent SSL exploits.
+
+[*] Reference:
+    - OWASP MASVS: MSTG-NETWORK-6 | CWE-693: Protection Mechanism Failure
+    - https://mobile-security.gitbook.io/masvs/security-requirements/0x10-v5-network_communication_requirements
+
+
+[+] Hunting begins based on "V6: Platform Interaction Requirements"
+[+] ---------------------------------------------------------------
+
+==>> The Permissions...
+
+
+==>> The Deprecated/Unsupprotive Permissions...
+
+
+==>> The Custom Permissions...
+
+
+==>> The Exported service/activity/provider/receiver without permission set...
+
+../test/MASTG-TEST0014_SAST/resources/AndroidManifest.xml
+grep: ../test/MASTG-TEST0014_SAST/resources/AndroidManifest.xml: No such file or directory
+
+[!] QuickNote:
+    - It is recommended that the appropriate Permission should be set via android:permission attribute with a proper android:protectionLevel in the AndroidManifest file, if observed. Please note that, The unprotected components can be invoked by other malicious applications and potentially access sensitive data or perform any of the privileged tasks possibly.
+
+[*] Reference:
+    - OWASP MASVS: MSTG-PLATFORM-1 | CWE-276: Incorrect Default Permissions
+    - https://mobile-security.gitbook.io/masvs/security-requirements/0x11-v6-interaction_with_the_environment
+
+==>> The potential SQL Injection instances...
+
+
+==>> The potential Cross-Site Scripting flaws...
+
+
+==>> The potential Code Execution flaws...
+
+
+==>> The Fragment Injection instances...
+
+
+==>> The EnableSafeBrowsing setting...
+
+
+==>> The instances of URL Loading in WebViews...
+
+
+==>> The Custom URL Schemes...
+
+
+==>> The Implicit intents used for broadcast...
+
+
+==>> The Implicit intents used for activity...
+
+
+==>> The instances of JavaScript Execution in WebViews...
+
+
+==>> The instances of Remote/Local URL load in WebViews...
+
+
+==>> The Hard-coded links...
+
+
+==>> The instances of Resource Access permissions...
+
+
+==>> The Remote WebView Debugging setting...
+
+
+==>> The instances of Java Objects exposure through WebViews...
+
+
+==>> The Object Persistence/Serialization instances...
+
+
+==>> The WebViews Cleanup implementation...
+
+[!] QuickNote:
+    - It is recommended to clear the WebView resources when the application accesses any sensitive data within that, which may include any files stored locally, the RAM cache, and any loaded JavaScript. Please note that, this present a potential security risk if any sensitive data is being exposed.
+
+[*] Reference:
+    - OWASP MASVS: MSTG-PLATFORM-10 | CWE-200: Exposure of Sensitive Information to an Unauthorized Actor
+    - https://mobile-security.gitbook.io/masvs/security-requirements/0x11-v6-interaction_with_the_environment
+
+==>> The Application Update mechanism...
+
+[!] QuickNote:
+    - It is recommended that applications should be forced to be updated. If a security update comes in, then AppUpdateType.IMMEDIATE flag should be used in order to make sure that the user cannot go forward with using the app without updating it. Please note that, newer versions of an application will not fix security issues that are living in the backends to which the app communicates.
+
+[*] Reference:
+    - OWASP MASVS V1: MSTG-ARCH-9 | CWE-1277: Firmware Not Updateable
+    - https://mobile-security.gitbook.io/masvs/security-requirements/0x06-v1-architecture_design_and_threat_modelling_requireme
+
+==>> The potential third-party application installation mechanism...
+
+
+
+[+] Hunting begins based on "V7: Code Quality and Build Setting Requirements"
+[+] -------------------------------------------------------------------------
+
+==>> The debuggable flag configuration...
+
+    - android:debuggable="true" flag has not been observed in the AndroidManifest.xml file.
+
+==>> The StrictMode Policy instances...
+
+
+==>> The Exception Handling instances...
+
+
+==>> The Obfuscated Code blocks...
+
+[!] QuickNote:
+    - It is recommended that some basic obfuscation should be implemented to the release byte-code, if not observed. Please note that, Code obfuscation in the applications protects against reverse engineering, tampering, or other attacks.
+
+[*] Reference:
+    - OWASP MASVS V7: MSTG-CODE-9 | CWE-693: Protection Mechanism Failure
+    - https://mobile-security.gitbook.io/masvs/security-requirements/0x12-v7-code_quality_and_build_setting_requirements
+
+
+[+] Hunting begins based on "V8: Resilience Requirements"
+[+] -----------------------------------------------------
+
+==>> The Root Detection implementation...
+
+[!] QuickNote:
+    - It is recommended to implement root detection mechanisms in the application, if not observed. Please note that, Multiple detection methods should be implemented so that it cannot be bypassed easily.
+
+[*] Reference:
+    - OWASP MASVS V8: MSTG-RESILIENCE-1 | CWE-250: Execution with Unnecessary Privileges
+    - https://mobile-security.gitbook.io/masvs/security-requirements/0x15-v8-resiliency_against_reverse_engineering_requirements
+
+==>> The Anti-Debugging Detection implementation...
+
+[!] QuickNote:
+    - It is recommended to implement Anti-Debugging detection mechanisms in the application, if not observed. Please note that, Multiple detection methods should be implemented so that it cannot be bypassed easily.
+
+[*] Reference:
+    - OWASP MASVS V8: MSTG-RESILIENCE-2 | CWE-693: Protection Mechanism Failure
+    - https://mobile-security.gitbook.io/masvs/security-requirements/0x15-v8-resiliency_against_reverse_engineering_requirements
+
+==>> The File Integrity Checks implementation...
+
+[!] QuickNote:
+    - It is recommended to implement CRC checks on the app bytecode, native libraries, and important data files, if not observed. Please note that, reverse engineers can easily bypass APK code signature check by re-packaging and re-signing an app. The idea is to have additional controls in place so that the app only runs correctly in its unmodified state, even if the code signature is valid.
+
+[*] Reference:
+    - OWASP MASVS V8: MSTG-RESILIENCE-3 | CWE-693: Protection Mechanism Failure
+    - https://mobile-security.gitbook.io/masvs/security-requirements/0x15-v8-resiliency_against_reverse_engineering_requirements
+
+==>> The Emulator Detection implementation...
+
+[!] QuickNote:
+    - It is recommended to implement Emulator detection mechanisms in the application, if not observed. Please note that, Multiple detection methods should be implemented so that it cannot be bypassed easily.
+
+[*] Reference:
+    - OWASP MASVS V8: MSTG-RESILIENCE-5 | CWE-693: Protection Mechanism Failure
+    - https://mobile-security.gitbook.io/masvs/security-requirements/0x15-v8-resiliency_against_reverse_engineering_requirements
+
+==>> The implementation of any Defence Mechanisms...
+
+[!] QuickNote:
+    - It is recommended to implement various defence mechanisms such as SafetyNet Attestation API, if not observed.
+
+[*] Reference:
+    - OWASP MASVS V8: MSTG-RESILIENCE-7 | CWE-693: Protection Mechanism Failure
+    - https://mobile-security.gitbook.io/masvs/security-requirements/0x15-v8-resiliency_against_reverse_engineering_requirements
+
+[+] Scan has been finished at: 2024-05-30 08:36:26.934980758 -0400 EDT m=+9.351611913
+
+[+] Total time taken for hunting: 9.35119301s
+
+[*] Thank you for using APKHunt! Made with <3 in India.
+

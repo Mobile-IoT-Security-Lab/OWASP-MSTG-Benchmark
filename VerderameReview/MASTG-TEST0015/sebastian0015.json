@@ -1,0 +1,107 @@
+{
+  "platform": "Android",
+  "ascii_obfuscation_rate": 0.0,
+  "short_name_obfuscation_rate": 5.559673832468495,
+  "vulnerabilities": [
+    {
+      "id": "CryptoEcbCipher",
+      "name": "Block Cipher ECB Information Exposure",
+      "description": "Apps that use a Block Cipher algorithm in ECB mode for encrypting sensitive information are vulnerable to exposing leaking information. The Cipher API enables developers to specify which block cipher algorithm to use and in which mode. If the app uses the block cipher algorithm AES in ECB mode to encrypt sensitive information then an attacker can break the encryption to get access to the sensitive information. An app can explicitly specify that it wants to use AES in ECB mode or it can specify that it will just use AES without explicitly specifying the mode, in which case Android will use the ECB mode by default.",
+      "remediation": "Please use an encryption mode other than ECB.",
+      "references": {
+        "text": "Further information can be found on the Android Developer Guide [[1]] and in paper [[2]].",
+        "links": {
+          "1": "https://developer.android.com/reference/javax/crypto/Cipher.html",
+          "2": "https://dl.acm.org/doi/10.1145/2508859.2516693"
+        }
+      },
+      "owasp": [
+        "M7"
+      ],
+      "cvss": {
+        "attack_vector": "Local",
+        "attack_complexity": "High",
+        "privileges_required": "High",
+        "user_interaction": "None",
+        "scope": "Unchanged",
+        "confidentiality_impact": "High",
+        "integrity_impact": "None",
+        "availability_impact": "None"
+      },
+      "code": [
+        {
+          "what": "insecure cipher \"AES\"",
+          "where": "Lcom/example/mastg_test0015/Crypt;->encryptData(Ljava/lang/String;)Ljava/lang/String;",
+          "full_path": "Lcom/example/mastg_test0015/Login;->onCreate(Landroid/os/Bundle;)V --> Lcom/example/mastg_test0015/Login$1;->onClick(Landroid/view/View;)V --> Lcom/example/mastg_test0015/Crypt;->encryptData(Ljava/lang/String;)Ljava/lang/String; --> Ljavax/crypto/Cipher;->getInstance(Ljava/lang/String;)Ljavax/crypto/Cipher;"
+        },
+        {
+          "what": "insecure cipher \"AES\"",
+          "where": "Lcom/example/mastg_test0015/Crypt;->decryptData([B)Ljava/lang/String;",
+          "full_path": "Lcom/example/mastg_test0015/Profile$2;->onClick(Landroid/view/View;)V --> Lcom/example/mastg_test0015/Crypt;->decryptData([B)Ljava/lang/String; --> Ljavax/crypto/Cipher;->getInstance(Ljava/lang/String;)Ljavax/crypto/Cipher;"
+        }
+      ]
+    },
+    {
+      "id": "ExternalStorage",
+      "name": "External Storage Accessing",
+      "description": "Found external storage access API. Please remember not to write security-critical files to external storage.",
+      "remediation": "Please revise all the external storage access in order to identify eventual leaks of critical information.",
+      "references": {
+        "text": "Further information on writing files can be found in the official documentation [[1]].",
+        "links": {
+          "1": "https://developer.android.com/training/basics/data-storage/files.html"
+        }
+      },
+      "owasp": [
+        "M2",
+        "M7"
+      ],
+      "cvss": {
+        "attack_vector": "Local",
+        "attack_complexity": "Low",
+        "privileges_required": "Low",
+        "user_interaction": "None",
+        "scope": "Unchanged",
+        "confidentiality_impact": "Low",
+        "integrity_impact": "Low",
+        "availability_impact": "None"
+      },
+      "code": [
+        {
+          "what": "Landroid/os/Environment;->getExternalStorageDirectory()Ljava/io/File;",
+          "where": "Landroidx/core/content/FileProvider;->parsePathStrategy(Landroid/content/Context; Ljava/lang/String; I)Landroidx/core/content/FileProvider$PathStrategy;",
+          "full_path": "Landroidx/core/content/FileProvider;->attachInfo(Landroid/content/Context; Landroid/content/pm/ProviderInfo;)V --> Landroidx/core/content/FileProvider;->getPathStrategy(Landroid/content/Context; Ljava/lang/String; I)Landroidx/core/content/FileProvider$PathStrategy; --> Landroidx/core/content/FileProvider;->parsePathStrategy(Landroid/content/Context; Ljava/lang/String; I)Landroidx/core/content/FileProvider$PathStrategy; --> Landroid/os/Environment;->getExternalStorageDirectory()Ljava/io/File;"
+        }
+      ]
+    },
+    {
+      "id": "ObfuscationMissing",
+      "name": "Not sufficient code obfuscation",
+      "description": "The app seems not using sufficient code obfuscation.",
+      "remediation": null,
+      "references": null,
+      "owasp": [
+        "M7",
+        "M9"
+      ],
+      "cvss": {
+        "attack_vector": "Local",
+        "attack_complexity": "High",
+        "privileges_required": "Low",
+        "user_interaction": "Required",
+        "scope": "Unchanged",
+        "confidentiality_impact": "High",
+        "integrity_impact": "High",
+        "availability_impact": "None"
+      },
+      "code": [
+        {
+          "what": "ASCII Obfuscation: 0.00% Renaming Obfuscation: 5.56%",
+          "where": "application",
+          "full_path": "application"
+        }
+      ]
+    }
+  ],
+  "duration": "35.6 seconds"
+}

@@ -1,0 +1,167 @@
+{
+  "platform": "Android",
+  "ascii_obfuscation_rate": 0.0,
+  "short_name_obfuscation_rate": 5.563488890158222,
+  "vulnerabilities": [
+    {
+      "id": "AccessDeviceId",
+      "name": "Getting IMEI and Device ID",
+      "description": "This app has code getting the \"device id (IMEI)\" (using `TelephonyManager.getDeviceId()` ) in order to identify the specific device. This approach has three major drawbacks: i) it is unusable on non-phones devices, ii) it persists across device data wipes, iii) it needs special privilege to be executed (`READ_PHONE_STATE` permission).",
+      "remediation": "We suggest to use different ways of tracking app installations like relying on the \"Installation\" framework.",
+      "references": {
+        "text": "Further information on identifying apps installations and the \"Installation\" framework can be found in the Android Developers Blog [[1]].",
+        "links": {
+          "1": "http://android-developers.blogspot.tw/2011/03/identifying-app-installations.html"
+        }
+      },
+      "owasp": [
+        "M1",
+        "M7"
+      ],
+      "cvss": {
+        "attack_vector": "Local",
+        "attack_complexity": "Low",
+        "privileges_required": "Low",
+        "user_interaction": "None",
+        "scope": "Unchanged",
+        "confidentiality_impact": "Low",
+        "integrity_impact": "None",
+        "availability_impact": "None"
+      },
+      "code": [
+        {
+          "what": "Landroid/telephony/TelephonyManager;->getDeviceId()Ljava/lang/String;",
+          "where": "Landroidx/core/telephony/TelephonyManagerCompat;->getImei(Landroid/telephony/TelephonyManager;)Ljava/lang/String;",
+          "full_path": "Landroidx/core/telephony/TelephonyManagerCompat;->getImei(Landroid/telephony/TelephonyManager;)Ljava/lang/String; --> Landroid/telephony/TelephonyManager;->getDeviceId()Ljava/lang/String;"
+        }
+      ]
+    },
+    {
+      "id": "CheckPermission",
+      "name": "CheckPermission call with app process PID or UID",
+      "description": "A component that uses checkPermission to verify access control at run-time will need to obtain the PID and UID of the calling component before calling checkPermission. The Binder API provides methods getCallingPID() and getCallingUID() to determine the calling component's PID and UID, respectively. However, these methods do not always return the calling PID and UID. When an application is started, the system creates a thread of execution called main. The system does not create a separate thread for each component instance. All components that run in the same process are instantiated in the main thread, and system calls to each component are dispatched from that thread. If Binder.getCallingPID() and Binder.getCallingPID() are called from the main thread, they do not return the PID and UID of the process in which the calling component is running. Instead, they return the PID and UID of the process in which the protected component is running. In such a scenario, if the process in which the protected component is running is granted permission, checkPermission will always be true. A malicious component can exploit this vulnerability to access the protected component.",
+      "remediation": "",
+      "references": {
+        "text": "Further information about this problem and possible countermeasures can be found in Android Reference Guide [[1]].",
+        "links": {
+          "1": "https://developer.android.com/reference/android/content/Context.html#checkPermission(java.lang.String,%20int,%20int)"
+        }
+      },
+      "owasp": [
+        "M7"
+      ],
+      "cvss": {
+        "attack_vector": "Network",
+        "attack_complexity": "High",
+        "privileges_required": "High",
+        "user_interaction": "Required",
+        "scope": "Unchanged",
+        "confidentiality_impact": "Low",
+        "integrity_impact": "Low",
+        "availability_impact": "None"
+      },
+      "code": [
+        {
+          "what": "Landroid/content/Context;->checkPermission(Ljava/lang/String; I I)I",
+          "where": "Landroidx/core/content/ContextCompat;->checkSelfPermission(Landroid/content/Context; Ljava/lang/String;)I",
+          "full_path": "Landroidx/core/content/pm/ShortcutManagerCompat;->requestPinShortcut(Landroid/content/Context; Landroidx/core/content/pm/ShortcutInfoCompat; Landroid/content/IntentSender;)Z --> Landroidx/core/content/pm/ShortcutManagerCompat;->isRequestPinShortcutSupported(Landroid/content/Context;)Z --> Landroidx/core/content/ContextCompat;->checkSelfPermission(Landroid/content/Context; Ljava/lang/String;)I --> Landroid/content/Context;->checkPermission(Ljava/lang/String; I I)I"
+        }
+      ]
+    },
+    {
+      "id": "ExternalStorage",
+      "name": "External Storage Accessing",
+      "description": "Found external storage access API. Please remember not to write security-critical files to external storage.",
+      "remediation": "Please revise all the external storage access in order to identify eventual leaks of critical information.",
+      "references": {
+        "text": "Further information on writing files can be found in the official documentation [[1]].",
+        "links": {
+          "1": "https://developer.android.com/training/basics/data-storage/files.html"
+        }
+      },
+      "owasp": [
+        "M2",
+        "M7"
+      ],
+      "cvss": {
+        "attack_vector": "Local",
+        "attack_complexity": "Low",
+        "privileges_required": "Low",
+        "user_interaction": "None",
+        "scope": "Unchanged",
+        "confidentiality_impact": "Low",
+        "integrity_impact": "Low",
+        "availability_impact": "None"
+      },
+      "code": [
+        {
+          "what": "Landroid/os/Environment;->getExternalStorageDirectory()Ljava/io/File;",
+          "where": "Landroidx/core/content/FileProvider;->parsePathStrategy(Landroid/content/Context; Ljava/lang/String; I)Landroidx/core/content/FileProvider$PathStrategy;",
+          "full_path": "Landroidx/core/content/FileProvider;->attachInfo(Landroid/content/Context; Landroid/content/pm/ProviderInfo;)V --> Landroidx/core/content/FileProvider;->getPathStrategy(Landroid/content/Context; Ljava/lang/String; I)Landroidx/core/content/FileProvider$PathStrategy; --> Landroidx/core/content/FileProvider;->parsePathStrategy(Landroid/content/Context; Ljava/lang/String; I)Landroidx/core/content/FileProvider$PathStrategy; --> Landroid/os/Environment;->getExternalStorageDirectory()Ljava/io/File;"
+        }
+      ]
+    },
+    {
+      "id": "ObfuscationMissing",
+      "name": "Not sufficient code obfuscation",
+      "description": "The app seems not using sufficient code obfuscation.",
+      "remediation": null,
+      "references": null,
+      "owasp": [
+        "M7",
+        "M9"
+      ],
+      "cvss": {
+        "attack_vector": "Local",
+        "attack_complexity": "High",
+        "privileges_required": "Low",
+        "user_interaction": "Required",
+        "scope": "Unchanged",
+        "confidentiality_impact": "High",
+        "integrity_impact": "High",
+        "availability_impact": "None"
+      },
+      "code": [
+        {
+          "what": "ASCII Obfuscation: 0.00% Renaming Obfuscation: 5.56%",
+          "where": "application",
+          "full_path": "application"
+        }
+      ]
+    },
+    {
+      "id": "WebViewJavaScriptEnabled",
+      "name": "WebView Potential XSS Attacks Checking",
+      "description": "Found `\"setJavaScriptEnabled(true)\"` in WebView. Enabling JavaScript exposes to malicious injection of code that would be executed with the same permissions (XSS attacks).",
+      "remediation": "If JavaScript is not necessary for your web page, please disable it (`\"setJavaScriptEnabled(false)\"`). Otherwise, in order to minimize the risk of XSS attacks, carefully review the web page code and sanitize the output presented in the WebView.",
+      "references": {
+        "text": "Further information on XSS attacks can be found in the OWASP documentation [[1]], while a guide for building secure web apps in Android can be found in the official documentation [[2]].",
+        "links": {
+          "1": "https://www.owasp.org/index.php/Cross-site_Scripting_(XSS)",
+          "2": "https://developer.android.com/guide/webapps/webview.html"
+        }
+      },
+      "owasp": [
+        "M7"
+      ],
+      "cvss": {
+        "attack_vector": "Network",
+        "attack_complexity": "High",
+        "privileges_required": "Low",
+        "user_interaction": "Required",
+        "scope": "Unchanged",
+        "confidentiality_impact": "High",
+        "integrity_impact": "Low",
+        "availability_impact": "None"
+      },
+      "code": [
+        {
+          "what": "Landroid/webkit/WebSettings;->setJavaScriptEnabled(Z)V",
+          "where": "Lcom/example/mastg_test0031/MainActivity;->onCreate(Landroid/os/Bundle;)V",
+          "full_path": "Lcom/example/mastg_test0031/MainActivity;->onCreate(Landroid/os/Bundle;)V --> Landroid/webkit/WebSettings;->setJavaScriptEnabled(Z)V"
+        }
+      ]
+    }
+  ],
+  "duration": "31.4 seconds"
+}

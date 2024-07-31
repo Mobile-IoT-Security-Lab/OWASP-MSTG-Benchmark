@@ -1,0 +1,69 @@
+{
+  "platform": "Android",
+  "ascii_obfuscation_rate": 0.0,
+  "short_name_obfuscation_rate": 5.567304944269791,
+  "vulnerabilities": [
+    {
+      "id": "ExternalStorage",
+      "name": "External Storage Accessing",
+      "description": "Found external storage access API. Please remember not to write security-critical files to external storage.",
+      "remediation": "Please revise all the external storage access in order to identify eventual leaks of critical information.",
+      "references": {
+        "text": "Further information on writing files can be found in the official documentation [[1]].",
+        "links": {
+          "1": "https://developer.android.com/training/basics/data-storage/files.html"
+        }
+      },
+      "owasp": [
+        "M2",
+        "M7"
+      ],
+      "cvss": {
+        "attack_vector": "Local",
+        "attack_complexity": "Low",
+        "privileges_required": "Low",
+        "user_interaction": "None",
+        "scope": "Unchanged",
+        "confidentiality_impact": "Low",
+        "integrity_impact": "Low",
+        "availability_impact": "None"
+      },
+      "code": [
+        {
+          "what": "Landroid/os/Environment;->getExternalStorageDirectory()Ljava/io/File;",
+          "where": "Landroidx/core/content/FileProvider;->parsePathStrategy(Landroid/content/Context; Ljava/lang/String; I)Landroidx/core/content/FileProvider$PathStrategy;",
+          "full_path": "Landroidx/core/content/FileProvider;->attachInfo(Landroid/content/Context; Landroid/content/pm/ProviderInfo;)V --> Landroidx/core/content/FileProvider;->getPathStrategy(Landroid/content/Context; Ljava/lang/String; I)Landroidx/core/content/FileProvider$PathStrategy; --> Landroidx/core/content/FileProvider;->parsePathStrategy(Landroid/content/Context; Ljava/lang/String; I)Landroidx/core/content/FileProvider$PathStrategy; --> Landroid/os/Environment;->getExternalStorageDirectory()Ljava/io/File;"
+        }
+      ]
+    },
+    {
+      "id": "ObfuscationMissing",
+      "name": "Not sufficient code obfuscation",
+      "description": "The app seems not using sufficient code obfuscation.",
+      "remediation": null,
+      "references": null,
+      "owasp": [
+        "M7",
+        "M9"
+      ],
+      "cvss": {
+        "attack_vector": "Local",
+        "attack_complexity": "High",
+        "privileges_required": "Low",
+        "user_interaction": "Required",
+        "scope": "Unchanged",
+        "confidentiality_impact": "High",
+        "integrity_impact": "High",
+        "availability_impact": "None"
+      },
+      "code": [
+        {
+          "what": "ASCII Obfuscation: 0.00% Renaming Obfuscation: 5.57%",
+          "where": "application",
+          "full_path": "application"
+        }
+      ]
+    }
+  ],
+  "duration": "32.7 seconds"
+}

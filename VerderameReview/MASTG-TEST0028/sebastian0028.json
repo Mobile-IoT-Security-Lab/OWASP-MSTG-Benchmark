@@ -1,0 +1,134 @@
+{
+  "platform": "Android",
+  "ascii_obfuscation_rate": 0.0,
+  "short_name_obfuscation_rate": 5.562535693889206,
+  "vulnerabilities": [
+    {
+      "id": "ExportedComponent",
+      "name": "AndroidManifest Exported Components Checking",
+      "description": "Found \"exported\" components (except for Launcher) for receiving outside applications' actions (`AndroidManifest.xml`). These components can be initialized by other apps and used maliciously.",
+      "remediation": "Please modify the attribute in each of the exported component to `exported=\"false\"` or protect it with a custom permission with \"signature\" or higher protection level and specify it in \"android:permission\" attribute.",
+      "references": {
+        "text": "Further information on the exported attribute can be found on the Android Developer Guide [[1]].",
+        "links": {
+          "1": "http://developer.android.com/guide/topics/manifest/provider-element.html#exported"
+        }
+      },
+      "owasp": [
+        "M7"
+      ],
+      "cvss": {
+        "attack_vector": "Adjacent",
+        "attack_complexity": "Low",
+        "privileges_required": "Low",
+        "user_interaction": "None",
+        "scope": "Unchanged",
+        "confidentiality_impact": "Low",
+        "integrity_impact": "Low",
+        "availability_impact": "Low"
+      },
+      "code": [
+        {
+          "what": "exported activity \"com.example.mastg_test0028.WebViewActivity\"",
+          "where": "AndroidManifest.xml",
+          "full_path": "AndroidManifest.xml"
+        }
+      ]
+    },
+    {
+      "id": "ExternalStorage",
+      "name": "External Storage Accessing",
+      "description": "Found external storage access API. Please remember not to write security-critical files to external storage.",
+      "remediation": "Please revise all the external storage access in order to identify eventual leaks of critical information.",
+      "references": {
+        "text": "Further information on writing files can be found in the official documentation [[1]].",
+        "links": {
+          "1": "https://developer.android.com/training/basics/data-storage/files.html"
+        }
+      },
+      "owasp": [
+        "M2",
+        "M7"
+      ],
+      "cvss": {
+        "attack_vector": "Local",
+        "attack_complexity": "Low",
+        "privileges_required": "Low",
+        "user_interaction": "None",
+        "scope": "Unchanged",
+        "confidentiality_impact": "Low",
+        "integrity_impact": "Low",
+        "availability_impact": "None"
+      },
+      "code": [
+        {
+          "what": "Landroid/os/Environment;->getExternalStorageDirectory()Ljava/io/File;",
+          "where": "Landroidx/core/content/FileProvider;->parsePathStrategy(Landroid/content/Context; Ljava/lang/String; I)Landroidx/core/content/FileProvider$PathStrategy;",
+          "full_path": "Landroidx/core/content/FileProvider;->attachInfo(Landroid/content/Context; Landroid/content/pm/ProviderInfo;)V --> Landroidx/core/content/FileProvider;->getPathStrategy(Landroid/content/Context; Ljava/lang/String; I)Landroidx/core/content/FileProvider$PathStrategy; --> Landroidx/core/content/FileProvider;->parsePathStrategy(Landroid/content/Context; Ljava/lang/String; I)Landroidx/core/content/FileProvider$PathStrategy; --> Landroid/os/Environment;->getExternalStorageDirectory()Ljava/io/File;"
+        }
+      ]
+    },
+    {
+      "id": "ObfuscationMissing",
+      "name": "Not sufficient code obfuscation",
+      "description": "The app seems not using sufficient code obfuscation.",
+      "remediation": null,
+      "references": null,
+      "owasp": [
+        "M7",
+        "M9"
+      ],
+      "cvss": {
+        "attack_vector": "Local",
+        "attack_complexity": "High",
+        "privileges_required": "Low",
+        "user_interaction": "Required",
+        "scope": "Unchanged",
+        "confidentiality_impact": "High",
+        "integrity_impact": "High",
+        "availability_impact": "None"
+      },
+      "code": [
+        {
+          "what": "ASCII Obfuscation: 0.00% Renaming Obfuscation: 5.56%",
+          "where": "application",
+          "full_path": "application"
+        }
+      ]
+    },
+    {
+      "id": "WebViewJavaScriptEnabled",
+      "name": "WebView Potential XSS Attacks Checking",
+      "description": "Found `\"setJavaScriptEnabled(true)\"` in WebView. Enabling JavaScript exposes to malicious injection of code that would be executed with the same permissions (XSS attacks).",
+      "remediation": "If JavaScript is not necessary for your web page, please disable it (`\"setJavaScriptEnabled(false)\"`). Otherwise, in order to minimize the risk of XSS attacks, carefully review the web page code and sanitize the output presented in the WebView.",
+      "references": {
+        "text": "Further information on XSS attacks can be found in the OWASP documentation [[1]], while a guide for building secure web apps in Android can be found in the official documentation [[2]].",
+        "links": {
+          "1": "https://www.owasp.org/index.php/Cross-site_Scripting_(XSS)",
+          "2": "https://developer.android.com/guide/webapps/webview.html"
+        }
+      },
+      "owasp": [
+        "M7"
+      ],
+      "cvss": {
+        "attack_vector": "Network",
+        "attack_complexity": "High",
+        "privileges_required": "Low",
+        "user_interaction": "Required",
+        "scope": "Unchanged",
+        "confidentiality_impact": "High",
+        "integrity_impact": "Low",
+        "availability_impact": "None"
+      },
+      "code": [
+        {
+          "what": "Landroid/webkit/WebSettings;->setJavaScriptEnabled(Z)V",
+          "where": "Lcom/example/mastg_test0028/WebViewActivity;->onCreate(Landroid/os/Bundle;)V",
+          "full_path": "Lcom/example/mastg_test0028/WebViewActivity;->onCreate(Landroid/os/Bundle;)V --> Landroid/webkit/WebSettings;->setJavaScriptEnabled(Z)V"
+        }
+      ]
+    }
+  ],
+  "duration": "32.9 seconds"
+}

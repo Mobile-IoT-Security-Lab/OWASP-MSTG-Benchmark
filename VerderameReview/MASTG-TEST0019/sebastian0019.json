@@ -1,0 +1,230 @@
+{
+  "platform": "Android",
+  "ascii_obfuscation_rate": 0.0,
+  "short_name_obfuscation_rate": 5.569075782443829,
+  "vulnerabilities": [
+    {
+      "id": "AccessDeviceId",
+      "name": "Getting IMEI and Device ID",
+      "description": "This app has code getting the \"device id (IMEI)\" (using `TelephonyManager.getDeviceId()` ) in order to identify the specific device. This approach has three major drawbacks: i) it is unusable on non-phones devices, ii) it persists across device data wipes, iii) it needs special privilege to be executed (`READ_PHONE_STATE` permission).",
+      "remediation": "We suggest to use different ways of tracking app installations like relying on the \"Installation\" framework.",
+      "references": {
+        "text": "Further information on identifying apps installations and the \"Installation\" framework can be found in the Android Developers Blog [[1]].",
+        "links": {
+          "1": "http://android-developers.blogspot.tw/2011/03/identifying-app-installations.html"
+        }
+      },
+      "owasp": [
+        "M1",
+        "M7"
+      ],
+      "cvss": {
+        "attack_vector": "Local",
+        "attack_complexity": "Low",
+        "privileges_required": "Low",
+        "user_interaction": "None",
+        "scope": "Unchanged",
+        "confidentiality_impact": "Low",
+        "integrity_impact": "None",
+        "availability_impact": "None"
+      },
+      "code": [
+        {
+          "what": "Landroid/telephony/TelephonyManager;->getDeviceId()Ljava/lang/String;",
+          "where": "Landroidx/core/telephony/TelephonyManagerCompat;->getImei(Landroid/telephony/TelephonyManager;)Ljava/lang/String;",
+          "full_path": "Landroidx/core/telephony/TelephonyManagerCompat;->getImei(Landroid/telephony/TelephonyManager;)Ljava/lang/String; --> Landroid/telephony/TelephonyManager;->getDeviceId()Ljava/lang/String;"
+        }
+      ]
+    },
+    {
+      "id": "CheckPermission",
+      "name": "CheckPermission call with app process PID or UID",
+      "description": "A component that uses checkPermission to verify access control at run-time will need to obtain the PID and UID of the calling component before calling checkPermission. The Binder API provides methods getCallingPID() and getCallingUID() to determine the calling component's PID and UID, respectively. However, these methods do not always return the calling PID and UID. When an application is started, the system creates a thread of execution called main. The system does not create a separate thread for each component instance. All components that run in the same process are instantiated in the main thread, and system calls to each component are dispatched from that thread. If Binder.getCallingPID() and Binder.getCallingPID() are called from the main thread, they do not return the PID and UID of the process in which the calling component is running. Instead, they return the PID and UID of the process in which the protected component is running. In such a scenario, if the process in which the protected component is running is granted permission, checkPermission will always be true. A malicious component can exploit this vulnerability to access the protected component.",
+      "remediation": "",
+      "references": {
+        "text": "Further information about this problem and possible countermeasures can be found in Android Reference Guide [[1]].",
+        "links": {
+          "1": "https://developer.android.com/reference/android/content/Context.html#checkPermission(java.lang.String,%20int,%20int)"
+        }
+      },
+      "owasp": [
+        "M7"
+      ],
+      "cvss": {
+        "attack_vector": "Network",
+        "attack_complexity": "High",
+        "privileges_required": "High",
+        "user_interaction": "Required",
+        "scope": "Unchanged",
+        "confidentiality_impact": "Low",
+        "integrity_impact": "Low",
+        "availability_impact": "None"
+      },
+      "code": [
+        {
+          "what": "Landroid/content/Context;->checkPermission(Ljava/lang/String; I I)I",
+          "where": "Landroidx/core/content/ContextCompat;->checkSelfPermission(Landroid/content/Context; Ljava/lang/String;)I",
+          "full_path": "Landroidx/core/content/pm/ShortcutManagerCompat;->requestPinShortcut(Landroid/content/Context; Landroidx/core/content/pm/ShortcutInfoCompat; Landroid/content/IntentSender;)Z --> Landroidx/core/content/pm/ShortcutManagerCompat;->isRequestPinShortcutSupported(Landroid/content/Context;)Z --> Landroidx/core/content/ContextCompat;->checkSelfPermission(Landroid/content/Context; Ljava/lang/String;)I --> Landroid/content/Context;->checkPermission(Ljava/lang/String; I I)I"
+        }
+      ]
+    },
+    {
+      "id": "ExternalStorage",
+      "name": "External Storage Accessing",
+      "description": "Found external storage access API. Please remember not to write security-critical files to external storage.",
+      "remediation": "Please revise all the external storage access in order to identify eventual leaks of critical information.",
+      "references": {
+        "text": "Further information on writing files can be found in the official documentation [[1]].",
+        "links": {
+          "1": "https://developer.android.com/training/basics/data-storage/files.html"
+        }
+      },
+      "owasp": [
+        "M2",
+        "M7"
+      ],
+      "cvss": {
+        "attack_vector": "Local",
+        "attack_complexity": "Low",
+        "privileges_required": "Low",
+        "user_interaction": "None",
+        "scope": "Unchanged",
+        "confidentiality_impact": "Low",
+        "integrity_impact": "Low",
+        "availability_impact": "None"
+      },
+      "code": [
+        {
+          "what": "Landroid/os/Environment;->getExternalStorageDirectory()Ljava/io/File;",
+          "where": "Landroidx/core/content/FileProvider;->parsePathStrategy(Landroid/content/Context; Ljava/lang/String; I)Landroidx/core/content/FileProvider$PathStrategy;",
+          "full_path": "Landroidx/core/content/FileProvider;->getType(Landroid/net/Uri;)Ljava/lang/String; --> Landroidx/core/content/FileProvider;->getLocalPathStrategy()Landroidx/core/content/FileProvider$PathStrategy; --> Landroidx/core/content/FileProvider;->getPathStrategy(Landroid/content/Context; Ljava/lang/String; I)Landroidx/core/content/FileProvider$PathStrategy; --> Landroidx/core/content/FileProvider;->parsePathStrategy(Landroid/content/Context; Ljava/lang/String; I)Landroidx/core/content/FileProvider$PathStrategy; --> Landroid/os/Environment;->getExternalStorageDirectory()Ljava/io/File;"
+        }
+      ]
+    },
+    {
+      "id": "ObfuscationMissing",
+      "name": "Not sufficient code obfuscation",
+      "description": "The app seems not using sufficient code obfuscation.",
+      "remediation": null,
+      "references": null,
+      "owasp": [
+        "M7",
+        "M9"
+      ],
+      "cvss": {
+        "attack_vector": "Local",
+        "attack_complexity": "High",
+        "privileges_required": "Low",
+        "user_interaction": "Required",
+        "scope": "Unchanged",
+        "confidentiality_impact": "High",
+        "integrity_impact": "High",
+        "availability_impact": "None"
+      },
+      "code": [
+        {
+          "what": "ASCII Obfuscation: 0.00% Renaming Obfuscation: 5.57%",
+          "where": "application",
+          "full_path": "application"
+        }
+      ]
+    },
+    {
+      "id": "WebViewIgnoreSslError",
+      "name": "WebView ignore SSL warning",
+      "description": "An Android app can display web pages by loading HTML/JavaScript files in a WebView. A WebView loading an HTML/JavaScript file from a server using SSL/TLS can throw an SSL exception if an incorrect certificate is presented by the server or if the app does not trust the Certificate Authority that has signed the certificate for that server. Android provides the `WebViewClient` API to manage communication between the app and the server. One of the methods in the API (`onReceivedSslError`) allows an app to cancel or proceed with response from the server when an SSL error occurs. If the app chooses to proceed with the response then the app is vulnerable to MITM attacks because a malicious server can create a fake certificate and still communicate with the app.",
+      "remediation": null,
+      "references": {
+        "text": "Further information can be found on the Android Developer Guide [[1]].",
+        "links": {
+          "1": "https://developer.android.com/reference/android/webkit/WebViewClient#onReceivedSslError(android.webkit.WebView, android.webkit.SslErrorHandler, android.net.http.SslError)"
+        }
+      },
+      "owasp": [
+        "M7"
+      ],
+      "cvss": {
+        "attack_vector": "Network",
+        "attack_complexity": "High",
+        "privileges_required": "Low",
+        "user_interaction": "Required",
+        "scope": "Unchanged",
+        "confidentiality_impact": "Low",
+        "integrity_impact": "Low",
+        "availability_impact": "None"
+      },
+      "code": [
+        {
+          "what": "onReceivedSslError(Landroid/webkit/WebView; Landroid/webkit/SslErrorHandler; Landroid/net/http/SslError;)V",
+          "where": "Lcom/example/mastg_test0019/MainActivity$1;",
+          "full_path": "Lcom/example/mastg_test0019/MainActivity$1;->onReceivedSslError(Landroid/webkit/WebView; Landroid/webkit/SslErrorHandler; Landroid/net/http/SslError;)V --> Landroid/webkit/SslErrorHandler;->proceed()V"
+        }
+      ]
+    },
+    {
+      "id": "WebViewInterceptRequest",
+      "name": "WebView intercept request",
+      "description": "Android allows apps to load resources (e.g, JavaScript, CSS files etc.) in a web page in a WebView, and control the resources being loaded in a webpage via the `shouldInterceptRequest` method in `WebViewClient`. The `shouldInterceptRequest` method takes an instance of WebView and the resource request as input and returns a response object. If the response object returned is `null` then the WebView is loaded with the web page containing the resource that was requested. But if a non-`null` response is returned then the WebView is loaded with the web page containing the non-`null` response. If the app does not validate the resource in `shouldInterceptRequest` method of `WebViewClient`, any resource can be loaded into WebView.",
+      "remediation": null,
+      "references": {
+        "text": "Further information can be found on the Android Developer Guide [[1]].",
+        "links": {
+          "1": "https://developer.android.com/reference/android/webkit/WebViewClient#shouldInterceptRequest(android.webkit.WebView, android.webkit.WebResourceRequest)"
+        }
+      },
+      "owasp": [
+        "M7"
+      ],
+      "cvss": {
+        "attack_vector": "Network",
+        "attack_complexity": "High",
+        "privileges_required": "Low",
+        "user_interaction": "Required",
+        "scope": "Unchanged",
+        "confidentiality_impact": "Low",
+        "integrity_impact": "Low",
+        "availability_impact": "None"
+      },
+      "code": [
+        {
+          "what": "shouldInterceptRequest not overridden, any resource can be loaded",
+          "where": "Lcom/example/mastg_test0019/MainActivity$1;",
+          "full_path": "Lcom/example/mastg_test0019/MainActivity$1;"
+        }
+      ]
+    },
+    {
+      "id": "WebViewOverrideUrl",
+      "name": "WebView override url",
+      "description": "Android allows apps to display web content in a WebView, and control navigation across webpages via the `shouldOverrideUrlLoading` method in `WebViewClient`. The `shouldOverrideUrlLoading` method takes an instance of WebView and the page request as input and returns a boolean. If `true` is returned then the host application handles the request else if `false` is returned then the current WebView handles the request. If the app does not validate the page request in `shouldOverrideUrlLoading` before loading it in the WebView, any web page provided by the server will be loaded into WebView. By default `shouldOverrideUrlLoading` returns `false` all the time.",
+      "remediation": null,
+      "references": {
+        "text": "Further information can be found on the Android Developer Guide [[1]].",
+        "links": {
+          "1": "https://developer.android.com/reference/android/webkit/WebViewClient#shouldOverrideUrlLoading(android.webkit.WebView, android.webkit.WebResourceRequest)"
+        }
+      },
+      "owasp": [
+        "M7"
+      ],
+      "cvss": {
+        "attack_vector": "Network",
+        "attack_complexity": "High",
+        "privileges_required": "Low",
+        "user_interaction": "Required",
+        "scope": "Unchanged",
+        "confidentiality_impact": "Low",
+        "integrity_impact": "Low",
+        "availability_impact": "None"
+      },
+      "code": [
+        {
+          "what": "shouldOverrideUrlLoading not overridden, returns false by default",
+          "where": "Lcom/example/mastg_test0019/MainActivity$1;",
+          "full_path": "Lcom/example/mastg_test0019/MainActivity$1;"
+        }
+      ]
+    }
+  ],
+  "duration": "32.8 seconds"
+}

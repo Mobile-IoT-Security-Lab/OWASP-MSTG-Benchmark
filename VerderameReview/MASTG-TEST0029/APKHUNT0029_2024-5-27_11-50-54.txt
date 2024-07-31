@@ -1,0 +1,2139 @@
+
+      _ _   __ __  _   __  _   _                _   
+     / _ \ | _ _ \| | / / | | | |              | |  
+    / /_\ \| |_/ /| |/ /  | |_| | _   _   _ _  | |_ 
+    |  _  ||  __/ |    \  |  _  || | | |/  _  \|  _|
+    | | | || |    | |\  \ | | | || |_| || | | || |_ 
+    \_| |_/\_|    \_| \_/ \_| |_/\ _ _ /|_| |_|\_ _|
+    ------------------------------------------------
+    OWASP MASVS Static Analyzer                                
+        
+[+] APKHunt - a comprehensive static code analysis tool for Android apps
+[+] Based on: OWASP MASVS - https://mobile-security.gitbook.io/masvs/
+[+] Author: Sumit Kalaria & Mrunal Chawda
+[*] Connect: Please do write to us for any suggestions/feedback.
+
+[+] Log-file path: /home/kali/Desktop/test/APKHunt_MASTG-TEST0029_2024-5-27_11-50-54.txt
+
+[+] Scan has been started at: 2024-05-27 11:50:54.921905062 -0400 EDT m=+0.000577454
+[+] APK Base: MASTG-TEST0029.apk
+[+] APK Size: 4.3945312 MB
+[+] APK Directory: /home/kali/Desktop/test/
+[+] APK Static Analysis Path: /home/kali/Desktop/test/MASTG-TEST0029_SAST/
+[+] APK Hash: MD5: 7c98f97ecd3595a0b9b87ce8dcb3e713
+[+] APK Hash: SHA256: f67d6831c11bb439dd0cbc5601ac3d42238a659c75763289239276f96616edb9
+
+[+] d2j-dex2jar has started converting APK to Java JAR file
+[+] =======================================================
+    Picked up _JAVA_OPTIONS: -Dawt.useSystemAAFontSettings=on -Dswing.aatext=true
+dex2jar /home/kali/Desktop/test/MASTG-TEST0029.apk -> /home/kali/Desktop/test/MASTG-TEST0029.jar
+Detail Error Information in File ./MASTG-TEST0029-error.zip
+Please report this file to one of following link if possible (any one).
+    https://sourceforge.net/p/dex2jar/tickets/
+    https://bitbucket.org/pxb1988/dex2jar/issues
+    https://github.com/pxb1988/dex2jar/issues
+    dex2jar@googlegroups.com
+
+[+] Jadx has started decompiling the application
+[+] ============================================
+Picked up _JAVA_OPTIONS: -Dawt.useSystemAAFontSettings=on -Dswing.aatext=true
+INFO  - loading ...
+INFO  - processing ...
+INFO  - progress: 0 of 2654 (0%)INFO  - progress: 851 of 2654 (32%)INFO  - progress: 853 of 2654 (32%)INFO  - progress: 864 of 2654 (32%)INFO  - progress: 920 of 2654 (34%)INFO  - progress: 1171 of 2654 (44%)INFO  - progress: 1305 of 2654 (49%)INFO  - progress: 1416 of 2654 (53%)INFO  - progress: 1527 of 2654 (57%)INFO  - progress: 1655 of 2654 (62%)INFO  - progress: 1792 of 2654 (67%)INFO  - progress: 1831 of 2654 (68%)INFO  - progress: 1906 of 2654 (71%)INFO  - progress: 1949 of 2654 (73%)INFO  - progress: 1961 of 2654 (73%)INFO  - progress: 2143 of 2654 (80%)INFO  - progress: 2216 of 2654 (83%)INFO  - progress: 2284 of 2654 (86%)INFO  - progress: 2349 of 2654 (88%)INFO  - progress: 2374 of 2654 (89%)INFO  - progress: 2452 of 2654 (92%)INFO  - progress: 2519 of 2654 (94%)INFO  - progress: 2543 of 2654 (95%)                                                             ERROR - finished with errors, count: 11
+
+[+] Capturing the data from the AndroidManifest file
+[+] ================================================
+
+==>> The Basic Information...
+
+    package="com.example.mastg_test0029"
+    versionName="1.0"
+    minSdkVersion="26"
+    targetSdkVersion="34"
+    - android:networkSecurityConfig attribute has not been observed.
+    
+
+==>> The Activities...
+
+28:        <activity
+32:        <activity
+
+[+] Looking for the Exported Activities specifically...
+
+	- No exported activities have been observed.
+
+    > Total exported activities are: 0
+
+    > QuickNote: It is recommended to use exported activities securely, if observed.
+
+==>> The Content Providers...
+
+40:        <provider
+
+[+] Looking for the Exported Content Providers specifically...
+
+	- No exported Content Providers have been observed.
+
+    > Total exported Content Providers are: 0
+
+    > QuickNote: It is recommended to use exported Content Providers securely, if observed.
+
+==>> The Brodcast Receivers...
+
+54:        <receiver
+
+[+] Looking for the Exported Brodcast Receivers specifically...
+
+	- No exported Brodcast Receivers have been observed.
+
+    > Total exported Brodcast Receivers are: 0
+
+    > QuickNote: It is recommended to use exported Brodcast Receivers securely, if observed.
+
+==>>  The Services...
+
+	- No Services have been observed.
+
+[+] Looking for the Exported Services specifically...
+
+	- No exported Services have been observed.
+
+    > Total exported Services are: 0
+
+    > QuickNote: It is recommended to use exported Services securely, if observed.
+
+==>>  The Intents Filters...
+
+36:                <action android:name="android.intent.action.MAIN"/>
+37:                <category android:name="android.intent.category.LAUNCHER"/>
+
+    > QuickNote: It is recommended to use Intent Filters securely, if observed.
+
+==>> APK Component Summary
+[+] --------------------------------
+    Exported Activities: 0
+    Exported Content Providers: 0
+    Exported Broadcast Receivers: 0
+    Exported Services: 0
+
+[+] Let's start the static assessment based on "OWASP MASVS"
+
+[+] Hunting begins based on "V2: Data Storage and Privacy Requirements"
+[+] -------------------------------------------------------------------
+
+==>> The Shared Preferences related instances...
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/androidx/core/app/AppLaunchChecker.java
+15:        return context.getSharedPreferences(SHARED_PREFS_NAME, 0).getBoolean(KEY_STARTED_FROM_LAUNCHER, false);
+20:        SharedPreferences sharedPreferences = activity.getSharedPreferences(SHARED_PREFS_NAME, 0);
+
+[!] QuickNote:
+    - It is recommended to use shared preferences appropriately, if observed. Please note that, Misuse of the SharedPreferences API can often lead to the exposure of sensitive data. MODE_WORLD_READABLE allows all applications to access and read the file contents. Applications compiled with an android:targetSdkVersion value less than 17 may be affected, if they run on an OS version that was released before Android 4.2 (API level 17).
+
+[*] Reference:
+    - OWASP MASVS: MSTG-STORAGE-2 | CWE-922: Insecure Storage of Sensitive Information
+    - https://mobile-security.gitbook.io/masvs/security-requirements/0x07-v2-data_storage_and_privacy_requirements
+
+==>>  The SQLite Database Storage related instances...
+
+
+==>> The Firebase Database instances...
+
+
+==>> The Realm Database instances...
+
+
+==>> The Internal Storage related instances...
+
+
+==>> The External Storage related instances...
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/androidx/core/content/ContextCompat.java
+124:    public static File[] getExternalFilesDirs(Context context, String str) {
+125:        return Api19Impl.getExternalFilesDirs(context, str);
+128:    public static File[] getExternalCacheDirs(Context context) {
+129:        return Api19Impl.getExternalCacheDirs(context);
+317:        static File[] getExternalCacheDirs(Context context) {
+318:            return context.getExternalCacheDirs();
+321:        static File[] getExternalFilesDirs(Context context, String str) {
+322:            return context.getExternalFilesDirs(str);
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/androidx/core/content/FileProvider.java
+203:                    file = context.getCacheDir();
+205:                    file = Environment.getExternalStorageDirectory();
+207:                    File[] externalFilesDirs = ContextCompat.getExternalFilesDirs(context, null);
+212:                    File[] externalCacheDirs = ContextCompat.getExternalCacheDirs(context);
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/androidx/core/graphics/TypefaceCompatUtil.java
+36:        File cacheDir = context.getCacheDir();
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/androidx/core/os/EnvironmentCompat.java
+12:        return Api21Impl.getExternalStorageState(file);
+23:        static String getExternalStorageState(File file) {
+24:            return Environment.getExternalStorageState(file);
+
+[!] QuickNote:
+    - It is recommended that any sensitive data should not be stored in the external storage, if observed. Please note that, Files saved to external storage are world-readable and it can be used by an attacker to allow for arbitrary control of the application in some scenarios.
+
+[*] Reference:
+    - OWASP MASVS: MSTG-STORAGE-2 | CWE-922: Insecure Storage of Sensitive Information
+    - https://mobile-security.gitbook.io/masvs/security-requirements/0x07-v2-data_storage_and_privacy_requirements
+
+==>> The Temporary File Creation instances...
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/kotlin/io/FilesKt__UtilsKt.java
+40:        File dir = File.createTempFile(prefix, str, file);
+59:        return FilesKt.createTempFile(str, str2, file);
+65:        File createTempFile = File.createTempFile(prefix, str, file);
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/kotlin/io/path/PathsKt__PathUtilsKt.java
+570:        Path createTempFile = Files.createTempFile(str, str2, (FileAttribute[]) Arrays.copyOf(attributes, attributes.length));
+577:        Path createTempFile = Files.createTempFile(str, str2, (FileAttribute[]) Arrays.copyOf(attributes, attributes.length));
+589:        return PathsKt.createTempFile(path, str, str2, fileAttributeArr);
+595:            Path createTempFile = Files.createTempFile(path, str, str2, (FileAttribute[]) Arrays.copyOf(attributes, attributes.length));
+599:        Path createTempFile2 = Files.createTempFile(str, str2, (FileAttribute[]) Arrays.copyOf(attributes, attributes.length));
+
+[!] QuickNote:
+    - It is recommended that the temporary files should be securely deleted upon their usage, if observed. Please note that, Creating and using insecure temporary files can leave application and system data vulnerable to attack.
+
+[*] Reference:
+    - OWASP MASVS: MSTG-STORAGE-2 | CWE-277: Insecure Inherited Permissions
+    - https://mobile-security.gitbook.io/masvs/security-requirements/0x07-v2-data_storage_and_privacy_requirements
+
+==>> The Local Storage - Input Validation...
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/androidx/core/content/SharedPreferencesCompat.java
+20:            public void apply(SharedPreferences.Editor editor) {
+41:        public void apply(SharedPreferences.Editor editor) {
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/androidx/core/content/SharedPreferencesKt.java
+20:        SharedPreferences.Editor editor = sharedPreferences.edit();
+30:    public static final void edit(SharedPreferences sharedPreferences, boolean z, Function1<? super SharedPreferences.Editor, Unit> action) {
+33:        SharedPreferences.Editor editor = sharedPreferences.edit();
+
+[!] QuickNote:
+    - It is recommended that input validation needs to be applied on the sensitive data the moment it is read back again, if observed. Please note that, Any process can override the data for any publicly accessible data storage.
+
+[*] Reference:
+    - OWASP MASVS: MSTG-PLATFORM-2 | CWE-922: Insecure Storage of Sensitive Information
+    - https://mobile-security.gitbook.io/masvs/security-requirements/0x11-v6-interaction_with_the_environment
+
+==>>  The Information Leaks via Logs...
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/androidx/activity/result/ActivityResultRegistry.java
+148:            Log.w(LOG_TAG, "Dropping pending result for request " + str + ": " + this.mParsedPendingResults.get(str));
+152:            Log.w(LOG_TAG, "Dropping pending result for request " + str + ": " + this.mPendingResults.getParcelable(str));
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/androidx/appcompat/app/ActionBarDrawerToggle.java
+219:            Log.w("ActionBarDrawerToggle", "DrawerToggle may not show up because NavigationIcon is not visible. You may need to call actionbar.setDisplayHomeAsUpEnabled(true);");
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/androidx/appcompat/app/ActionBarDrawerToggleHoneycomb.java
+26:                Log.w(TAG, "Couldn't set home-as-up indicator via JB-MR2 API", e);
+31:            Log.w(TAG, "Couldn't set home-as-up indicator");
+44:                Log.w(TAG, "Couldn't set content description via JB-MR2 API", e);
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/androidx/appcompat/app/AppCompatDelegate.java
+174:        Log.d(TAG, "setDefaultNightMode() called with an unknown mode");
+255:                Log.d(TAG, "Checking for metadata for AppLocalesMetadataHolderService : Service not found");
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/androidx/appcompat/app/AppCompatDelegateImpl.java
+1131:                    Log.i("AppCompatDelegate", "Failed to instantiate custom view inflater " + string + ". Falling back to default.", th);
+1181:            Log.i("AppCompatDelegate", "The Activity's LayoutInflater already has a Factory installed so we can not install AppCompat's");
+1508:            android.util.Log.w(r4, r5)
+1714:            Log.i("AppCompatDelegate", "You should now use the AppCompatDelegate.FEATURE_SUPPORT_ACTION_BAR id when requesting this feature.");
+1720:        Log.i("AppCompatDelegate", "You should now use the AppCompatDelegate.FEATURE_SUPPORT_ACTION_BAR_OVERLAY id when requesting this feature.");
+2065:                Log.d("AppCompatDelegate", "Exception while getting ActivityInfo", e);
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/androidx/appcompat/app/AppCompatViewInflater.java
+350:            Log.i(LOG_TAG, "app:theme is now deprecated. Please move to using android:theme instead.");
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/androidx/appcompat/app/AppLocalesStorageHelper.java
+41:        android.util.Log.d(androidx.appcompat.app.AppLocalesStorageHelper.TAG, "Reading app Locales : Locales read from file: androidx.appcompat.app.AppCompatDelegate.application_locales_record_file , appLocales: " + r2);
+108:            android.util.Log.w(r1, r4)     // Catch: java.lang.Throwable -> L46
+119:            android.util.Log.d(r1, r9)
+132:            android.util.Log.w(r1, r9)
+155:                    Log.d(TAG, "Storing App Locales : app-locales: " + str + " persisted successfully.");
+160:                    Log.w(TAG, "Storing App Locales : Failed to persist app-locales: " + str, e);
+179:            Log.w(TAG, String.format("Storing App Locales : FileNotFoundException: Cannot open file %s for writing ", APPLICATION_LOCALES_RECORD_FILE));
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/androidx/appcompat/app/ResourcesFlusher.java
+37:                Log.e(TAG, "Could not retrieve Resources#mDrawableCache field", e);
+46:                Log.e(TAG, "Could not retrieve value from Resources#mDrawableCache", e2);
+76:            android.util.Log.e(r1, r3, r2)
+87:            android.util.Log.e(r1, r0, r4)
+108:                Log.e(TAG, "Could not retrieve Resources#mResourcesImpl field", e);
+120:            Log.e(TAG, "Could not retrieve value from Resources#mResourcesImpl", e2);
+132:                Log.e(TAG, "Could not retrieve ResourcesImpl#mDrawableCache field", e3);
+141:                Log.e(TAG, "Could not retrieve value from ResourcesImpl#mDrawableCache", e4);
+155:                Log.e(TAG, "Could not find ThemedResourceCache class", e);
+169:                Log.e(TAG, "Could not retrieve ThemedResourceCache#mUnthemedEntries field", e2);
+180:            Log.e(TAG, "Could not retrieve value from ThemedResourceCache#mUnthemedEntries", e3);
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/androidx/appcompat/app/TwilightManager.java
+49:        Log.i(TAG, "Could not get last known location. This is probably because the app does not have any location permissions. Falling back to hardcoded sunrise/sunset values.");
+67:            Log.d(TAG, "Failed to get last known location", e);
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/androidx/appcompat/graphics/drawable/AnimatedStateListDrawableCompat.java
+79:            Log.e(LOGTAG, "parser error", e);
+82:            Log.e(LOGTAG, "parser error", e2);
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/androidx/appcompat/view/SupportMenuInflater.java
+472:                    Log.w(SupportMenuInflater.LOG_TAG, "Ignoring attribute 'actionProviderClass'. Action view already specified.");
+529:                    Log.w(SupportMenuInflater.LOG_TAG, "Ignoring attribute 'itemActionViewLayout'. Action view already specified.");
+572:                Log.w(SupportMenuInflater.LOG_TAG, "Cannot instantiate class: " + str, e);
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/androidx/appcompat/view/menu/MenuItemImpl.java
+101:                Log.e(TAG, "Can't find activity to handle intent; ignoring", e);
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/androidx/appcompat/view/menu/MenuItemWrapperICS.java
+353:            Log.w(LOG_TAG, "Error while calling setExclusiveCheckable", e);
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/androidx/appcompat/widget/ActivityChooserModel.java
+437:                        Log.e(LOG_TAG, "Error reading historical recrod file: " + this.mHistoryFileName, e);
+443:                    Log.e(LOG_TAG, "Error reading historical recrod file: " + this.mHistoryFileName, e2);
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/androidx/appcompat/widget/AppCompatReceiveContentHelper.java
+43:                Log.i(LOG_TAG, "Can't handle drop: no activity: view=" + view);
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/androidx/appcompat/widget/AppCompatSpinner.java
+659:            Log.e(AppCompatSpinner.TAG, "Cannot set popup background for MODE_DIALOG, ignoring");
+664:            Log.e(AppCompatSpinner.TAG, "Cannot set vertical offset for MODE_DIALOG, ignoring");
+669:            Log.e(AppCompatSpinner.TAG, "Cannot set horizontal offset for MODE_DIALOG, ignoring");
+674:            Log.e(AppCompatSpinner.TAG, "Cannot set horizontal (original) offset for MODE_DIALOG, ignoring");
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/androidx/appcompat/widget/AppCompatTextViewAutoSizeHelper.java
+370:                    Log.w(TAG, "Failed to invoke TextView#nullLayouts() method", e);
+440:            Log.w(TAG, "Failed to invoke TextView#" + str + "() method", e);
+450:            Log.w(TAG, "Failed to access TextView#" + str + " member", e);
+464:            Log.w(TAG, "Failed to retrieve TextView#" + str + "() method", e);
+478:            Log.w(TAG, "Failed to access TextView#" + str + " member", e);
+508:                Log.w(AppCompatTextViewAutoSizeHelper.TAG, "Failed to obtain TextDirectionHeuristic, auto size may be incorrect");
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/androidx/appcompat/widget/ListPopupWindow.java
+88:                Log.i(TAG, "Could not find method setClipToScreenEnabled() on PopupWindow. Oh well.");
+93:                Log.i(TAG, "Could not find method setEpicenterBounds(Rect) on PopupWindow. Oh well.");
+375:                    Log.e(TAG, "Could not invoke setEpicenterBounds on PopupWindow", e);
+655:                    Log.e(TAG, "Invalid hint position " + this.mPromptPosition);
+813:                    Log.i(TAG, "Could not call setClipToScreenEnabled() on PopupWindow. Oh well.");
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/androidx/appcompat/widget/MenuPopupWindow.java
+34:            Log.i(TAG, "Could not find method setTouchModal() on PopupWindow. Oh well.");
+69:                    Log.i(TAG, "Could not invoke setTouchModal() on PopupWindow. Oh well.");
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/androidx/appcompat/widget/ResourceManagerInternal.java
+214:                Log.e(TAG, "Exception while inflating drawable", e);
+345:            Log.d(TAG, "Mutated drawable is not the same instance as the input.");
+405:                Log.e("VdcInflateDelegate", "Exception while inflating <vector>", e);
+421:                Log.e("AvdcInflateDelegate", "Exception while inflating <animated-vector>", e);
+437:                Log.e("AsldcInflateDelegate", "Exception while inflating <animated-selector>", e);
+457:                    Log.e("DrawableDelegate", "Exception while inflating <drawable>", e);
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/androidx/appcompat/widget/SearchView.java
+807:            Log.w(LOG_TAG, "Could not find voice search activity");
+982:            Log.e(LOG_TAG, "Failed launch activity: " + intent, e);
+1084:            Log.w(LOG_TAG, "Search suggestions cursor at row " + i2 + " returned exception.", e);
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/androidx/appcompat/widget/SuggestionsAdapter.java
+98:                Log.w(LOG_TAG, "Search suggestions query threw an exception.", e);
+131:            Log.w(LOG_TAG, "Tried to change cursor after adapter was closed.");
+149:            Log.e(LOG_TAG, "error changing cursor and caching columns", e);
+303:            Log.w(LOG_TAG, "Search suggestions cursor threw exception.", e);
+317:            Log.w(LOG_TAG, "Search suggestions cursor threw exception.", e);
+341:            Log.w(LOG_TAG, "Icon resource not found: " + str);
+373:                    Log.e(LOG_TAG, "Error closing icon stream for " + uri, e);
+377:            Log.w(LOG_TAG, "Icon not found: " + uri + ", " + e2.getMessage());
+380:        Log.w(LOG_TAG, "Icon not found: " + uri + ", " + e2.getMessage());
+429:            Log.w(LOG_TAG, "Invalid icon resource " + iconResource + " for " + componentName.flattenToShortString());
+432:            Log.w(LOG_TAG, e.toString());
+448:            Log.e(LOG_TAG, "unexpected error retrieving valid column from cursor, did the remote process die?", e);
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/androidx/appcompat/widget/ThemeUtils.java
+84:                Log.e(TAG, "View " + view.getClass() + " is an AppCompat widget that can only be used with a Theme.AppCompat theme (or descendant).");
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/androidx/appcompat/widget/ToolbarWidgetWrapper.java
+234:        Log.i(TAG, "Progress display unsupported");
+239:        Log.i(TAG, "Progress display unsupported");
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/androidx/appcompat/widget/TooltipCompatHandler.java
+156:                Log.e(TAG, "sActiveHandler.mPopup == null");
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/androidx/appcompat/widget/TooltipPopup.java
+91:            Log.e(TAG, "Cannot find app view");
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/androidx/appcompat/widget/ViewUtils.java
+27:            Log.d(TAG, "Could not find method computeFitSystemWindows. Oh well.");
+44:                Log.d(TAG, "Could not invoke computeFitSystemWindows", e);
+57:            Log.d(TAG, "Could not invoke makeOptionalFitsSystemWindows", e);
+59:            Log.d(TAG, "Could not find method makeOptionalFitsSystemWindows. Oh well...");
+61:            Log.d(TAG, "Could not invoke makeOptionalFitsSystemWindows", e2);
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/androidx/constraintlayout/core/ArrayLinkedVariables.java
+464:        System.out.print("{ ");
+468:                System.out.print(variable + " = " + getVariableValue(i2) + " ");
+471:        System.out.println(" }");
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/androidx/constraintlayout/core/LinearSystem.java
+522:                    System.out.println("WTF");
+761:        System.out.println(str + this.mGoal + "\n");
+787:        System.out.println(str3);
+798:        System.out.println(str + this.mGoal + "\n");
+842:        System.out.println("Display Rows (" + this.mNumRows + "x" + this.mNumColumns + ")\n");
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/androidx/constraintlayout/core/SolverVariableValues.java
+121:        System.out.print("{ ");
+125:                System.out.print(variable + " = " + getVariableValue(i2) + " ");
+128:        System.out.println(" }");
+230:                System.out.println(str);
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/androidx/constraintlayout/core/motion/Motion.java
+1331:            System.out.println("TYPE_INTERPOLATOR  " + str);
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/androidx/constraintlayout/core/motion/key/MotionKeyAttributes.java
+263:        System.out.println(" ------------- " + this.mFramePosition + " -------------");
+266:            System.out.println(strArr[i] + ":" + getFloatValue(TypedValues.AttributesType.getId(strArr[i])));
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/androidx/constraintlayout/core/motion/key/MotionKeyCycle.java
+541:        System.out.println("MotionKeyCycle{mWaveShape=" + this.mWaveShape + ", mWavePeriod=" + this.mWavePeriod + ", mWaveOffset=" + this.mWaveOffset + ", mWavePhase=" + this.mWavePhase + ", mRotation=" + this.mRotation + '}');
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/androidx/constraintlayout/core/motion/key/MotionKeyPosition.java
+96:            System.out.println("distance ~ 0");
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/androidx/constraintlayout/core/motion/parse/KeyParser.java
+37:                    System.err.println("unknown type " + content);
+44:                        System.out.println("parse " + content + " INT_MASK > " + value.getInt());
+47:                        System.out.println("parse " + content + " FLOAT_MASK > " + value.getFloat());
+50:                        System.out.println("parse " + content + " STRING_MASK > " + value.content());
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/androidx/constraintlayout/core/motion/utils/Easing.java
+98:                System.err.println("transitionEasing syntax error syntax:transitionEasing=\"cubic(1.0,0.5,0.0,0.6)\" or " + Arrays.toString(NAMED_EASING));
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/androidx/constraintlayout/core/motion/utils/KeyFrameArray.java
+28:            System.out.println("V: " + Arrays.toString(Arrays.copyOf(this.keys, this.count)));
+29:            System.out.print("K: [");
+32:                System.out.print((i == 0 ? "" : ", ") + valueAt(i));
+35:            System.out.println("]");
+105:            System.out.println("V: " + Arrays.toString(Arrays.copyOf(this.keys, this.count)));
+106:            System.out.print("K: [");
+109:                System.out.print((i == 0 ? "" : ", ") + valueAt(i));
+112:            System.out.println("]");
+182:            System.out.println("V: " + Arrays.toString(Arrays.copyOf(this.keys, this.count)));
+183:            System.out.print("K: [");
+186:                System.out.print((i == 0 ? "" : ", ") + Arrays.toString(valueAt(i)));
+189:            System.out.println("]");
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/androidx/constraintlayout/core/motion/utils/SpringStopEngine.java
+32:        System.out.println((".(" + stackTraceElement.getFileName() + ":" + stackTraceElement.getLineNumber() + ") " + stackTraceElement.getMethodName() + "() ") + str);
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/androidx/constraintlayout/core/motion/utils/StepCurve.java
+60:        System.out.println(" 0 " + monotonicCurveFit.getPos(0.0d, 0));
+61:        System.out.println(" 1 " + monotonicCurveFit.getPos(1.0d, 0));
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/androidx/constraintlayout/core/motion/utils/TimeCycleSplineSet.java
+173:            System.err.println("Error no points added to " + this.mType);
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/androidx/constraintlayout/core/motion/utils/Utils.java
+22:        System.out.println(str + " : " + str2);
+26:        System.err.println(str + " : " + str2);
+60:            System.out.println(str + str2 + (".(" + stackTrace[i2].getFileName() + ":" + stackTrace[i2].getLineNumber() + ") " + stackTrace[i2].getMethodName()) + str2);
+67:        System.out.println(str2 + " " + str);
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/androidx/constraintlayout/core/parser/CLContainer.java
+22:            System.out.println("added element " + cLElement + " to " + this);
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/androidx/constraintlayout/core/parser/CLElement.java
+47:            System.out.println("closing " + hashCode() + " -> " + this);
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/androidx/constraintlayout/core/parser/CLParser.java
+139:            System.out.println("Root: " + allocate.toJSON());
+209:            System.out.println("CREATE " + type + " at " + cArr[i]);
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/androidx/constraintlayout/core/state/State.java
+385:                        System.out.println("couldn't find reference for " + next);
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/androidx/constraintlayout/core/state/WidgetFrame.java
+735:                System.out.println(str + this.mCustom.get(it.next()).toString());
+749:        System.out.println(str2 + " " + str);
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/androidx/constraintlayout/core/widgets/analyzer/DependencyGraph.java
+544:        System.out.println("content:<<\n" + (str + "\n}\n") + "\n>>");
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/androidx/constraintlayout/helper/widget/Carousel.java
+434:            Log.w(TAG, "No backward or forward transitions defined for Carousel!");
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/androidx/constraintlayout/helper/widget/CircularFlow.java
+128:                        Log.e(TAG, "Added radius to view with id: " + this.mMap.get(Integer.valueOf(viewById.getId())));
+145:                        Log.e(TAG, "Added angle to view with id: " + this.mMap.get(Integer.valueOf(viewById.getId())));
+176:            Log.e(TAG, "It was not possible to update radius to view with id: " + view.getId());
+191:            Log.e(TAG, "It was not possible to update angle to view with id: " + view.getId());
+206:            Log.e(TAG, "It was not possible to update radius and angle to view with id: " + view.getId());
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/androidx/constraintlayout/motion/utils/CustomSupport.java
+61:            Log.e(TAG, "cannot access method " + str + " on View \"" + Debug.getName(view) + "\"");
+64:            Log.e(TAG, "no method " + str + " on View \"" + Debug.getName(view) + "\"");
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/androidx/constraintlayout/motion/utils/ViewOscillator.java
+324:                    Log.e(ViewOscillator.TAG, "unable to setProgress", e);
+326:                    Log.e(ViewOscillator.TAG, "unable to setProgress", e2);
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/androidx/constraintlayout/motion/utils/ViewSpline.java
+384:                    Log.e(ViewSpline.TAG, "unable to setProgress", e);
+386:                    Log.e(ViewSpline.TAG, "unable to setProgress", e2);
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/androidx/constraintlayout/motion/utils/ViewTimeCycle.java
+434:                        Log.e(ViewTimeCycle.TAG, "unable to setProgress", e);
+436:                        Log.e(ViewTimeCycle.TAG, "unable to setProgress", e2);
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/androidx/constraintlayout/motion/widget/Debug.java
+22:            Log.v(tag, msg + str + (".(" + stackTrace[i].getFileName() + ":" + stackTrace[i].getLineNumber() + ") " + stackTrace[i].getMethodName()) + str);
+33:            System.out.println(msg + str + (".(" + stackTrace[i].getFileName() + ":" + stackTrace[i].getLineNumber() + ") ") + str);
+49:        System.out.println(str + "------------- " + cls.getName() + " --------------------");
+54:                    System.out.println(str + "    " + field.getName() + " " + obj2);
+59:        System.out.println(str + "------------- " + cls.getSimpleName() + " --------------------");
+90:            Log.v("DEBUG", e.toString());
+151:        System.out.println(str + " children " + childCount);
+154:            System.out.println(str2 + "     " + getName(childAt));
+160:                        System.out.println(str2 + "       " + field.getName() + " " + obj);
+171:        System.out.println(" >>>>>>>>>>>>>>>>>>. dump " + str2 + "  " + param.getClass().getName());
+177:                    System.out.println(str2 + "       " + name + " " + obj);
+182:        System.out.println(" <<<<<<<<<<<<<<<<< dump " + str2);
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/androidx/constraintlayout/motion/widget/DesignTool.java
+446:        System.out.println(" dumping  " + set + " (" + lookUpConstraintId + ")");
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/androidx/constraintlayout/motion/widget/KeyAttributes.java
+402:                        Log.e(KeyAttributes.NAME, "unused attribute 0x" + Integer.toHexString(index) + "   " + mAttrMap.get(index));
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/androidx/constraintlayout/motion/widget/KeyCycle.java
+247:                Log.v("WARNING! KeyCycle", "  UNKNOWN  " + key);
+394:                            Log.v("WARNING KeyCycle", "  UNKNOWN  " + str);
+550:                        Log.e(TypedValues.CycleType.NAME, "unused attribute 0x" + Integer.toHexString(index) + "   " + mAttrMap.get(index));
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/androidx/constraintlayout/motion/widget/KeyFrames.java
+37:            Log.e(TAG, "unable to load", e);
+79:                                Log.e(TAG, "unable to create ", e);
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/androidx/constraintlayout/motion/widget/KeyPosition.java
+129:            System.out.println("distance ~ 0");
+309:                        Log.e(TypedValues.PositionType.NAME, "unused attribute 0x" + Integer.toHexString(index) + "   " + mAttrMap.get(index));
+314:                Log.e(TypedValues.PositionType.NAME, "no frame position");
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/androidx/constraintlayout/motion/widget/KeyTimeCycle.java
+409:                        Log.e("KeyTimeCycle", "unused attribute 0x" + Integer.toHexString(index) + "   " + mAttrMap.get(index));
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/androidx/constraintlayout/motion/widget/KeyTrigger.java
+249:                Log.e(TypedValues.TriggerType.NAME, "Could not find method \"" + str + "\"on class " + call.getClass().getSimpleName() + " " + Debug.getName(call));
+256:            Log.e(TypedValues.TriggerType.NAME, "Exception in call \"" + this.mCross + "\"on class " + call.getClass().getSimpleName() + " " + Debug.getName(call));
+327:                        Log.e(TypedValues.TriggerType.NAME, "unused attribute 0x" + Integer.toHexString(index) + "   " + mAttrMap.get(index));
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/androidx/constraintlayout/motion/widget/MotionConstrainedPoint.java
+357:                                Log.e("MotionPaths", str + " ViewSpline not a CustomSet frame = " + mFramePosition + ", value" + constraintAttribute.getValueToInterpolate() + viewSpline);
+364:                        Log.e("MotionPaths", "UNKNOWN spline " + str);
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/androidx/constraintlayout/motion/widget/MotionController.java
+521:            Log.e(TAG, " KeyPath position \"" + point.position + "\" outside of range");
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/androidx/constraintlayout/motion/widget/MotionLayout.java
+640:                Log.v(TAG, Debug.getLocation() + " transitionToStart ");
+903:            Log.w(TAG, "Warning! Progress is defined for values between 0.0 and 1.0 inclusive");
+1577:            Log.v(MotionLayout.TAG, str + (((((((((((" ".concat(params.startToStart != -1 ? "SS" : "__") + (params.startToEnd != -1 ? "|SE" : "|__")) + (params.endToStart != -1 ? "|ES" : "|__")) + (params.endToEnd != -1 ? "|EE" : "|__")) + (params.leftToLeft != -1 ? "|LL" : "|__")) + (params.leftToRight != -1 ? "|LR" : "|__")) + (params.rightToLeft != -1 ? "|RL" : "|__")) + (params.rightToRight != -1 ? "|RR" : "|__")) + (params.topToTop != -1 ? "|TT" : "|__")) + (params.topToBottom != -1 ? "|TB" : "|__")) + (params.bottomToTop != -1 ? "|BT" : "|__")) + (params.bottomToBottom != -1 ? "|BB" : "|__")));
+1607:            Log.v(MotionLayout.TAG, str + append3.append(str5).toString() + " ---  " + child);
+1612:            Log.v(MotionLayout.TAG, str + "  ========= " + c);
+1623:                Log.v(MotionLayout.TAG, str2 + "  " + name + " " + constraintWidget + " " + str3);
+1625:            Log.v(MotionLayout.TAG, str + " done. ");
+2222:            Log.v(TAG, " " + Debug.getLocation() + " " + Debug.getName(this) + " " + Debug.getName(getContext(), this.mCurrentState) + " " + Debug.getName(childAt) + childAt.getLeft() + " " + childAt.getTop());
+2419:                Log.e(TAG, "WARNING NO app:layoutDescription tag");
+2449:            Log.e(TAG, "CHECK: motion scene not set! set \"app:layoutDescription=\"@xml/file\"");
+2461:                Log.v(TAG, "CHECK: CURRENT");
+2469:                Log.e(TAG, "CHECK: two transitions with the same start and end " + name + "->" + name2);
+2472:                Log.e(TAG, "CHECK: you can't have reverse transitions" + name + "->" + name2);
+2477:                Log.e(TAG, " no such constraintSetStart " + name);
+2480:                Log.e(TAG, " no such constraintSetEnd " + name);
+2492:                Log.w(TAG, "CHECK: " + name + " ALL VIEWS SHOULD HAVE ID's " + childAt.getClass().getName() + " does not!");
+2495:                Log.w(TAG, "CHECK: " + name + " NO CONSTRAINTS for " + Debug.getName(childAt));
+2503:                Log.w(TAG, "CHECK: " + name + " NO View matches id " + name2);
+2506:                Log.w(TAG, "CHECK: " + name + "(" + name2 + ") no LAYOUT_HEIGHT");
+2509:                Log.w(TAG, "CHECK: " + name + "(" + name2 + ") no LAYOUT_HEIGHT");
+2516:            Log.e(TAG, "CHECK: start and end constraint set should not be the same!");
+2717:        Log.w(TAG, "WARNING could not find view id " + resourceName);
+2950:        Log.e(TAG, "This method is deprecated. Please call rebuildScene() instead.");
+3027:            Log.e(TAG, "MotionScene not defined");
+3091:            Log.e(TAG, " no motionScene");
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/androidx/constraintlayout/motion/widget/MotionScene.java
+671:                Log.e(TypedValues.MotionScene.NAME, "OnClick could not find id " + this.mTargetId);
+681:                    Log.e(TypedValues.MotionScene.NAME, " (*)  could not find id " + this.mTargetId);
+910:                        System.out.println("parsing = " + name);
+1001:                                Log.v(TypedValues.MotionScene.NAME, " OnSwipe (" + context.getResources().getResourceEntryName(resourceId) + ".xml:" + xml.getLineNumber() + ")");
+1071:                System.out.println("id getMap res = " + i);
+1082:        Log.e(TypedValues.MotionScene.NAME, "error in parsing id");
+1130:                System.out.println("id string = " + attributeValue);
+1238:            System.out.println("id " + id);
+1239:            System.out.println("size " + this.mConstraintSetMap.size());
+1245:                System.out.println("Id for <" + i + "> is <" + resourceName + "> looking for <" + id + ">");
+1262:            System.out.println("id " + id);
+1263:            System.out.println("size " + this.mConstraintSetMap.size());
+1270:            Log.e(TypedValues.MotionScene.NAME, "Warning could not find ConstraintSet id/" + Debug.getName(this.mMotionLayout.getContext(), id) + " In MotionScene");
+1662:                Log.e(TypedValues.MotionScene.NAME, "Cannot be derived from yourself");
+1694:                Log.e(TypedValues.MotionScene.NAME, "ERROR! invalid deriveConstraintsFrom: @id/" + Debug.getName(this.mMotionLayout.getContext(), i));
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/androidx/constraintlayout/motion/widget/TouchResponse.java
+496:                Log.e(TAG, "cannot find TouchAnchorId @id/" + Debug.getName(this.mMotionLayout.getContext(), this.mTouchAnchorId));
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/androidx/constraintlayout/motion/widget/ViewTransition.java
+211:                        Log.e(TAG, Debug.getLoc() + " unknown tag " + name);
+212:                        Log.e(TAG, ".xml:" + parser.getLineNumber());
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/androidx/constraintlayout/motion/widget/ViewTransitionController.java
+65:            Log.w(this.TAG, "No support for ViewTransition within transition yet. Currently: " + this.mMotionLayout.toString());
+120:            Log.e(this.TAG, " Could not find ViewTransition");
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/androidx/constraintlayout/utils/widget/MotionLabel.java
+391:                Log.v(TAG, Debug.getLoc() + " scale " + scale);
+746:        Log.v(TAG, Debug.getLoc() + "  " + size + " / " + this.mBaseTextSize);
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/androidx/constraintlayout/widget/ConstraintAttribute.java
+315:                Log.e(TAG, " Custom Attribute \"" + str + "\" not found on " + cls.getName());
+318:                Log.e(TAG, e2.getMessage());
+319:                Log.e(TAG, " Custom Attribute \"" + str + "\" not found on " + cls.getName());
+320:                Log.e(TAG, cls.getName() + " must have a method " + str2);
+322:                Log.e(TAG, " Custom Attribute \"" + str + "\" not found on " + cls.getName());
+363:            Log.e(TAG, " Custom Attribute \"" + str + "\" not found on " + cls.getName());
+366:            Log.e(TAG, e2.getMessage());
+367:            Log.e(TAG, " Custom Attribute \"" + str + "\" not found on " + cls.getName());
+368:            Log.e(TAG, cls.getName() + " must have a method " + str2);
+370:            Log.e(TAG, " Custom Attribute \"" + str + "\" not found on " + cls.getName());
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/androidx/constraintlayout/widget/ConstraintHelper.java
+128:            Log.e("ConstraintHelper", "Views added to a ConstraintHelper need to have an id");
+131:                Log.e("ConstraintHelper", "Views added to a ConstraintHelper need to have a parent");
+234:            Log.w("ConstraintHelper", "Could not find id of \"" + trim + "\"");
+245:            Log.w("ConstraintHelper", "Parent not a ConstraintLayout");
+254:                    Log.w("ConstraintHelper", "to use ConstraintTag view " + childAt.getClass().getSimpleName() + " must have an ID");
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/androidx/constraintlayout/widget/ConstraintLayout.java
+1822:                            Log.e(ConstraintLayout.TAG, "layout_constraintWidth_default=\"wrap\" is deprecated.\nUse layout_width=\"WRAP_CONTENT\" and layout_constrainedWidth=\"true\" instead.");
+1831:                            Log.e(ConstraintLayout.TAG, "layout_constraintHeight_default=\"wrap\" is deprecated.\nUse layout_height=\"WRAP_CONTENT\" and layout_constrainedHeight=\"true\" instead.");
+2221:            Log.v(TAG, " setDebugName " + this.mLayoutWidget.getDebugName());
+2233:                    Log.v(TAG, " setDebugName " + next.getDebugName());
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/androidx/constraintlayout/widget/ConstraintLayoutStates.java
+98:            Log.v("ConstraintLayoutStates", "NO Constraint set found ! id=" + id + ", dim =" + width + ", " + height);
+200:                    Log.v("ConstraintLayoutStates", "Unknown tag");
+299:                        Log.e("ConstraintLayoutStates", "error in parsing id");
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/androidx/constraintlayout/widget/ConstraintSet.java
+1174:                                        Log.e(ConstraintSet.TAG, "CURRENTLY UNSUPPORTED");
+1234:                                        Log.w(ConstraintSet.TAG, "unused attribute 0x" + Integer.toHexString(index) + "   " + mapToConstant.get(index));
+1237:                                        Log.w(ConstraintSet.TAG, "Unknown attribute 0x" + Integer.toHexString(index) + "   " + mapToConstant.get(index));
+1676:                Log.v(tag, "int");
+1678:                    Log.v(tag, this.mTypeInt[i] + " = " + this.mValueInt[i]);
+1680:                Log.v(tag, TypedValues.Custom.S_FLOAT);
+1682:                    Log.v(tag, this.mTypeFloat[i2] + " = " + this.mValueFloat[i2]);
+1684:                Log.v(tag, "strings");
+1686:                    Log.v(tag, this.mTypeString[i3] + " = " + this.mValueString[i3]);
+1688:                Log.v(tag, TypedValues.Custom.S_BOOLEAN);
+1690:                    Log.v(tag, this.mTypeBoolean[i4] + " = " + this.mValueBoolean[i4]);
+1707:                Log.v(tag, "DELTA IS NULL");
+2014:                Log.w(TAG, "id unknown " + Debug.getName(childAt));
+2050:                Log.w(TAG, "id unknown " + Debug.getName(childAt));
+2115:                        Log.v(TAG, "WARNING NO CONSTRAINTS for view " + id);
+3048:                Log.w(TAG, " Unable to parse " + split[i]);
+3060:                Log.w(TAG, " Unable to parse " + split[i]);
+3072:                Log.w(TAG, " Unable to parse " + split[i]);
+3081:            Log.w(TAG, " Unable to parse " + splitString[i]);
+3243:                    Log.w(TAG, "Unknown attribute 0x" + Integer.toHexString(index) + "   " + mapToConstant.get(index));
+3418:                    Log.e(TAG, "CURRENTLY UNSUPPORTED");
+3494:                    Log.w(TAG, "unused attribute 0x" + Integer.toHexString(index) + "   " + mapToConstant.get(index));
+3620:                                Log.w(TAG, "Unknown attribute 0x");
+3786:                                                    Log.w(TAG, "Unknown attribute 0x");
+3816:                Log.w(TAG, "Unknown attribute 0x");
+3837:                Log.w(TAG, "Unknown attribute 0x");
+4075:                    Log.e(TAG, "CURRENTLY UNSUPPORTED");
+4144:                    Log.w(TAG, "unused attribute 0x" + Integer.toHexString(index) + "   " + mapToConstant.get(index));
+4150:                    Log.w(TAG, "Unknown attribute 0x" + Integer.toHexString(index) + "   " + mapToConstant.get(index));
+4248:        System.out.println(hashSet.size() + " constraints");
+4260:        System.out.println(sb.toString());
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/androidx/constraintlayout/widget/Constraints.java
+148:        Log.v(TAG, " ################# init");
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/androidx/constraintlayout/widget/StateSet.java
+255:                    Log.v("ConstraintLayoutStates", "Unknown tag");
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/androidx/coordinatorlayout/widget/CoordinatorLayout.java
+479:            Log.e(TAG, "No keylines defined for " + this + " - attempted index lookup " + i);
+483:            Log.e(TAG, "Keyline index " + i + " out of range for " + this);
+528:                    Log.e(TAG, "Attached behavior class is null");
+544:                        Log.e(TAG, "Default behavior class " + defaultBehavior.value().getName() + " could not be instantiated. Did you forget a default constructor?", e);
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/androidx/core/app/ActivityRecreator.java
+170:                            Log.e(ActivityRecreator.LOG_TAG, "Exception while invoking performStopActivity", th);
+178:            Log.e(LOG_TAG, "Exception while fetching field values", th);
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/androidx/core/app/BundleCompat.java
+30:                    Log.i(TAG, "Failed to retrieve getIBinder method", e);
+39:                    Log.i(TAG, "Failed to invoke getIBinder via reflection", e2);
+53:                    Log.i(TAG, "Failed to retrieve putIBinder method", e);
+62:                    Log.i(TAG, "Failed to invoke putIBinder via reflection", e2);
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/androidx/core/app/NavUtils.java
+49:            Log.e(TAG, "getParentActivityIntent: bad parentActivityName '" + parentActivityName + "' in manifest");
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/androidx/core/app/NotificationCompatJellybean.java
+72:                        Log.e(TAG, "Notification.extras field is not of type Bundle");
+86:                Log.e(TAG, "Unable to access notification extras", e);
+90:                Log.e(TAG, "Unable to access notification extras", e2);
+148:                    Log.e(TAG, "Unable to access notification actions", e);
+166:                Log.e(TAG, "Unable to access notification actions", e);
+188:            Log.e(TAG, "Unable to access notification actions", e);
+191:            Log.e(TAG, "Unable to access notification actions", e2);
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/androidx/core/app/NotificationManagerCompat.java
+388:                Log.d(NotificationManagerCompat.TAG, "Connected to service " + componentName);
+396:                Log.d(NotificationManagerCompat.TAG, "Disconnected from service " + componentName);
+413:                        Log.w(NotificationManagerCompat.TAG, "Permission present on component " + componentName + ", not adding listener record.");
+422:                        Log.d(NotificationManagerCompat.TAG, "Adding listener record for " + componentName2);
+432:                        Log.d(NotificationManagerCompat.TAG, "Removing listener record for " + next.getKey());
+448:                Log.w(NotificationManagerCompat.TAG, "Unable to bind to listener " + listenerRecord.componentName);
+468:                Log.w(NotificationManagerCompat.TAG, "Giving up on delivering " + listenerRecord.taskQueue.size() + " tasks to " + listenerRecord.componentName + " after " + listenerRecord.retryCount + " retries");
+474:                Log.d(NotificationManagerCompat.TAG, "Scheduling retry for " + i + " ms");
+481:                Log.d(NotificationManagerCompat.TAG, "Processing component " + listenerRecord.componentName + ", " + listenerRecord.taskQueue.size() + " queued tasks");
+497:                        Log.d(NotificationManagerCompat.TAG, "Sending task " + peek);
+503:                        Log.d(NotificationManagerCompat.TAG, "Remote service has died: " + listenerRecord.componentName);
+506:                    Log.w(NotificationManagerCompat.TAG, "RemoteException communicating with " + listenerRecord.componentName, e);
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/androidx/core/app/ShareCompat.java
+443:                Log.e(TAG, "Could not retrieve icon for calling activity", e);
+455:                Log.e(TAG, "Could not retrieve icon for calling application", e);
+468:                Log.e(TAG, "Could not retrieve label for calling application", e);
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/androidx/core/app/TaskStackBuilder.java
+87:            Log.e(TAG, "Bad ComponentName while traversing activity parent metadata");
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/androidx/core/content/ContextCompat.java
+166:                Log.w(TAG, "Unable to create files subdir " + file.getPath());
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/androidx/core/content/PackageManagerCompat.java
+36:            Log.e(LOG_TAG, "User is in locked direct boot mode");
+46:            Log.e(LOG_TAG, "Target SDK version below API 30");
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/androidx/core/content/UnusedAppRestrictionsBackportServiceConnection.java
+66:                    Log.e(PackageManagerCompat.LOG_TAG, "Unable to retrieve the permission revocation setting from the backport");
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/androidx/core/content/pm/ShortcutXmlParser.java
+67:                Log.e(TAG, "Failed to parse the Xml resource: ", e);
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/androidx/core/content/res/ColorStateListInflaterCompat.java
+31:            Log.e("CSLCompat", "Failed to inflate ColorStateList.", e);
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/androidx/core/content/res/ComplexColorCompat.java
+80:            Log.e(LOG_TAG, "Failed to inflate ComplexColor.", e);
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/androidx/core/content/res/ResourcesCompat.java
+76:            Log.w(TAG, "Failed to inflate ColorStateList, leaving it to the framework", e);
+295:            android.util.Log.e(r13, r0)     // Catch: java.io.IOException -> L8c org.xmlpull.v1.XmlPullParserException -> La0
+335:            android.util.Log.e(r13, r1, r0)
+344:            android.util.Log.e(r13, r1, r0)
+462:                            Log.i(ResourcesCompat.TAG, "Failed to retrieve rebase() method", e);
+471:                            Log.i(ResourcesCompat.TAG, "Failed to invoke rebase() method via reflection", e2);
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/androidx/core/graphics/PathParser.java
+569:                Log.w(PathParser.LOGTAG, " Points are coincident");
+574:                Log.w(PathParser.LOGTAG, "Points are too far apart " + d18);
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/androidx/core/graphics/TypefaceCompatApi21Impl.java
+49:            Log.e(TAG, e.getClass().getName(), e);
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/androidx/core/graphics/TypefaceCompatApi24Impl.java
+44:            Log.e(TAG, e.getClass().getName(), e);
+59:            Log.w(TAG, "Unable to collect necessary private methods.Fallback to legacy implementation.");
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/androidx/core/graphics/TypefaceCompatApi26Impl.java
+57:            Log.e(TAG, "Unable to collect necessary methods for class " + e.getClass().getName(), e);
+77:            Log.w(TAG, "Unable to collect necessary private methods. Fallback to legacy implementation.");
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/androidx/core/graphics/TypefaceCompatBaseImpl.java
+58:            Log.e(TAG, "Could not retrieve font from family.", e);
+61:            Log.e(TAG, "Could not retrieve font from family.", e2);
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/androidx/core/graphics/TypefaceCompatUtil.java
+136:            Log.e(TAG, "Error copying resource contents to temp file: " + e.getMessage());
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/androidx/core/graphics/WeightTypefaceApi14.java
+26:            Log.e(TAG, e.getClass().getName(), e);
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/androidx/core/graphics/WeightTypefaceApi21.java
+39:            Log.e(TAG, e.getClass().getName(), e);
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/androidx/core/graphics/WeightTypefaceApi26.java
+34:            Log.e(TAG, e.getClass().getName(), e);
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/androidx/core/graphics/drawable/IconCompat.java
+274:                Log.i(TAG, "Found obfuscated resource, not trying to update resource id for it");
+280:                Log.i(TAG, "Id has changed for " + resPackage + " " + str);
+304:                    Log.e(TAG, String.format("Unable to load resource 0x%08x from pkg=%s", Integer.valueOf(this.mInt1), this.mObj1), e);
+335:                Log.w(TAG, "Unable to load image from URI: " + uri, e);
+342:            Log.w(TAG, "Unable to load image from path: " + uri, e2);
+359:            Log.e(TAG, String.format("Unable to find pkg=%s for icon", str), e);
+599:                Log.w(TAG, "Unknown type " + i);
+739:                Log.e(IconCompat.TAG, "Unable to get icon type " + obj, e);
+742:                Log.e(IconCompat.TAG, "Unable to get icon type " + obj, e2);
+745:                Log.e(IconCompat.TAG, "Unable to get icon type " + obj, e3);
+757:                Log.e(IconCompat.TAG, "Unable to get icon package", e);
+760:                Log.e(IconCompat.TAG, "Unable to get icon package", e2);
+763:                Log.e(IconCompat.TAG, "Unable to get icon package", e3);
+792:                Log.e(IconCompat.TAG, "Unable to get icon resource", e);
+795:                Log.e(IconCompat.TAG, "Unable to get icon resource", e2);
+798:                Log.e(IconCompat.TAG, "Unable to get icon resource", e3);
+810:                Log.e(IconCompat.TAG, "Unable to get icon uri", e);
+813:                Log.e(IconCompat.TAG, "Unable to get icon uri", e2);
+816:                Log.e(IconCompat.TAG, "Unable to get icon uri", e3);
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/androidx/core/graphics/drawable/RoundedBitmapDrawableFactory.java
+48:            Log.w(TAG, "RoundedBitmapDrawable cannot decode " + str);
+56:            Log.w(TAG, "RoundedBitmapDrawable cannot decode " + inputStream);
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/androidx/core/graphics/drawable/WrappedDrawableApi21.java
+96:                Log.w(TAG, "Error calling Drawable#isProjected() method", e);
+107:                Log.w(TAG, "Failed to retrieve Drawable#isProjected() method", e);
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/androidx/core/os/HandlerCompat.java
+22:            Log.w(TAG, "Unable to invoke Handler(Looper, Callback, boolean) constructor", e);
+26:            Log.w(TAG, "Unable to invoke Handler(Looper, Callback, boolean) constructor", e);
+30:            Log.w(TAG, "Unable to invoke Handler(Looper, Callback, boolean) constructor", e);
+52:            Log.w(TAG, "Unable to invoke Handler(Looper, Callback, boolean) constructor", e);
+56:            Log.w(TAG, "Unable to invoke Handler(Looper, Callback, boolean) constructor", e);
+60:            Log.w(TAG, "Unable to invoke Handler(Looper, Callback, boolean) constructor", e);
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/androidx/core/os/TraceCompat.java
+27:                Log.i(TAG, "Unable to initialize via reflection.", e);
+39:            Log.v(TAG, "Unable to invoke isTagEnabled() via reflection.");
+60:            Log.v(TAG, "Unable to invoke asyncTraceBegin() via reflection.");
+72:            Log.v(TAG, "Unable to invoke endAsyncSection() via reflection.");
+84:            Log.v(TAG, "Unable to invoke traceCounter() via reflection.");
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/androidx/core/text/ICUCompat.java
+26:            Log.w(TAG, e);
+28:            Log.w(TAG, e2);
+41:            Log.w(TAG, e);
+43:            Log.w(TAG, e2);
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/androidx/core/util/AtomicFile.java
+56:            Log.e(LOG_TAG, "Failed to sync file output stream");
+61:            Log.e(LOG_TAG, "Failed to close file output stream", e);
+71:            Log.e(LOG_TAG, "Failed to sync file output stream");
+76:            Log.e(LOG_TAG, "Failed to close file output stream", e);
+81:        Log.e(LOG_TAG, "Failed to delete new file " + this.mNewName);
+89:            Log.e(LOG_TAG, "Failed to delete outdated new file " + this.mNewName);
+128:            Log.e(LOG_TAG, "Failed to delete file which is a directory " + file2);
+133:        Log.e(LOG_TAG, "Failed to rename " + file + " to " + file2);
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/androidx/core/util/LogWriter.java
+40:            Log.d(this.mTag, this.mBuilder.toString());
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/androidx/core/view/ActionProvider.java
+79:            Log.w(TAG, "setVisibilityListener: Setting a new ActionProvider.VisibilityListener when one is already set. Are you reusing this " + getClass().getSimpleName() + " instance while it is still in use somewhere else?");
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/androidx/core/view/LayoutInflaterCompat.java
+46:                Log.e(TAG, "forceSetFactory2 Could not find field 'mFactory2' on class " + LayoutInflater.class.getName() + "; inflation may have unexpected results.", e);
+55:                Log.e(TAG, "forceSetFactory2 could not set the Factory2 on LayoutInflater " + layoutInflater + "; inflation may have unexpected results.", e2);
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/androidx/core/view/MenuItemCompat.java
+61:        Log.w(TAG, "setActionProvider: item does not implement SupportMenuItem; ignoring");
+69:        Log.w(TAG, "getActionProvider: item does not implement SupportMenuItem; returning null");
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/androidx/core/view/ViewCompat.java
+551:            Log.e(TAG, "Couldn't find method", e);
+744:                Log.e(TAG, "Unable to find childrenDrawingOrderEnabled", e);
+751:            Log.e(TAG, "Unable to invoke childrenDrawingOrderEnabled", e2);
+753:            Log.e(TAG, "Unable to invoke childrenDrawingOrderEnabled", e3);
+755:            Log.e(TAG, "Unable to invoke childrenDrawingOrderEnabled", e4);
+881:            Log.d(TAG, "performReceiveContent: " + contentInfoCompat + ", view=" + view.getClass().getSimpleName() + "[" + view.getId() + "]");
+1508:                    Log.e(TAG, view.getParent().getClass().getSimpleName() + " does not fully implement ViewParent", e);
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/androidx/core/view/ViewConfigurationCompat.java
+40:                Log.i(TAG, "Could not find method getScaledScrollFactor() on ViewConfiguration");
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/androidx/core/view/ViewParentCompat.java
+55:            Log.e(TAG, "ViewParent " + viewParent + " does not implement interface method onStartNestedScroll", e);
+67:                Log.e(TAG, "ViewParent " + viewParent + " does not implement interface method onNestedScrollAccepted", e);
+79:                Log.e(TAG, "ViewParent " + viewParent + " does not implement interface method onStopNestedScroll", e);
+97:                Log.e(TAG, "ViewParent " + viewParent + " does not implement interface method onNestedScroll", e);
+109:                Log.e(TAG, "ViewParent " + viewParent + " does not implement interface method onNestedPreScroll", e);
+118:            Log.e(TAG, "ViewParent " + viewParent + " does not implement interface method onNestedFling", e);
+127:            Log.e(TAG, "ViewParent " + viewParent + " does not implement interface method onNestedPreFling", e);
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/androidx/core/view/WindowInsetsCompat.java
+547:                        Log.w(WindowInsetsCompat.TAG, "Failed to get visible insets. getViewRootImpl() returned null from the provided view. This means that the view is either not attached or the method has been overridden", new NullPointerException());
+556:                    Log.e(WindowInsetsCompat.TAG, "Failed to get visible insets. (Reflection error). " + e.getMessage(), e);
+577:                Log.e(WindowInsetsCompat.TAG, "Failed to get visible insets. (Reflection error). " + e.getMessage(), e);
+982:                    Log.i(WindowInsetsCompat.TAG, "Could not retrieve WindowInsets.CONSUMED field", e);
+994:                    Log.i(WindowInsetsCompat.TAG, "Could not get value from WindowInsets.CONSUMED field", e2);
+1001:                    Log.i(WindowInsetsCompat.TAG, "Could not retrieve WindowInsets(Rect) constructor", e3);
+1010:                    Log.i(WindowInsetsCompat.TAG, "Could not invoke WindowInsets(Rect) constructor", e4);
+1272:                Log.w(WindowInsetsCompat.TAG, "Failed to get visible insets from AttachInfo " + e.getMessage(), e);
+1291:                    Log.w(WindowInsetsCompat.TAG, "Failed to get insets from AttachInfo. " + e.getMessage(), e);
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/androidx/core/view/accessibility/AccessibilityNodeInfoCompat.java
+221:                    Log.e(TAG, "Failed to execute command with argument class ViewCommandArgument: " + (cls2 == null ? "null" : cls2.getName()), e);
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/androidx/core/view/inputmethod/InputConnectionCompat.java
+193:                Log.w(LOG_TAG, "Can't insert content from IME; requestPermission() failed", e);
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/androidx/core/widget/CheckedTextViewCompat.java
+84:                    Log.i(CheckedTextViewCompat.TAG, "Failed to retrieve mCheckMarkDrawable field", e);
+93:                    Log.i(CheckedTextViewCompat.TAG, "Failed to get check mark drawable via reflection", e2);
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/androidx/core/widget/NestedScrollView.java
+541:                            Log.e(TAG, "Invalid pointerId=" + i2 + " in onInterceptTouchEvent");
+606:                    Log.e(TAG, "Invalid pointerId=" + this.mActivePointerId + " in onTouchEvent");
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/androidx/core/widget/TextViewCompat.java
+67:            Log.e(LOG_TAG, "Could not retrieve " + str + " field.");
+76:            Log.d(LOG_TAG, "Could not retrieve value of " + field.getName() + " field.");
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/androidx/core/widget/TextViewOnReceiveContentListener.java
+21:            Log.d(LOG_TAG, "onReceive: " + contentInfoCompat);
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/androidx/customview/widget/ViewDragHelper.java
+736:        Log.e(TAG, "Ignoring pointerId=" + i + " because ACTION_DOWN was not received for this pointer before ACTION_MOVE. It likely happened because  ViewDragHelper did not receive all the events in the event stream.");
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/androidx/documentfile/provider/DocumentsContractApi19.java
+85:            Log.w(TAG, "Failed query: " + e);
+99:            Log.w(TAG, "Failed query: " + e);
+117:            Log.w(TAG, "Failed query: " + e);
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/androidx/documentfile/provider/RawDocumentFile.java
+36:            Log.w("DocumentFile", "Failed to createFile: " + e);
+149:                    Log.w("DocumentFile", "Failed to delete " + file2);
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/androidx/documentfile/provider/TreeDocumentFile.java
+127:                Log.w("DocumentFile", "Failed query: " + e);
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/androidx/fragment/app/BackStackRecord.java
+258:                Log.v(TAG, "Bump nesting in " + this + " by " + i);
+266:                        Log.v(TAG, "Bump nesting of " + c0324Op.mFragment + " to " + c0324Op.mFragment.mBackStackNesting);
+309:            Log.v(TAG, "Commit: " + this);
+327:            Log.v(TAG, "Run: " + this);
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/androidx/fragment/app/BackStackState.java
+110:                Log.v(TAG, "Instantiate " + backStackRecord + " op #" + i2 + " base fragment #" + this.mOps[i3]);
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/androidx/fragment/app/DefaultSpecialEffectsController.java
+168:                                Log.v("FragmentManager", "Ignoring Animator set on " + fragment + " as this Fragment was involved in a Transition.");
+209:                    Log.v("FragmentManager", "Ignoring Animation set on " + fragment2 + " as Animations cannot run alongside Transitions.");
+214:                    Log.v("FragmentManager", "Ignoring Animation set on " + fragment2 + " as Animations cannot run alongside Animators.");
+623:                            Log.v("FragmentManager", "SpecialEffectsController: Container " + getContainer() + " has not been laid out. Completing operation " + operation11);
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/androidx/fragment/app/DialogFragment.java
+96:                            Log.d("FragmentManager", "DialogFragment " + this + " setting the content view on " + DialogFragment.this.mDialog);
+150:                            Log.d("FragmentManager", "DialogFragment " + this + " setting the content view on " + DialogFragment.this.mDialog);
+165:            Log.d("FragmentManager", "Setting style and theme for DialogFragment " + this + " to " + i + ", " + i2);
+362:                    Log.d("FragmentManager", "mShowsDialog = false: " + str);
+364:                    Log.d("FragmentManager", "mCreatingDialog = true: " + str);
+371:            Log.d("FragmentManager", "get layout inflater for DialogFragment " + this + " from dialog context");
+392:            Log.d("FragmentManager", "onCreateDialog called for DialogFragment " + this);
+403:            Log.d("FragmentManager", "onDismiss called for DialogFragment " + this);
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/androidx/fragment/app/Fragment.java
+258:                Log.d("FragmentManager", "Could not find Application instance from Context " + requireContext().getApplicationContext() + ", you will not be able to use AndroidViewModel with the default ViewModelProvider.Factory");
+757:            Log.v("FragmentManager", "Fragment " + this + " received the following in startIntentSenderForResult() requestCode: " + i + " IntentSender: " + intentSender + " fillInIntent: " + intent + " options: " + bundle);
+765:            Log.v("FragmentManager", "Fragment " + this + " received the following in onActivityResult(): requestCode: " + i + " resultCode: " + i2 + " data: " + intent);
+1368:            Log.d("FragmentManager", "moveto RESTORE_VIEW_STATE: " + this);
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/androidx/fragment/app/FragmentLayoutInflaterFactory.java
+71:                Log.v(TAG, "Fragment " + findFragmentById + " has been inflated via the <fragment> tag: id=0x" + Integer.toHexString(resourceId));
+83:                Log.v(TAG, "Retained Fragment " + findFragmentById + " has been re-attached via the <fragment> tag: id=0x" + Integer.toHexString(resourceId));
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/androidx/fragment/app/FragmentManager.java
+270:        Log.e(TAG, runtimeException.getMessage());
+271:        Log.e(TAG, "Activity state:");
+279:                Log.e(TAG, "Failed dumping state", e);
+287:            Log.e(TAG, "Failed dumping state", e2);
+853:                Log.d(TAG, "Ignoring moving " + fragment + " to state " + this.mCurState + "since it is not added to " + this);
+935:            Log.v(TAG, "add: " + fragment);
+956:            Log.v(TAG, "remove: " + fragment + " nesting=" + fragment.mBackStackNesting);
+972:            Log.v(TAG, "hide: " + fragment);
+985:            Log.v(TAG, "show: " + fragment);
+996:            Log.v(TAG, "detach: " + fragment);
+1004:                Log.v(TAG, "remove from detach: " + fragment);
+1017:            Log.v(TAG, "attach: " + fragment);
+1026:                Log.v(TAG, "add from attach: " + fragment);
+1553:                Log.v(TAG, "saveAllState: no fragments!");
+1564:                    Log.v(TAG, "saveAllState: adding back stack #" + i + ": " + this.mBackStack.get(i));
+1610:                        Log.v(TAG, "restoreSaveState: re-attaching retained " + findRetainedFragmentByWho);
+1619:                    Log.v(TAG, "restoreSaveState: active (" + fragment.mWho + "): " + fragment);
+1629:                    Log.v(TAG, "Discarding retained Fragment " + fragment2 + " that was not found in the set of active Fragments " + fragmentManagerState.mActive);
+1646:                    Log.v(TAG, "restoreAllState: back stack #" + i + " (index " + instantiate.mIndex + "): " + instantiate);
+1743:                        Log.w(FragmentManager.TAG, "No Activities were started for result for " + this);
+1750:                        Log.w(FragmentManager.TAG, "Activity result delivered for unknown Fragment " + str2);
+1761:                        Log.w(FragmentManager.TAG, "No IntentSenders were started for " + this);
+1768:                        Log.w(FragmentManager.TAG, "Intent Sender result delivered for unknown Fragment " + str2);
+1785:                        Log.w(FragmentManager.TAG, "No permissions were requested for " + this);
+1792:                        Log.w(FragmentManager.TAG, "Permission request result delivered for unknown Fragment " + str2);
+1841:                    Log.v(TAG, "ActivityOptions " + bundle + " were added to fillInIntent " + intent2 + " for fragment " + fragment);
+1850:                Log.v(TAG, "Fragment " + fragment + "is launching an IntentSender for result ");
+2342:                Log.v(FragmentManager.TAG, "CreateIntent created the following intent: " + intent);
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/androidx/fragment/app/FragmentManagerViewModel.java
+50:            Log.d(TAG, "onCleared called for " + this);
+64:                Log.v(TAG, "Ignoring addRetainedFragment as the state is already saved");
+72:                Log.v(TAG, "Updating retained Fragments: Added " + fragment);
+102:                Log.v(TAG, "Ignoring removeRetainedFragment as the state is already saved");
+108:            Log.v(TAG, "Updating retained Fragments: Removed " + fragment);
+137:            Log.d(TAG, "Clearing non-config state for " + fragment);
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/androidx/fragment/app/FragmentStateManager.java
+70:            Log.v(TAG, "Instantiated fragment " + instantiate);
+150:            Log.v(TAG, "computeExpectedState() of " + i + " for " + this.mFragment);
+187:                Log.v(TAG, "Ignoring re-entrant call to moveToExpectedState() for " + getFragment());
+246:                                    Log.d(TAG, "movefrom ACTIVITY_CREATED: " + this.mFragment);
+296:                Log.d(TAG, "moveto CREATE_VIEW: " + this.mFragment);
+348:            Log.d(TAG, "moveto ATTACHED: " + this.mFragment);
+378:            Log.d(TAG, "moveto CREATED: " + this.mFragment);
+404:            Log.d(TAG, "moveto CREATE_VIEW: " + this.mFragment);
+468:                            Log.v(TAG, "requestFocus: Saved focused view " + findFocus + " for Fragment " + this.mFragment);
+487:            Log.d(TAG, "moveto ACTIVITY_CREATED: " + this.mFragment);
+499:            Log.d(TAG, "moveto STARTED: " + this.mFragment);
+508:            Log.d(TAG, "moveto RESUMED: " + this.mFragment);
+514:                Log.v(TAG, "requestFocus: Restoring focused view " + focusedView + " " + (requestFocus ? "succeeded" : "failed") + " on Fragment " + this.mFragment + " resulting in focused view " + this.mFragment.mView.findFocus());
+540:            Log.d(TAG, "movefrom RESUMED: " + this.mFragment);
+549:            Log.d(TAG, "movefrom STARTED: " + this.mFragment);
+636:            Log.d(TAG, "movefrom CREATE_VIEW: " + this.mFragment);
+654:            Log.d(TAG, "movefrom CREATED: " + this.mFragment);
+695:            Log.d(TAG, "movefrom ATTACHED: " + this.mFragment);
+707:            Log.d(TAG, "initState called for fragment: " + this.mFragment);
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/androidx/fragment/app/FragmentStatePagerAdapter.java
+196:                        Log.w(TAG, "Bad fragment at key " + str);
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/androidx/fragment/app/FragmentStore.java
+46:                    Log.v(TAG, "restoreSaveState: added (" + str + "): " + findActiveFragment);
+69:            Log.v(TAG, "Added fragment to active set " + fragment);
+128:            Log.v(TAG, "Removed fragment from active set " + fragment);
+146:                    Log.v(TAG, "Saved state of " + fragment + ": " + saveState.mSavedFragmentState);
+165:                    Log.v(TAG, "saveAllState: adding fragment (" + next.mWho + "): " + next);
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/androidx/fragment/app/LogWriter.java
+40:            Log.d(this.mTag, this.mBuilder.toString());
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/androidx/fragment/app/SpecialEffectsController.java
+83:            Log.v("FragmentManager", "SpecialEffectsController: Enqueuing add operation for fragment " + fragmentStateManager.getFragment());
+91:            Log.v("FragmentManager", "SpecialEffectsController: Enqueuing show operation for fragment " + fragmentStateManager.getFragment());
+99:            Log.v("FragmentManager", "SpecialEffectsController: Enqueuing hide operation for fragment " + fragmentStateManager.getFragment());
+107:            Log.v("FragmentManager", "SpecialEffectsController: Enqueuing remove operation for fragment " + fragmentStateManager.getFragment());
+192:                        Log.v("FragmentManager", "SpecialEffectsController: Cancelling operation " + operation);
+234:                    Log.v("FragmentManager", append.append(str2).append("Cancelling running operation ").append(operation).toString());
+248:                    Log.v("FragmentManager", append2.append(str).append("Cancelling pending operation ").append(operation2).toString());
+324:                            Log.v("FragmentManager", "SpecialEffectsController: Removing view " + view + " from container " + viewGroup);
+333:                        Log.v("FragmentManager", "SpecialEffectsController: Setting view " + view + " to VISIBLE");
+338:                        Log.v("FragmentManager", "SpecialEffectsController: Setting view " + view + " to GONE");
+346:                        Log.v("FragmentManager", "SpecialEffectsController: Setting view " + view + " to INVISIBLE");
+405:                        Log.v("FragmentManager", "SpecialEffectsController: For fragment " + this.mFragment + " mFinalState = REMOVED -> VISIBLE. mLifecycleImpact = " + this.mLifecycleImpact + " to ADDING.");
+415:                    Log.v("FragmentManager", "SpecialEffectsController: For fragment " + this.mFragment + " mFinalState = " + this.mFinalState + " -> REMOVED. mLifecycleImpact  = " + this.mLifecycleImpact + " to REMOVING.");
+423:                    Log.v("FragmentManager", "SpecialEffectsController: For fragment " + this.mFragment + " mFinalState = " + this.mFinalState + " -> " + state + ". ");
+454:                Log.v("FragmentManager", "SpecialEffectsController: " + this + " has called complete.");
+529:                        Log.v("FragmentManager", "requestFocus: Saved focused view " + findFocus + " for Fragment " + fragment);
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/androidx/legacy/content/WakefulBroadcastReceiver.java
+53:            Log.w("WakefulBroadcastReceiv.", "No active wake lock id #" + intExtra);
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/androidx/loader/app/LoaderManagerImpl.java
+52:                Log.v(LoaderManagerImpl.TAG, "  Starting: " + this);
+60:                Log.v(LoaderManagerImpl.TAG, "  Stopping: " + this);
+102:                Log.v(LoaderManagerImpl.TAG, "  Destroying: " + this);
+124:                Log.v(LoaderManagerImpl.TAG, "onLoadComplete: " + this);
+131:                Log.w(LoaderManagerImpl.TAG, "onLoadComplete was incorrectly called on a background thread");
+198:                Log.v(LoaderManagerImpl.TAG, "  onLoadFinished in " + this.mLoader + ": " + this.mLoader.dataToString(d));
+211:                    Log.v(LoaderManagerImpl.TAG, "  Resetting: " + this.mLoader);
+335:                Log.v(TAG, "  Created new loader " + loaderInfo);
+356:            Log.v(TAG, "initLoader in " + this + ": args=" + bundle);
+362:            Log.v(TAG, "  Re-using existing loader " + loader);
+376:            Log.v(TAG, "restartLoader in " + this + ": args=" + bundle);
+391:            Log.v(TAG, "destroyLoader in " + this + " of " + i);
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/androidx/loader/content/ModernAsyncTask.java
+118:                    Log.w(ModernAsyncTask.LOG_TAG, e);
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/androidx/localbroadcastmanager/content/LocalBroadcastManager.java
+159:                Log.v(TAG, "Resolving type " + resolveTypeIfNeeded + " scheme " + scheme + " of intent " + intent);
+164:                    Log.v(TAG, "Action list: " + arrayList2);
+171:                        Log.v(TAG, "Matching against filter " + receiverRecord.filter);
+175:                            Log.v(TAG, "  Filter's target already added");
+190:                                Log.v(TAG, "  Filter matched!  match=0x" + Integer.toHexString(match));
+209:                            Log.v(TAG, "  Filter did not match: " + str2);
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/androidx/print/PrintHelper.java
+388:                    Log.e(PrintHelper.LOG_TAG, "Error writing printed content", th);
+451:                        Log.w(LOG_TAG, "close fail ", e);
+462:                        Log.w(LOG_TAG, "close fail ", e2);
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/androidx/profileinstaller/ProfileInstaller.java
+55:            Log.d(TAG, str);
+98:                Log.e(TAG, str, (Throwable) obj);
+100:                Log.d(TAG, str);
+235:                Log.d(TAG, "Installing profile for " + context.getPackageName());
+242:            Log.d(TAG, "Skipping profile installation for " + context.getPackageName());
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/androidx/recyclerview/widget/AsyncListUtil.java
+47:        Log.d(TAG, "[MAIN] " + String.format(str, objArr));
+73:                    Log.e(AsyncListUtil.TAG, "duplicate tile @" + addOrReplace.mStartPosition);
+94:                        Log.e(AsyncListUtil.TAG, "tile not found @" + i3);
+227:                Log.d(AsyncListUtil.TAG, "[BKGR] " + String.format(str, objArr));
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/androidx/recyclerview/widget/DividerItemDecoration.java
+28:            Log.w(TAG, "@android:attr/listDivider was not set in the theme used for this DividerItemDecoration. Please set that attribute all call setDrawable()");
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/androidx/recyclerview/widget/GridLayoutManager.java
+366:            Log.w(TAG, "Cannot find span size for pre layout position. " + i);
+382:            Log.w(TAG, "Cannot find span size for pre layout position. It is not cached, not in the adapter. Pos:" + i);
+398:            Log.w(TAG, "Cannot find span size for pre layout position. It is not cached, not in the adapter. Pos:" + i);
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/androidx/recyclerview/widget/ItemTouchHelper.java
+574:            Log.e(TAG, "Start drag has been called but dragging is not enabled");
+578:            Log.e(TAG, "Start drag has been called with a view holder which is not a child of the RecyclerView which is controlled by this ItemTouchHelper.");
+589:            Log.e(TAG, "Start swipe has been called but swiping is not enabled");
+593:            Log.e(TAG, "Start swipe has been called with a view holder which is not a child of the RecyclerView controlled by this ItemTouchHelper.");
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/androidx/recyclerview/widget/LinearLayoutManager.java
+1227:        Log.d(TAG, "internal representation of views on the screen");
+1230:            Log.d(TAG, "item " + getPosition(childAt) + ", coord:" + this.mOrientationHelper.getDecoratedStart(childAt));
+1232:        Log.d(TAG, "==============");
+1236:        Log.d(TAG, "validating child count " + getChildCount());
+1391:            Log.d(TAG, "avail:" + this.mAvailable + ", ind:" + this.mCurrentPosition + ", dir:" + this.mItemDirection + ", offset:" + this.mOffset + ", layoutDir:" + this.mLayoutDirection);
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/androidx/recyclerview/widget/MessageThreadUtil.java
+37:                        Log.e("ThreadUtil", "Unsupported message, what=" + next.what);
+104:                            Log.e("ThreadUtil", "Unsupported message, what=" + next.what);
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/androidx/recyclerview/widget/RecyclerView.java
+677:                Log.w(TAG, "setScrollingTouchSlop(): bad argument constant " + i + "; using default value");
+1018:            Log.e(TAG, "Cannot scroll to position a LayoutManager set. Call setLayoutManager with a non-null argument.");
+1040:            Log.e(TAG, "Cannot smooth scroll without a LayoutManager set. Call setLayoutManager with a non-null argument.");
+1048:        Log.w(TAG, "RecyclerView does not support scrolling to an absolute position. Use scrollToPosition instead");
+1055:            Log.e(TAG, "Cannot scroll without a LayoutManager set. Call setLayoutManager with a non-null argument.");
+1338:            Log.e(TAG, "Cannot smooth scroll without a LayoutManager set. Call setLayoutManager with a non-null argument.");
+1373:            Log.e(TAG, "Cannot fling without a LayoutManager set. Call setLayoutManager with a non-null argument.");
+1888:            Log.w(TAG, "Cannot call this method in a scroll callback. Scroll callbacks mightbe run during a measure & layout pass where you cannot change theRecyclerView data. Any method call that might change the structureof the RecyclerView or the adapter contents should be postponed tothe next frame.", new IllegalStateException("" + exceptionLabel()));
+2282:            Log.e(TAG, "No adapter attached; skipping layout");
+2286:            Log.e(TAG, "No layout manager attached; skipping layout");
+2561:        Log.e(TAG, "Problem while matching changed view holders with the newones. The pre-layout information for the change holder " + viewHolder2 + " cannot be found but it is necessary for " + viewHolder + exceptionLabel());
+4803:            Log.e(RecyclerView.TAG, "You must override onLayoutChildren(Recycler recycler, State state) ");
+4821:            Log.e(RecyclerView.TAG, "You must override smoothScrollToPosition to support smooth scrolling");
+6026:                Log.e("View", "isRecyclable decremented below 0: unmatched pair of setIsRecyable() calls for " + this);
+6284:                Log.w(RecyclerView.TAG, "An instance of " + getClass().getSimpleName() + " was started more than once. Each instance of" + getClass().getSimpleName() + " is intended to only be used once. You should create a new instance for each use.");
+6309:            Log.w(RecyclerView.TAG, "You should override computeScrollVectorForPosition when the LayoutManager does not implement " + ScrollVectorProvider.class.getCanonicalName());
+6361:                    Log.e(RecyclerView.TAG, "Passed over target position while smooth scrolling.");
+6456:                            Log.e(RecyclerView.TAG, "Smooth Scroll action is being updated too frequently. Make sure you are not changing it unless necessary");
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/androidx/startup/StartupLogger.java
+15:        Log.i(TAG, str);
+20:        Log.w(TAG, str);
+25:        Log.e(TAG, str, th);
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/androidx/tracing/Trace.java
+121:        Log.v(TAG, "Unable to call " + str + " via reflection", exc);
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/androidx/transition/GhostViewPlatform.java
+70:            Log.i(TAG, "Failed to retrieve GhostView class", e);
+85:            Log.i(TAG, "Failed to retrieve addGhost method", e);
+100:            Log.i(TAG, "Failed to retrieve removeGhost method", e);
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/androidx/transition/ViewGroupUtilsApi14.java
+77:            android.util.Log.i(r0, r6)
+92:            android.util.Log.i(r0, r6)
+118:                Log.i(TAG, "Failed to access cancel method by reflection");
+127:                Log.i(TAG, "Failed to access cancel method by reflection");
+129:                Log.i(TAG, "Failed to invoke cancel method by reflection");
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/androidx/transition/ViewUtilsBase.java
+133:                Log.i(TAG, "fetchViewFlagsField: ");
+155:            Log.i(TAG, "Failed to retrieve setFrame method", e);
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/androidx/vectordrawable/graphics/drawable/AnimatorInflaterCompat.java
+380:        Log.d(TAG, str);
+389:            Log.d(TAG, append.append(obj).toString());
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/androidx/vectordrawable/graphics/drawable/VectorDrawableCompat.java
+551:        Log.v(LOGTAG, str + "current group is :" + vGroup.getGroupName() + " rotation is " + vGroup.mRotate);
+552:        Log.v(LOGTAG, str + "matrix is :" + vGroup.getLocalMatrix().toString());
+1266:            Log.v(VectorDrawableCompat.LOGTAG, str + "current path is :" + this.mPathName + " pathData is " + nodesToString(this.mNodes));
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/androidx/viewpager/widget/ViewPager.java
+529:            Log.w(TAG, "Requested offscreen page limit " + i + " too small; defaulting to 1");
+1858:            android.util.Log.e(r2, r0)
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/com/example/mastg_test0029/MainActivity.java
+105:                                            Log.d("checkCredentials:", " " + str3);
+106:                                            Log.d("checkCredentials:", " " + str4);
+196:            System.out.println("File created: credentials.txt");
+198:            System.out.println("Error occurred while creating the file: " + e.getMessage());
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/com/example/mastg_test0029/PwdManager.java
+73:                    Log.d("FileUtil", "Text appended to file: ");
+83:                Log.e("FileUtil", "Error appending text to file: ");
+163:                    Log.e("FileUtil", "Error reading file: pwd.txt");
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/com/google/android/material/animation/MotionSpec.java
+98:            Log.w(TAG, "Can't load animation resource ID #0x" + Integer.toHexString(i), e);
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/com/google/android/material/badge/BadgeDrawable.java
+368:            Log.w(TAG, "Bottom badge gravities are deprecated; please use a top gravity instead.");
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/com/google/android/material/badge/BadgeUtils.java
+110:        Log.w(LOG_TAG, "Trying to remove badge from a null menuItemView: " + i);
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/com/google/android/material/bottomsheet/BottomSheetBehavior.java
+1006:        Log.w(TAG, "BottomSheetBehavior now supports multiple callbacks. `setBottomSheetCallback()` removes all existing callbacks, including ones set internally by library authors, which may result in unintended behavior. This may change in the future. Please use `addBottomSheetCallback()` and `removeBottomSheetCallback()` instead to set your own callbacks.");
+1029:            Log.w(TAG, "Cannot set state: " + i);
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/com/google/android/material/button/MaterialButton.java
+301:                Log.w(LOG_TAG, "MaterialButton manages its own background to control elevation, shape, color and states. Consider using backgroundTint, shapeAppearance and other attributes where available. A custom background will ignore these attributes and you should consider handling interaction states such as pressed, focused and disabled");
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/com/google/android/material/button/MaterialButtonToggleGroup.java
+137:            Log.e(LOG_TAG, "Child views must be of type MaterialButton.");
+397:            Log.e(LOG_TAG, "Button ID is not valid: " + i);
+463:            Log.w(LOG_TAG, "Child order wasn't updated");
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/com/google/android/material/card/MaterialCardView.java
+276:                Log.i(LOG_TAG, "Setting a custom background is not supported.");
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/com/google/android/material/carousel/CarouselLayoutManager.java
+284:            Log.d(TAG, "internal representation of views on the screen");
+287:                Log.d(TAG, "item position " + getPosition(childAt) + ", center:" + getDecoratedCenterWithMargins(childAt) + ", child index:" + i);
+289:            Log.d(TAG, "==============");
+752:        Log.d(TAG, "Unknown focus request:" + i);
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/com/google/android/material/chip/Chip.java
+252:            Log.w(TAG, "Do not set the background; Chip manages its own background drawable.");
+270:            Log.w(TAG, "Chip text must be vertically center and start aligned");
+356:            Log.w(TAG, "Chip text must be vertically center and start aligned");
+364:        Log.w(TAG, "Do not set the background tint list; Chip manages its own background drawable.");
+369:        Log.w(TAG, "Do not set the background tint mode; Chip manages its own background drawable.");
+374:        Log.w(TAG, "Do not set the background color; Chip manages its own background drawable.");
+379:        Log.w(TAG, "Do not set the background resource; Chip manages its own background drawable.");
+385:            Log.w(TAG, "Do not set the background; Chip manages its own background drawable.");
+394:            Log.w(TAG, "Do not set the background drawable; Chip manages its own background drawable.");
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/com/google/android/material/color/ColorResourcesLoaderCreator.java
+25:            Log.i(TAG, "Table created, length: " + create.length);
+37:                    Log.w(TAG, "Cannot create memory file descriptor.");
+70:            Log.e(TAG, "Failed to create the ColorResourcesTableCreator.", e);
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/com/google/android/material/floatingactionbutton/FloatingActionButton.java
+236:        Log.i(LOG_TAG, "Setting a custom background is not supported.");
+241:        Log.i(LOG_TAG, "Setting a custom background is not supported.");
+246:        Log.i(LOG_TAG, "Setting a custom background is not supported.");
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/com/google/android/material/internal/CollapsingTextHelper.java
+826:            Log.e(TAG, e.getCause().getMessage(), e);
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/com/google/android/material/internal/WindowUtils.java
+79:                Log.w(WindowUtils.TAG, e);
+81:                Log.w(WindowUtils.TAG, e2);
+83:                Log.w(WindowUtils.TAG, e3);
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/com/google/android/material/motion/MaterialBackAnimationHelper.java
+46:            Log.w(TAG, "Must call startBackProgress() before updateBackProgress()");
+62:            Log.w(TAG, "Must call startBackProgress() and updateBackProgress() before cancelBackProgress()");
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/com/google/android/material/navigation/NavigationBarItemView.java
+657:            Log.w("NavigationBar", "Multiple badges shouldn't be attached to one item.");
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/com/google/android/material/resources/TextAppearance.java
+74:                Log.d(TAG, "Error loading font " + this.fontFamily, e);
+118:            Log.d(TAG, "Error loading font " + this.fontFamily, e);
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/com/google/android/material/ripple/RippleUtils.java
+56:                Log.w(LOG_TAG, TRANSPARENT_DEFAULT_COLOR_WARNING);
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/com/google/android/material/shape/MaterialShapeDrawable.java
+651:            Log.w(TAG, "Compatibility shadow requested but can't be drawn for all operations in this shape.");
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/com/google/android/material/slider/BaseSlider.java
+361:            Log.w(TAG, String.format(WARNING_FLOATING_POINT_ERROR, "stepSize", Float.valueOf(f)));
+365:            Log.w(TAG, String.format(WARNING_FLOATING_POINT_ERROR, "valueFrom", Float.valueOf(f2)));
+369:            Log.w(TAG, String.format(WARNING_FLOATING_POINT_ERROR, "valueTo", Float.valueOf(f3)));
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/com/google/android/material/snackbar/BaseTransientBottomBar.java
+179:                    Log.w(BaseTransientBottomBar.TAG, "Unable to apply gesture inset because layout params are not MarginLayoutParams");
+264:            Log.w(TAG, "Unable to update margins because layout params are not MarginLayoutParams");
+268:            Log.w(TAG, "Unable to update margins because original view margins are not set");
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/com/google/android/material/tabs/TabLayout.java
+1082:                Log.w(LOG_TAG, "GRAVITY_START is not supported with the current tab mode, GRAVITY_CENTER will be used instead");
+1091:            Log.w(LOG_TAG, "MODE_SCROLLABLE + GRAVITY_FILL is not supported, GRAVITY_START will be used instead");
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/com/google/android/material/textfield/TextInputLayout.java
+663:            Log.i(LOG_TAG, "EditText added is not a TextInputEditText. Please switch to using that class instead.");
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/com/google/android/material/transition/MaterialContainerTransform.java
+418:                Log.w(TAG, "Skipping due to null start bounds. Ensure start view is laid out and measured.");
+423:                    Log.w(TAG, "Skipping due to null end bounds. Ensure end view is laid out and measured.");
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/com/google/android/material/transition/platform/MaterialContainerTransform.java
+418:                Log.w(TAG, "Skipping due to null start bounds. Ensure start view is laid out and measured.");
+423:                    Log.w(TAG, "Skipping due to null end bounds. Ensure end view is laid out and measured.");
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/kotlin/io/ConsoleKt.java
+14:        System.out.print(obj);
+18:        System.out.print(i);
+22:        System.out.print(j);
+26:        System.out.print(Byte.valueOf(b));
+30:        System.out.print(Short.valueOf(s));
+34:        System.out.print(c);
+38:        System.out.print(z);
+42:        System.out.print(f);
+46:        System.out.print(d);
+51:        System.out.print(message);
+55:        System.out.println(obj);
+59:        System.out.println(i);
+63:        System.out.println(j);
+67:        System.out.println(Byte.valueOf(b));
+71:        System.out.println(Short.valueOf(s));
+75:        System.out.println(c);
+79:        System.out.println(z);
+83:        System.out.println(f);
+87:        System.out.println(d);
+92:        System.out.println(message);
+96:        System.out.println();
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/kotlinx/coroutines/debug/AgentPremain.java
+86:            System.out.println((Object) "Cannot perform coroutines dump, debug probes are disabled");
+
+[+] Total file sources are: 187 & its total instances are: 707 
+
+[!] QuickNote:
+    - It is recommended that any sensitive data should not be part of the log's output or revealed into Stacktraces, if observed.
+
+[*] Reference:
+    - OWASP MASVS: MSTG-STORAGE-3 | CWE-532: Insertion of Sensitive Information into Log File
+    - https://mobile-security.gitbook.io/masvs/security-requirements/0x07-v2-data_storage_and_privacy_requirements
+
+==>> The Push Notification instances...
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/androidx/core/app/NotificationCompat.java
+236:            setContentTitle(NotificationCompat.getContentTitle(notification)).setContentText(NotificationCompat.getContentText(notification)).setContentInfo(NotificationCompat.getContentInfo(notification)).setSubText(NotificationCompat.getSubText(notification)).setSettingsText(NotificationCompat.getSettingsText(notification)).setStyle(extractStyleFromNotification).setContentIntent(notification.contentIntent).setGroup(NotificationCompat.getGroup(notification)).setGroupSummary(NotificationCompat.isGroupSummary(notification)).setLocusId(NotificationCompat.getLocusId(notification)).setWhen(notification.when).setShowWhen(NotificationCompat.getShowWhen(notification)).setUsesChronometer(NotificationCompat.getUsesChronometer(notification)).setAutoCancel(NotificationCompat.getAutoCancel(notification)).setOnlyAlertOnce(NotificationCompat.getOnlyAlertOnce(notification)).setOngoing(NotificationCompat.getOngoing(notification)).setLocalOnly(NotificationCompat.getLocalOnly(notification)).setLargeIcon(notification.largeIcon).setBadgeIconType(NotificationCompat.getBadgeIconType(notification)).setCategory(NotificationCompat.getCategory(notification)).setBubbleMetadata(NotificationCompat.getBubbleMetadata(notification)).setNumber(notification.number).setTicker(notification.tickerText).setContentIntent(notification.contentIntent).setDeleteIntent(notification.deleteIntent).setFullScreenIntent(notification.fullScreenIntent, NotificationCompat.getHighPriority(notification)).setSound(notification.sound, notification.audioStreamType).setVibrate(notification.vibrate).setLights(notification.ledARGB, notification.ledOnMS, notification.ledOffMS).setDefaults(notification.defaults).setPriority(notification.priority).setColor(NotificationCompat.getColor(notification)).setVisibility(NotificationCompat.getVisibility(notification)).setPublicVersion(NotificationCompat.getPublicVersion(notification)).setSortKey(NotificationCompat.getSortKey(notification)).setTimeoutAfter(NotificationCompat.getTimeoutAfter(notification)).setShortcutId(NotificationCompat.getShortcutId(notification)).setProgress(bundle.getInt(NotificationCompat.EXTRA_PROGRESS_MAX), bundle.getInt(NotificationCompat.EXTRA_PROGRESS), bundle.getBoolean(NotificationCompat.EXTRA_PROGRESS_INDETERMINATE)).setAllowSystemGeneratedContextualActions(NotificationCompat.getAllowSystemGeneratedContextualActions(notification)).setSmallIcon(notification.icon, notification.iconLevel).addExtras(getExtrasWithoutDuplicateData(notification, extractStyleFromNotification));
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/androidx/core/app/NotificationCompatBuilder.java
+36:        builder2.setWhen(notification.when).setSmallIcon(notification.icon, notification.iconLevel).setContent(notification.contentView).setTicker(notification.tickerText, builder.mTickerView).setVibrate(notification.vibrate).setLights(notification.ledARGB, notification.ledOnMS, notification.ledOffMS).setOngoing((notification.flags & 2) != 0).setOnlyAlertOnce((notification.flags & 8) != 0).setAutoCancel((notification.flags & 16) != 0).setDefaults(notification.defaults).setContentTitle(builder.mContentTitle).setContentText(builder.mContentText).setContentInfo(builder.mContentInfo).setContentIntent(builder.mContentIntent).setDeleteIntent(notification.deleteIntent).setFullScreenIntent(builder.mFullScreenIntent, (notification.flags & 128) != 0).setLargeIcon(builder.mLargeIcon).setNumber(builder.mNumber).setProgress(builder.mProgressMax, builder.mProgress, builder.mProgressIndeterminate);
+
+[!] QuickNote:
+    - It is recommended that any sensitive data should not be notified via the push notifications, if observed. Please note that, It would be necessary to understand how the application is generating the notifications and which data ends up being shown.
+
+[*] Reference:
+    - OWASP MASVS: MSTG-STORAGE-4 | CWE-829: Inclusion of Functionality from Untrusted Control Sphere
+    - https://mobile-security.gitbook.io/masvs/security-requirements/0x07-v2-data_storage_and_privacy_requirements
+
+==>> The Keyboard Cache instances...
+
+
+==>>  The Sensitive Data Disclosure through the User Interface...
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/resources/res/layout/activity_main.xml
+71:        android:inputType="textPassword"
+
+[!] QuickNote:
+    - It seems that the application has implemented inputType="textPassword" attribute to hide the certain information, if observed. Make sure that the application is not disclosing any sensitive data such as password, card details, etc. in the clear-text format via User Interface.
+
+[*] Reference:
+    - OWASP MASVS: MSTG-STORAGE-7 | CWE-359: Exposure of Private Personal Information to an Unauthorized Actor
+    - https://mobile-security.gitbook.io/masvs/security-requirements/0x07-v2-data_storage_and_privacy_requirements
+
+==>>  The allowBackup flag configuration...
+
+    - android:allowBackup="true" flag has not been observed in the AndroidManifest.xml file.
+
+==>> The Auto-Generated Screenshots protection...
+
+[!] QuickNote:
+    - It is recommended to set the FLAG_SECURE option to protect from Auto-Generated Screenshots issue. Please note that, When the application goes into background, a screenshot of the current activity is taken which may leak sensitive information.
+
+[*] Reference:
+    - OWASP MASVS: MSTG-STORAGE-9 | CWE-200: Exposure of Sensitive Information to an Unauthorized Actor
+    - https://mobile-security.gitbook.io/masvs/security-requirements/0x07-v2-data_storage_and_privacy_requirements
+
+==>> The flush instances utilized for clearing the Memory...
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/androidx/versionedparcelable/VersionedParcelStream.java
+547:            this.mDataStream.flush();
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/kotlin/ExceptionsKt__ExceptionsKt.java
+51:        printWriter.flush();
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/kotlin/io/encoding/EncodeOutputStream.java
+82:        this.output.flush();
+
+[!] QuickNote:
+    - It is recommended that the sensitive data should be flushed appropriately after its usage. Please note that, all the sensitive data should be removed from memory as soon as possible.
+
+[*] Reference:
+    - OWASP MASVS: MSTG-STORAGE-10 | CWE-316: Cleartext Storage of Sensitive Information in Memory
+    - https://mobile-security.gitbook.io/masvs/security-requirements/0x07-v2-data_storage_and_privacy_requirements
+
+==>> The Clipboard Copying instances...
+
+
+==>> The possible Hard-coded Information...
+
+
+==>> The potential Hard-coded Keys/Tokens/Secrets...
+
+
+
+[+] Hunting begins based on "V3: Cryptography Requirements"
+[+] -------------------------------------------------------
+
+==>> The Symmetric Cryptography implementation...
+
+
+==>> The Insecure/Deprecated Cryptographic Algorithms...
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/androidx/core/content/pm/PackageInfoCompat.java
+114:            return MessageDigest.getInstance("SHA256").digest(bArr);
+
+[!] QuickNote:
+    - It is recommended that cryptographic algorithms used in the application are up to date and in-line with industry standards. Please note that, Vulnerable algorithms include outdated block ciphers (such as DES, DESede, and 3DES), stream ciphers (such as RC4), hash functions (such as MD5 and SHA1), and broken random number generators (such as Dual_EC_DRBG and SHA1PRNG).
+
+[*] Reference:
+    - OWASP MASVS: MSTG-CRYPTO-4 | CWE-327: Use of a Broken or Risky Cryptographic Algorithm
+    - https://mobile-security.gitbook.io/masvs/security-requirements/0x08-v3-cryptography_verification_requirements
+
+==>> The Insecure/Weak Cipher Modes...
+
+
+==>> The Static IVs...
+
+
+==>> The Weak Random functions...
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/androidx/profileinstaller/ProfileInstallerInitializer.java
+54:        }, new Random().nextInt(Math.max(1000, 1)) + DELAY_MS);
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/com/google/android/material/color/utilities/QuantizerWsmeans.java
+34:        Random random = new Random(272008L);
+
+[!] QuickNote:
+    - It is recommended to use Pseudo-random number generators along-with 256-bit seed for producing a random-enough number, if observed. Please note that, Under certain conditions this weakness may expose mobile application data encryption or other protection based on randomization.
+
+[*] Reference:
+    - OWASP MASVS: MSTG-CRYPTO-6 | CWE-330: Use of Insufficiently Random Values
+    - https://mobile-security.gitbook.io/masvs/security-requirements/0x08-v3-cryptography_verification_requirements
+
+
+[+] Hunting begins based on "V4: Authentication and Session Management Requirements"
+[+] --------------------------------------------------------------------------------
+
+==>> The cookie related instances...
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/androidx/core/hardware/fingerprint/FingerprintManagerCompat.java
+4:import android.hardware.fingerprint.FingerprintManager;
+13:public class FingerprintManagerCompat {
+31:    public static FingerprintManagerCompat from(Context context) {
+32:        return new FingerprintManagerCompat(context);
+35:    private FingerprintManagerCompat(Context context) {
+40:        FingerprintManager fingerprintManagerOrNull = getFingerprintManagerOrNull(this.mContext);
+45:        FingerprintManager fingerprintManagerOrNull = getFingerprintManagerOrNull(this.mContext);
+50:        FingerprintManager fingerprintManagerOrNull = getFingerprintManagerOrNull(this.mContext);
+56:    private static FingerprintManager getFingerprintManagerOrNull(Context context) {
+57:        return Api23Impl.getFingerprintManagerOrNull(context);
+60:    private static FingerprintManager.CryptoObject wrapCryptoObject(CryptoObject cryptoObject) {
+64:    static CryptoObject unwrapCryptoObject(FingerprintManager.CryptoObject cryptoObject) {
+68:    private static FingerprintManager.AuthenticationCallback wrapCallback(final AuthenticationCallback authenticationCallback) {
+69:        return new FingerprintManager.AuthenticationCallback() { // from class: androidx.core.hardware.fingerprint.FingerprintManagerCompat.1
+70:            @Override // android.hardware.fingerprint.FingerprintManager.AuthenticationCallback
+75:            @Override // android.hardware.fingerprint.FingerprintManager.AuthenticationCallback
+80:            @Override // android.hardware.fingerprint.FingerprintManager.AuthenticationCallback
+81:            public void onAuthenticationSucceeded(FingerprintManager.AuthenticationResult authenticationResult) {
+82:                AuthenticationCallback.this.onAuthenticationSucceeded(new AuthenticationResult(FingerprintManagerCompat.unwrapCryptoObject(Api23Impl.getCryptoObject(authenticationResult))));
+85:            @Override // android.hardware.fingerprint.FingerprintManager.AuthenticationCallback
+149:            return ((FingerprintManager) obj).hasEnrolledFingerprints();
+153:            return ((FingerprintManager) obj).isHardwareDetected();
+157:            ((FingerprintManager) obj).authenticate((FingerprintManager.CryptoObject) obj2, cancellationSignal, i, (FingerprintManager.AuthenticationCallback) obj3, handler);
+160:        static FingerprintManager.CryptoObject getCryptoObject(Object obj) {
+161:            return ((FingerprintManager.AuthenticationResult) obj).getCryptoObject();
+164:        public static FingerprintManager getFingerprintManagerOrNull(Context context) {
+166:                return (FingerprintManager) context.getSystemService(FingerprintManager.class);
+171:        public static FingerprintManager.CryptoObject wrapCryptoObject(CryptoObject cryptoObject) {
+176:                return new FingerprintManager.CryptoObject(cryptoObject.getCipher());
+179:                return new FingerprintManager.CryptoObject(cryptoObject.getSignature());
+182:                return new FingerprintManager.CryptoObject(cryptoObject.getMac());
+188:            FingerprintManager.CryptoObject cryptoObject = (FingerprintManager.CryptoObject) obj;
+
+[!] QuickNote:
+    - It is recommended to use Biometric Authentication mechanism along-with CryptoObject appropriately, if observed. Please note that, If CryptoObject is not used as part of the authenticate method or used in an incorrect way, it can be bypassed by using tools such as Frida. Further, please be informed that the FingerprintManager class is deprecated in Android 9 (API level 28) and the Biometric library should be used instead as a best practice.
+
+[*] Reference:
+    - OWASP MASVS: MSTG-AUTH-8 | CWE-287: Improper Authentication
+    - https://mobile-security.gitbook.io/masvs/security-requirements/0x09-v4-authentication_and_session_management_requirements
+[~] NOTE:
+    - The test scenarios related to the different authentication mechanisms, stateful/stateless session management, user activities, strong password policies, etc. should be covered during your dynamic analysis/API testing phase.
+
+
+[+] Hunting begins based on "V5: Network Communication Requirements"
+[+] ----------------------------------------------------------------
+
+==>> The presence of the Network Security Configuration file...
+
+[!] QuickNote:
+    - It is recommended to configure the Network Security Configuration file (such as network_security_config.xml) as it does not exist. Please note that, Network Security Config file can be used to protect against cleartext traffic, set up trusted certificate authorities, implement certificate pinning, etc. in terms of network security settings.
+
+[*] Reference:
+    - OWASP MASVS: MSTG-NETWORK-1 | CWE-693: Protection Mechanism Failure
+    - https://mobile-security.gitbook.io/masvs/security-requirements/0x10-v5-network_communication_requirements
+
+==>> The Possible MITM attack...
+
+
+==>> The Weak SSL/TLS protocols...
+
+
+==>>  The app is allowing cleartext traffic...
+
+
+==>> The Server Certificate verification...
+
+
+==>> The WebView Server Certificate verification...
+
+
+==>> The Hostname Verification...
+
+
+==>> The Hard-coded Certificates/Key/Keystore files...
+
+
+==>> The Certificate Pinning settings...
+
+
+==>> The Certificate Pinning implementation...
+
+
+==>> The custom Trust Anchors...
+
+
+==>> The Security Provider implementation...
+
+[!] QuickNote:
+    - It is recommended that applications based on the Android SDK should depend on GooglePlayServices, if not observed. Please note that, The ProviderInstaller class is called with either installIfNeeded or installIfNeededAsync to prevent SSL exploits.
+
+[*] Reference:
+    - OWASP MASVS: MSTG-NETWORK-6 | CWE-693: Protection Mechanism Failure
+    - https://mobile-security.gitbook.io/masvs/security-requirements/0x10-v5-network_communication_requirements
+
+
+[+] Hunting begins based on "V6: Platform Interaction Requirements"
+[+] ---------------------------------------------------------------
+
+==>> The Permissions...
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/resources/AndroidManifest.xml
+13:    <permission
+16:    <uses-permission android:name="com.example.mastg_test0029.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"/>
+
+[!] QuickNote:
+    - It is recommended that the appropriate protectionLevel should be configured in the Permission declaration, if observed. Please note that, Dangerous permissions involve the user’s privacy.
+
+[*] Reference:
+    - OWASP MASVS: MSTG-PLATFORM-1 | CWE-276: Incorrect Default Permissions
+    - https://mobile-security.gitbook.io/masvs/security-requirements/0x11-v6-interaction_with_the_environment
+
+==>> The Deprecated/Unsupprotive Permissions...
+
+
+==>> The Custom Permissions...
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/androidx/activity/result/contract/ActivityResultContracts.java
+134:                if (ContextCompat.checkSelfPermission(context, str) != 0) {
+207:            if (ContextCompat.checkSelfPermission(context, input) == 0) {
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/androidx/appcompat/app/TwilightManager.java
+55:        Location lastKnownLocationForProvider = PermissionChecker.checkSelfPermission(this.mContext, "android.permission.ACCESS_COARSE_LOCATION") == 0 ? getLastKnownLocationForProvider("network") : null;
+56:        Location lastKnownLocationForProvider2 = PermissionChecker.checkSelfPermission(this.mContext, "android.permission.ACCESS_FINE_LOCATION") == 0 ? getLastKnownLocationForProvider("gps") : null;
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/androidx/core/content/ContextCompat.java
+144:    public static int checkSelfPermission(Context context, String str) {
+227:        if (PermissionChecker.checkSelfPermission(context, str) == 0) {
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/androidx/core/content/PermissionChecker.java
+51:    public static int checkSelfPermission(Context context, String str) {
+62:    public static int checkCallingOrSelfPermission(Context context, String str) {
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/androidx/core/widget/TextViewCompat.java
+300:                return resolveInfo.activityInfo.permission == null || context.checkSelfPermission(resolveInfo.activityInfo.permission) == 0;
+
+[!] QuickNote:
+    - It is recommended that Custom Permissions should be used appropriately, if observed. Please note that, The permissions provided programmatically are enforced in the manifest file, as those are more error-prone and can be bypassed more easily with, e.g., runtime instrumentation.
+
+[*] Reference:
+    - OWASP MASVS: MSTG-PLATFORM-1 | CWE-276: Incorrect Default Permissions
+    - https://mobile-security.gitbook.io/masvs/security-requirements/0x11-v6-interaction_with_the_environment
+
+==>> The Exported service/activity/provider/receiver without permission set...
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/resources/AndroidManifest.xml
+
+
+==>> The potential SQL Injection instances...
+
+
+==>> The potential Cross-Site Scripting flaws...
+
+
+==>> The potential Code Execution flaws...
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/kotlinx/coroutines/internal/SystemPropsKt__SystemPropsKt.java
+10:    private static final int AVAILABLE_PROCESSORS = Runtime.getRuntime().availableProcessors();
+
+[!] QuickNote:
+    - It is recommended not to execute the commands directly on the Operating System or to never use calls to native commands, if observed.
+
+[*] Reference:
+    - OWASP MASVS: MSTG-PLATFORM-2 | CWE-78: Improper Neutralization of Special Elements used in an OS Command ('OS Command Injection')
+    - https://mobile-security.gitbook.io/masvs/security-requirements/0x11-v6-interaction_with_the_environment
+
+==>> The Fragment Injection instances...
+
+
+==>> The EnableSafeBrowsing setting...
+
+
+==>> The instances of URL Loading in WebViews...
+
+
+==>> The Custom URL Schemes...
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/resources/AndroidManifest.xml
+35:            <intent-filter>
+36:                <action android:name="android.intent.action.MAIN"/>
+60:            <intent-filter>
+61:                <action android:name="androidx.profileinstaller.action.INSTALL_PROFILE"/>
+63:            <intent-filter>
+64:                <action android:name="androidx.profileinstaller.action.SKIP_FILE"/>
+66:            <intent-filter>
+67:                <action android:name="androidx.profileinstaller.action.SAVE_PROFILE"/>
+69:            <intent-filter>
+70:                <action android:name="androidx.profileinstaller.action.BENCHMARK_OPERATION"/>
+
+[!] QuickNote:
+    - It is recommended that custom URL schemes should be configured with android:autoVerify=true, if observed.
+
+[*] Reference:
+    - OWASP MASVS: MSTG-PLATFORM-3 | CWE-927: Use of Implicit Intent for Sensitive Communication
+    - https://mobile-security.gitbook.io/masvs/security-requirements/0x11-v6-interaction_with_the_environment
+
+==>> The Implicit intents used for broadcast...
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/androidx/localbroadcastmanager/content/LocalBroadcastManager.java
+143:    public boolean sendBroadcast(Intent intent) {
+237:        if (sendBroadcast(intent)) {
+
+[!] QuickNote:
+    - It is recommended to not send the broadcast using an implicit intent, if observed. Use methods such as sendBroadcast, sendOrderedBroadcast, sendStickyBroadcast, etc. appropriately. Please note that, an attacker can intercept or hijack the sensitive data among components. Always use explicit intents for broadcast components or LocalBroadcastManager and use an appropriate permission.
+
+[*] Reference:
+    - OWASP MASVS: MSTG-PLATFORM-4 | CWE-927: Use of Implicit Intent for Sensitive Communication
+    - https://mobile-security.gitbook.io/masvs/security-requirements/0x11-v6-interaction_with_the_environment
+
+==>> The Implicit intents used for activity...
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/androidx/activity/ComponentActivity.java
+190:                                dispatchResult(i, 0, new Intent().setAction(ActivityResultContracts.StartIntentSenderForResult.ACTION_INTENT_SENDER_REQUEST).putExtra(ActivityResultContracts.StartIntentSenderForResult.EXTRA_SEND_INTENT_EXCEPTION, e));
+196:                ActivityCompat.startActivityForResult(componentActivity, createIntent, i, bundle);
+539:    public void startActivityForResult(Intent intent, int i) {
+540:        super.startActivityForResult(intent, i);
+545:    public void startActivityForResult(Intent intent, int i, Bundle bundle) {
+546:        super.startActivityForResult(intent, i, bundle);
+574:        if (this.mActivityResultRegistry.dispatchResult(i, -1, new Intent().putExtra(ActivityResultContracts.RequestMultiplePermissions.EXTRA_PERMISSIONS, strArr).putExtra(ActivityResultContracts.RequestMultiplePermissions.EXTRA_PERMISSION_GRANT_RESULTS, iArr))) {
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/androidx/appcompat/view/menu/ActionMenuItem.java
+308:        this.mContext.startActivity(intent);
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/androidx/appcompat/view/menu/MenuItemImpl.java
+98:                this.mMenu.getContext().startActivity(this.mIntent);
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/androidx/appcompat/widget/ActivityChooserView.java
+368:                chooseActivity.addFlags(524288);
+369:                ActivityChooserView.this.getContext().startActivity(chooseActivity);
+379:                    chooseActivity.addFlags(524288);
+380:                    ActivityChooserView.this.getContext().startActivity(chooseActivity);
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/androidx/appcompat/widget/SearchView.java
+305:        Intent intent = new Intent("android.speech.action.WEB_SEARCH");
+307:        intent.addFlags(268435456);
+308:        intent.putExtra("android.speech.extra.LANGUAGE_MODEL", "web_search");
+309:        Intent intent2 = new Intent("android.speech.action.RECOGNIZE_SPEECH");
+311:        intent2.addFlags(268435456);
+802:                getContext().startActivity(createVoiceWebSearchIntent(this.mVoiceWebSearchIntent, searchableInfo));
+804:                getContext().startActivity(createVoiceAppSearchIntent(this.mVoiceAppSearchIntent, searchableInfo));
+980:            getContext().startActivity(intent);
+992:        getContext().startActivity(createIntent("android.intent.action.SEARCH", null, null, str2, i, str));
+996:        Intent intent = new Intent(str);
+997:        intent.addFlags(268435456);
+999:            intent.setData(uri);
+1001:        intent.putExtra("user_query", this.mUserQuery);
+1003:            intent.putExtra("query", str3);
+1006:            intent.putExtra("intent_extra_data_key", str2);
+1010:            intent.putExtra("app_data", bundle);
+1013:            intent.putExtra("action_key", i);
+1014:            intent.putExtra("action_msg", str4);
+1021:        Intent intent2 = new Intent(intent);
+1023:        intent2.putExtra("calling_package", searchActivity == null ? null : searchActivity.flattenToShortString());
+1030:        Intent intent2 = new Intent("android.intent.action.SEARCH");
+1038:        Intent intent3 = new Intent(intent);
+1048:        intent3.putExtra("android.speech.extra.LANGUAGE_MODEL", str);
+1049:        intent3.putExtra("android.speech.extra.PROMPT", string);
+1050:        intent3.putExtra("android.speech.extra.LANGUAGE", string2);
+1051:        intent3.putExtra("android.speech.extra.MAX_RESULTS", voiceMaxResults);
+1052:        intent3.putExtra("calling_package", searchActivity != null ? searchActivity.flattenToShortString() : null);
+1053:        intent3.putExtra("android.speech.extra.RESULTS_PENDINGINTENT", activity);
+1054:        intent3.putExtra("android.speech.extra.RESULTS_PENDINGINTENT_BUNDLE", bundle);
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/androidx/appcompat/widget/ShareActionProvider.java
+115:            ShareActionProvider.this.mContext.startActivity(chooseActivity);
+147:        intent.addFlags(134742016);
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/androidx/core/app/ActivityCompat.java
+70:    public static void startActivityForResult(Activity activity, Intent intent, int i, Bundle bundle) {
+71:        Api16Impl.startActivityForResult(activity, intent, i, bundle);
+306:        static void startActivityForResult(Activity activity, Intent intent, int i, Bundle bundle) {
+307:            activity.startActivityForResult(intent, i, bundle);
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/androidx/core/app/ShareCompat.java
+97:            Intent action = new Intent().setAction("android.intent.action.SEND");
+99:            action.putExtra(ShareCompat.EXTRA_CALLING_PACKAGE, context.getPackageName());
+100:            action.putExtra(ShareCompat.EXTRA_CALLING_PACKAGE_INTEROP, context.getPackageName());
+101:            action.addFlags(524288);
+116:                this.mIntent.putExtra(ShareCompat.EXTRA_CALLING_ACTIVITY, componentName);
+117:                this.mIntent.putExtra(ShareCompat.EXTRA_CALLING_ACTIVITY_INTEROP, componentName);
+139:                this.mIntent.setAction("android.intent.action.SEND");
+142:                    this.mIntent.putExtra("android.intent.extra.STREAM", this.mStreams.get(0));
+149:                this.mIntent.setAction("android.intent.action.SEND_MULTIPLE");
+168:            this.mIntent.putExtra(str, strArr);
+180:            intent.putExtra(str, strArr2);
+188:            this.mContext.startActivity(createChooserIntent());
+206:            this.mIntent.putExtra("android.intent.extra.TEXT", charSequence);
+211:            this.mIntent.putExtra(IntentCompat.EXTRA_HTML_TEXT, str);
+238:            this.mIntent.putExtra("android.intent.extra.EMAIL", strArr);
+256:            this.mIntent.putExtra("android.intent.extra.CC", strArr);
+274:            this.mIntent.putExtra("android.intent.extra.BCC", strArr);
+292:            this.mIntent.putExtra("android.intent.extra.SUBJECT", str);
+487:            intent.addFlags(1);
+492:            intent.setFlags(intent.getFlags() & (-2));
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/androidx/core/app/TaskStackBuilder.java
+120:        intentArr[0] = new Intent(intentArr[0]).addFlags(268484608);
+124:        Intent intent = new Intent(intentArr[intentArr.length - 1]);
+125:        intent.addFlags(268435456);
+126:        this.mSourceContext.startActivity(intent);
+138:        intentArr[0] = new Intent(intentArr[0]).addFlags(268484608);
+148:        intentArr[0] = new Intent(this.mIntents.get(0)).addFlags(268484608);
+150:            intentArr[i] = new Intent(this.mIntents.get(i));
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/androidx/core/content/ContextCompat.java
+112:    public static void startActivity(Context context, Intent intent, Bundle bundle) {
+113:        Api16Impl.startActivity(context, intent, bundle);
+307:        static void startActivity(Context context, Intent intent, Bundle bundle) {
+308:            context.startActivity(intent, bundle);
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/androidx/fragment/app/Fragment.java
+726:    public void startActivity(Intent intent) {
+727:        startActivity(intent, null);
+730:    public void startActivity(Intent intent, Bundle bundle) {
+739:    public void startActivityForResult(Intent intent, int i) {
+740:        startActivityForResult(intent, i, null);
+744:    public void startActivityForResult(Intent intent, int i, Bundle bundle) {
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/androidx/fragment/app/FragmentActivity.java
+328:            ActivityCompat.startActivityForResult(this, intent, -1, bundle);
+330:            fragment.startActivityForResult(intent, i, bundle);
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/androidx/fragment/app/FragmentHostCallback.java
+88:        ContextCompat.startActivity(this.mContext, intent, bundle);
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/com/example/mastg_test0029/MainActivity.java
+44:                        MainActivity.this.startActivity(new Intent(MainActivity.this, (Class<?>) PwdManager.class));
+
+[!] QuickNote:
+    - It is recommended to not start the activity using an implicit intent, if observed. Please note that, an attacker can hijack the activity and sometimes it may lead to sensitive information disclosure. Always use explicit intents to start activities using the setComponent, setPackage, setClass or setClassName methods of the Intent class.
+
+[*] Reference:
+    - OWASP MASVS: MSTG-PLATFORM-4 | CWE-927: Use of Implicit Intent for Sensitive Communication
+    - https://mobile-security.gitbook.io/masvs/security-requirements/0x11-v6-interaction_with_the_environment
+
+==>> The instances of JavaScript Execution in WebViews...
+
+
+==>> The instances of Remote/Local URL load in WebViews...
+
+
+==>> The Hard-coded links...
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/androidx/appcompat/widget/SuggestionsAdapter.java
+332:            String str2 = "android.resource://" + this.mProviderContext.getPackageName() + "/" + parseInt;
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/androidx/core/content/pm/ShortcutXmlParser.java
+99:        String attributeValue = xmlPullParser.getAttributeValue("http://schemas.android.com/apk/res/android", str);
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/androidx/core/content/res/TypedArrayUtils.java
+14:    private static final String NAMESPACE = "http://schemas.android.com/apk/res/android";
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/androidx/core/text/util/LinkifyCompat.java
+68:            gatherLinks(arrayList, spannable, PatternsCompat.AUTOLINK_WEB_URL, new String[]{"http://", "https://", "rtsp://"}, Linkify.sUrlMatchFilter, null);
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/androidx/core/util/PatternsCompat.java
+21:    private static final String PROTOCOL = "(?i:http|https|rtsp)://";
+41:        WEB_URL = Pattern.compile("(((?:(?i:http|https|rtsp)://(?:(?:[a-zA-Z0-9\\$\\-\\_\\.\\+\\!\\*\\'\\(\\)\\,\\;\\?\\&\\=]|(?:\\%[a-fA-F0-9]{2})){1,64}(?:\\:(?:[a-zA-Z0-9\\$\\-\\_\\.\\+\\!\\*\\'\\(\\)\\,\\;\\?\\&\\=]|(?:\\%[a-fA-F0-9]{2})){1,25})?\\@)?)?(?:" + compile2 + ")(?:\\:\\d{1,5})?)([/\\?](?:(?:[a-zA-Z0-9[ -\ud7ff豈-\ufdcfﷰ-\uffef𐀀-\u1fffd𠀀-\u2fffd𰀀-\u3fffd\u40000-\u4fffd\u50000-\u5fffd\u60000-\u6fffd\u70000-\u7fffd\u80000-\u8fffd\u90000-\u9fffd\ua0000-\uafffd\ub0000-\ubfffd\uc0000-\ucfffd\ud0000-\udfffd\ue1000-\uefffd&&[^ [\u2000-\u200a]\u2028\u2029 \u3000]];/\\?:@&=#~\\-\\.\\+!\\*'\\(\\),_\\$])|(?:%[a-fA-F0-9]{2}))*)?(?:\\b|$|^))");
+48:        String str3 = "((?:\\b|$|^)(?:(?:(?i:http|https|rtsp)://(?:(?:[a-zA-Z0-9\\$\\-\\_\\.\\+\\!\\*\\'\\(\\)\\,\\;\\?\\&\\=]|(?:\\%[a-fA-F0-9]{2})){1,64}(?:\\:(?:[a-zA-Z0-9\\$\\-\\_\\.\\+\\!\\*\\'\\(\\)\\,\\;\\?\\&\\=]|(?:\\%[a-fA-F0-9]{2})){1,25})?\\@)?)(?:" + str + ")?(?:\\:\\d{1,5})?)(?:[/\\?](?:(?:[a-zA-Z0-9[ -\ud7ff豈-\ufdcfﷰ-\uffef𐀀-\u1fffd𠀀-\u2fffd𰀀-\u3fffd\u40000-\u4fffd\u50000-\u5fffd\u60000-\u6fffd\u70000-\u7fffd\u80000-\u8fffd\u90000-\u9fffd\ua0000-\uafffd\ub0000-\ubfffd\uc0000-\ucfffd\ud0000-\udfffd\ue1000-\uefffd&&[^ [\u2000-\u200a]\u2028\u2029 \u3000]];/\\?:@&=#~\\-\\.\\+!\\*'\\(\\),_\\$])|(?:%[a-fA-F0-9]{2}))*)?(?:\\b|$|^))";
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/com/google/android/material/chip/Chip.java
+55:    private static final String NAMESPACE_ANDROID = "http://schemas.android.com/apk/res/android";
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/com/google/android/material/chip/ChipDrawable.java
+50:    private static final String NAMESPACE_APP = "http://schemas.android.com/apk/res-auto";
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/com/google/android/material/search/SearchBar.java
+44:    private static final String NAMESPACE_APP = "http://schemas.android.com/apk/res-auto";
+
+[+] Total file sources are: 8 & its total instances are: 10 
+
+[!] QuickNote:
+    - It is recommended that external/hard-coded links have been used wisely across the application, if observed.
+
+[*] Reference:
+    - OWASP MASVS: MSTG-PLATFORM-6 | CWE-200: Exposure of Sensitive Information to an Unauthorized Actor
+    - https://mobile-security.gitbook.io/masvs/security-requirements/0x11-v6-interaction_with_the_environment
+
+==>> The instances of Resource Access permissions...
+
+
+==>> The Remote WebView Debugging setting...
+
+
+==>> The instances of Java Objects exposure through WebViews...
+
+
+==>> The Object Persistence/Serialization instances...
+
+
+==>> The WebViews Cleanup implementation...
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/kotlin/io/FilesKt__UtilsKt.java
+275:                                if (!FilesKt.deleteRecursively(file2)) {
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/kotlin/io/path/PathsKt__PathRecursiveFunctionsKt.java
+112:                            PathsKt.deleteRecursively(dst);
+
+[!] QuickNote:
+    - It seems that the application clears the data via some mechanism, if observed. Please note that, the application should clear all the WebView resources including any files stored locally, the RAM cache, and any loaded JavaScript when it accesses any sensitive data within a WebView.
+
+[*] Reference:
+    - OWASP MASVS V6: MSTG-PLATFORM-10 | CWE-200: Exposure of Sensitive Information to an Unauthorized Actor
+    - https://mobile-security.gitbook.io/masvs/security-requirements/0x11-v6-interaction_with_the_environment
+
+==>> The Application Update mechanism...
+
+[!] QuickNote:
+    - It is recommended that applications should be forced to be updated. If a security update comes in, then AppUpdateType.IMMEDIATE flag should be used in order to make sure that the user cannot go forward with using the app without updating it. Please note that, newer versions of an application will not fix security issues that are living in the backends to which the app communicates.
+
+[*] Reference:
+    - OWASP MASVS V1: MSTG-ARCH-9 | CWE-1277: Firmware Not Updateable
+    - https://mobile-security.gitbook.io/masvs/security-requirements/0x06-v1-architecture_design_and_threat_modelling_requireme
+
+==>> The potential third-party application installation mechanism...
+
+
+
+[+] Hunting begins based on "V7: Code Quality and Build Setting Requirements"
+[+] -------------------------------------------------------------------------
+
+==>> The debuggable flag configuration...
+
+    - android:debuggable="true" flag has not been observed in the AndroidManifest.xml file.
+
+==>> The StrictMode Policy instances...
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/androidx/core/graphics/TypefaceCompatUtil.java
+129:                    StrictMode.setThreadPolicy(allowThreadDiskWrites);
+138:            StrictMode.setThreadPolicy(allowThreadDiskWrites);
+144:            StrictMode.setThreadPolicy(allowThreadDiskWrites);
+
+[!] QuickNote:
+    - It is recommended that StrictMode should not be enabled in a production application, if observed. Please note that, It is designed for pre-production use only.
+
+[*] Reference:
+    - OWASP MASVS V7: MSTG-CODE-4 | CWE-749: Exposed Dangerous Method or Function
+    - https://mobile-security.gitbook.io/masvs/security-requirements/0x12-v7-code_quality_and_build_setting_requirements
+
+==>> The Exception Handling instances...
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/androidx/appcompat/widget/LinearLayoutCompat.java
+268:            throw new RuntimeException("mBaselineAlignedChildIndex of LinearLayout set to an index that is out of bounds.");
+276:            throw new RuntimeException("mBaselineAlignedChildIndex of LinearLayout points to a View that doesn't know how to get its baseline.");
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/androidx/collection/CircularArray.java
+17:            throw new RuntimeException("Max array capacity exceeded");
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/androidx/collection/CircularIntArray.java
+17:            throw new RuntimeException("Max array capacity exceeded");
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/androidx/constraintlayout/core/motion/CustomAttribute.java
+99:                throw new RuntimeException("Cannot interpolate String");
+102:                throw new RuntimeException("Color does not have a single color to interpolate");
+120:                throw new RuntimeException("Color does not have a single color to interpolate");
+156:                throw new RuntimeException("Color does not have a single color to interpolate");
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/androidx/constraintlayout/core/motion/CustomVariable.java
+185:                throw new RuntimeException("Color does not have a single color to interpolate");
+187:                throw new RuntimeException("Cannot interpolate String");
+216:                throw new RuntimeException("Cannot interpolate String");
+242:                throw new RuntimeException("Cannot interpolate String");
+346:                throw new RuntimeException("unable to interpolate " + this.mName);
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/androidx/constraintlayout/core/motion/utils/SplineSet.java
+194:            throw new RuntimeException("don't call for custom attribute call setPoint(pos, ConstraintAttribute)");
+259:            throw new RuntimeException("don't call for custom attribute call setPoint(pos, ConstraintAttribute)");
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/androidx/constraintlayout/core/motion/utils/TimeCycleSplineSet.java
+132:            throw new RuntimeException("don't call for custom attribute call setPoint(pos, ConstraintAttribute,...)");
+307:            throw new RuntimeException("don't call for custom attribute call setPoint(pos, ConstraintAttribute,...)");
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/androidx/constraintlayout/motion/utils/CustomSupport.java
+44:                    throw new RuntimeException("unable to interpolate strings " + att.getName());
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/androidx/constraintlayout/motion/utils/ViewSpline.java
+343:            throw new RuntimeException("don't call for custom attribute call setPoint(pos, ConstraintAttribute)");
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/androidx/constraintlayout/motion/utils/ViewTimeCycle.java
+368:            throw new RuntimeException("don't call for custom attribute call setPoint(pos, ConstraintAttribute,...)");
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/androidx/constraintlayout/motion/widget/TransitionBuilder.java
+12:            throw new RuntimeException("Invalid motion layout. Layout missing Motion Scene.");
+16:            throw new RuntimeException("MotionLayout doesn't have the right motion scene.");
+19:            throw new RuntimeException("Invalid motion layout. Motion Scene doesn't have any transition.");
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/androidx/constraintlayout/widget/ConstraintAttribute.java
+110:                throw new RuntimeException("Cannot interpolate String");
+113:                throw new RuntimeException("Color does not have a single color to interpolate");
+131:                throw new RuntimeException("Color does not have a single color to interpolate");
+167:                throw new RuntimeException("Color does not have a single color to interpolate");
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/androidx/constraintlayout/widget/ConstraintProperties.java
+618:        throw new RuntimeException("Only children of ConstraintLayout.LayoutParams supported");
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/androidx/constraintlayout/widget/ConstraintSet.java
+419:                throw new RuntimeException("All children of ConstraintLayout must have ids to use ConstraintSet");
+1934:                throw new RuntimeException("All children of ConstraintLayout must have ids to use ConstraintSet");
+1981:                throw new RuntimeException("All children of ConstraintLayout must have ids to use ConstraintSet");
+2017:                    throw new RuntimeException("All children of ConstraintLayout must have ids to use ConstraintSet");
+2053:                    throw new RuntimeException("All children of ConstraintLayout must have ids to use ConstraintSet");
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/androidx/coordinatorlayout/widget/CoordinatorLayout.java
+517:            throw new RuntimeException("Could not inflate Behavior subclass " + str, e);
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/androidx/coordinatorlayout/widget/DirectedAcyclicGraph.java
+95:            throw new RuntimeException("This graph contains cyclic dependencies");
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/androidx/core/app/AppComponentFactory.java
+42:            throw new RuntimeException("Couldn't call constructor", e);
+50:            throw new RuntimeException("Couldn't call constructor", e);
+58:            throw new RuntimeException("Couldn't call constructor", e);
+66:            throw new RuntimeException("Couldn't call constructor", e);
+74:            throw new RuntimeException("Couldn't call constructor", e);
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/androidx/core/content/ContextCompat.java
+230:        throw new RuntimeException("Permission " + str + " is required by your application to receive broadcasts, please add it to your manifest");
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/androidx/core/content/pm/PackageInfoCompat.java
+116:            throw new RuntimeException("Device doesn't support SHA256 cert checking", e);
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/androidx/core/graphics/PathParser.java
+40:            throw new RuntimeException("Error in parsing " + str, e);
+144:            throw new RuntimeException("error in parsing \"" + str + "\"", e);
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/androidx/core/graphics/TypefaceCompatApi29Impl.java
+42:        throw new RuntimeException("Do not use this function in API 29 or later.");
+48:        throw new RuntimeException("Do not use this function in API 29 or later.");
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/androidx/core/view/GestureDetectorCompat.java
+87:                throw new RuntimeException("Unknown message " + message);
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/androidx/core/widget/AutoScrollHelper.java
+407:                throw new RuntimeException("Cannot compute scroll delta before calling start()");
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/androidx/customview/widget/ExploreByTouchHelper.java
+317:            throw new RuntimeException("Callbacks must add text or a content description in populateEventForVirtualViewId()");
+338:            throw new RuntimeException("Views cannot have both real and virtual children");
+364:            throw new RuntimeException("Callbacks must add text or a content description in populateNodeForVirtualViewId()");
+368:            throw new RuntimeException("Callbacks must set parent bounds in populateNodeForVirtualViewId()");
+372:            throw new RuntimeException("Callbacks must not add ACTION_ACCESSIBILITY_FOCUS in populateNodeForVirtualViewId()");
+375:            throw new RuntimeException("Callbacks must not add ACTION_CLEAR_ACCESSIBILITY_FOCUS in populateNodeForVirtualViewId()");
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/androidx/emoji2/text/EmojiCompatInitializer.java
+104:                    throw new RuntimeException("EmojiCompat font provider not available on this device.");
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/androidx/emoji2/text/FontRequestEmojiCompatConfig.java
+149:                    throw new RuntimeException("fetchFonts failed (" + fetchFonts.getStatusCode() + ")");
+153:                    throw new RuntimeException("fetchFonts failed (empty result)");
+157:                throw new RuntimeException("provider not found", e);
+234:                        throw new RuntimeException("fetchFonts result is not OK. (" + resultCode + ")");
+241:                            throw new RuntimeException("Unable to open file.");
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/androidx/fragment/app/ListFragment.java
+215:                    throw new RuntimeException("Your content must have a ListView whose id attribute is 'android.R.id.list'");
+217:                throw new RuntimeException("Content has view with id attribute 'android.R.id.list' that is not a ListView class");
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/androidx/lifecycle/ClassesInfoCache.java
+181:                throw new RuntimeException("Failed to call observer method", e2.getCause());
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/androidx/lifecycle/SavedStateViewModelFactoryKt.java
+36:            throw new RuntimeException("Failed to access " + modelClass, e);
+38:            throw new RuntimeException("A " + modelClass + " cannot be instantiated.", e2);
+40:            throw new RuntimeException("An exception happened in constructor of " + modelClass, e3.getCause());
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/androidx/lifecycle/ViewModelProvider.java
+165:                throw new RuntimeException("Cannot create an instance of " + modelClass, e);
+167:                throw new RuntimeException("Cannot create an instance of " + modelClass, e2);
+169:                throw new RuntimeException("Cannot create an instance of " + modelClass, e3);
+274:                    throw new RuntimeException("Cannot create an instance of " + modelClass, e);
+276:                    throw new RuntimeException("Cannot create an instance of " + modelClass, e2);
+278:                    throw new RuntimeException("Cannot create an instance of " + modelClass, e3);
+280:                    throw new RuntimeException("Cannot create an instance of " + modelClass, e4);
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/androidx/loader/content/ModernAsyncTask.java
+122:                    throw new RuntimeException("An error occurred while executing doInBackground()", e2.getCause());
+124:                    throw new RuntimeException("An error occurred while executing doInBackground()", th);
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/androidx/recyclerview/widget/ChildHelper.java
+222:            throw new RuntimeException("trying to unhide a view that was not hidden" + view);
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/androidx/recyclerview/widget/LinearLayoutManager.java
+1249:                    throw new RuntimeException("detected invalid position. loc invalid? " + (decoratedStart2 < decoratedStart));
+1253:                    throw new RuntimeException("detected invalid location");
+1264:                throw new RuntimeException("detected invalid position. loc invalid? " + (decoratedStart3 < decoratedStart));
+1268:                throw new RuntimeException("detected invalid location");
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/androidx/savedstate/Recreator.java
+65:                    throw new RuntimeException("Failed to instantiate " + className, e);
+71:            throw new RuntimeException("Class " + className + " wasn't found", e3);
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/androidx/transition/PatternPathMotion.java
+34:                throw new RuntimeException("pathData must be supplied for patternPathMotion");
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/androidx/transition/TransitionInflater.java
+139:                                            throw new RuntimeException("Could not create " + namedString3, e);
+153:                    throw new RuntimeException("Unknown scene name: " + xmlPullParser.getName());
+225:                throw new RuntimeException("No toScene for transition ID " + namedResourceId);
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/androidx/versionedparcelable/VersionedParcel.java
+682:            throw new RuntimeException("VersionedParcelable encountered IOException writing serializable object (name = " + name + ")", e);
+755:                return new RuntimeException("Unknown exception code: " + i + " msg " + str);
+956:            throw new RuntimeException("VersionedParcelable encountered IOException reading a Serializable object (name = " + readString + ")", e);
+958:            throw new RuntimeException("VersionedParcelable encountered ClassNotFoundException reading a Serializable object (name = " + readString + ")", e2);
+966:            throw new RuntimeException("VersionedParcel encountered ClassNotFoundException", e);
+968:            throw new RuntimeException("VersionedParcel encountered IllegalAccessException", e2);
+970:            throw new RuntimeException("VersionedParcel encountered NoSuchMethodException", e3);
+975:            throw new RuntimeException("VersionedParcel encountered InvocationTargetException", e4);
+983:            throw new RuntimeException("VersionedParcel encountered ClassNotFoundException", e);
+985:            throw new RuntimeException("VersionedParcel encountered IllegalAccessException", e2);
+987:            throw new RuntimeException("VersionedParcel encountered NoSuchMethodException", e3);
+992:            throw new RuntimeException("VersionedParcel encountered InvocationTargetException", e4);
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/androidx/versionedparcelable/VersionedParcelStream.java
+123:            throw new RuntimeException("Serialization of this object is not allowed");
+216:            throw new RuntimeException("CharSequence cannot be written to an OutputStream");
+283:            throw new RuntimeException("Binders cannot be written to an OutputStream");
+290:            throw new RuntimeException("Parcelables cannot be written to an OutputStream");
+297:            throw new RuntimeException("Binders cannot be written to an OutputStream");
+526:                throw new RuntimeException("Unknown type " + i);
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/com/google/android/material/internal/NavigationMenuPresenter.java
+504:            throw new RuntimeException("Unknown item type.");
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/com/google/android/material/textfield/DropdownMenuEndIconDelegate.java
+308:            throw new RuntimeException("EditText needs to be an AutoCompleteTextView if an Exposed Dropdown Menu is being used.");
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/kotlin/system/ProcessKt.java
+13:        throw new RuntimeException("System.exit returned normally, while it was supposed to halt JVM.");
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/kotlinx/coroutines/CoroutineExceptionHandlerImplKt.java
+27:                currentThread.getUncaughtExceptionHandler().uncaughtException(currentThread, CoroutineExceptionHandlerKt.handlerException(th, th2));
+39:        currentThread2.getUncaughtExceptionHandler().uncaughtException(currentThread2, th);
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/kotlinx/coroutines/CoroutineExceptionHandlerKt.java
+30:        RuntimeException runtimeException = new RuntimeException("Exception while trying to handle coroutine exception", th2);
+
+/home/kali/Desktop/test/MASTG-TEST0029_SAST/sources/kotlinx/coroutines/scheduling/CoroutineScheduler.java
+437:                currentThread.getUncaughtExceptionHandler().uncaughtException(currentThread, th);
+
+[!] QuickNote:
+    - It is recommended that a well-designed and unified scheme to handle exceptions, if observed. Please note that, The application should not expose any sensitive data while handling exceptions in its UI or log-statements.
+
+[*] Reference:
+    - OWASP MASVS V7: MSTG-CODE-6 | CWE-755: Improper Handling of Exceptional Conditions
+    - https://mobile-security.gitbook.io/masvs/security-requirements/0x12-v7-code_quality_and_build_setting_requirements
+
+==>> The Obfuscated Code blocks...
+
+[!] QuickNote:
+    - It is recommended that some basic obfuscation should be implemented to the release byte-code, if not observed. Please note that, Code obfuscation in the applications protects against reverse engineering, tampering, or other attacks.
+
+[*] Reference:
+    - OWASP MASVS V7: MSTG-CODE-9 | CWE-693: Protection Mechanism Failure
+    - https://mobile-security.gitbook.io/masvs/security-requirements/0x12-v7-code_quality_and_build_setting_requirements
+
+
+[+] Hunting begins based on "V8: Resilience Requirements"
+[+] -----------------------------------------------------
+
+==>> The Root Detection implementation...
+
+[!] QuickNote:
+    - It is recommended to implement root detection mechanisms in the application, if not observed. Please note that, Multiple detection methods should be implemented so that it cannot be bypassed easily.
+
+[*] Reference:
+    - OWASP MASVS V8: MSTG-RESILIENCE-1 | CWE-250: Execution with Unnecessary Privileges
+    - https://mobile-security.gitbook.io/masvs/security-requirements/0x15-v8-resiliency_against_reverse_engineering_requirements
+
+==>> The Anti-Debugging Detection implementation...
+
+[!] QuickNote:
+    - It is recommended to implement Anti-Debugging detection mechanisms in the application, if not observed. Please note that, Multiple detection methods should be implemented so that it cannot be bypassed easily.
+
+[*] Reference:
+    - OWASP MASVS V8: MSTG-RESILIENCE-2 | CWE-693: Protection Mechanism Failure
+    - https://mobile-security.gitbook.io/masvs/security-requirements/0x15-v8-resiliency_against_reverse_engineering_requirements
+
+==>> The File Integrity Checks implementation...
+
+[!] QuickNote:
+    - It is recommended to implement CRC checks on the app bytecode, native libraries, and important data files, if not observed. Please note that, reverse engineers can easily bypass APK code signature check by re-packaging and re-signing an app. The idea is to have additional controls in place so that the app only runs correctly in its unmodified state, even if the code signature is valid.
+
+[*] Reference:
+    - OWASP MASVS V8: MSTG-RESILIENCE-3 | CWE-693: Protection Mechanism Failure
+    - https://mobile-security.gitbook.io/masvs/security-requirements/0x15-v8-resiliency_against_reverse_engineering_requirements
+
+==>> The Emulator Detection implementation...
+
+[!] QuickNote:
+    - It is recommended to implement Emulator detection mechanisms in the application, if not observed. Please note that, Multiple detection methods should be implemented so that it cannot be bypassed easily.
+
+[*] Reference:
+    - OWASP MASVS V8: MSTG-RESILIENCE-5 | CWE-693: Protection Mechanism Failure
+    - https://mobile-security.gitbook.io/masvs/security-requirements/0x15-v8-resiliency_against_reverse_engineering_requirements
+
+==>> The implementation of any Defence Mechanisms...
+
+[!] QuickNote:
+    - It is recommended to implement various defence mechanisms such as SafetyNet Attestation API, if not observed.
+
+[*] Reference:
+    - OWASP MASVS V8: MSTG-RESILIENCE-7 | CWE-693: Protection Mechanism Failure
+    - https://mobile-security.gitbook.io/masvs/security-requirements/0x15-v8-resiliency_against_reverse_engineering_requirements
+
+[+] Scan has been finished at: 2024-05-27 11:58:31.942043947 -0400 EDT m=+457.020716337
+
+[+] Total time taken for hunting: 7m37.020157978s
+
+[*] Thank you for using APKHunt! Made with <3 in India.
+

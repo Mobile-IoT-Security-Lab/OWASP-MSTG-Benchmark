@@ -1,0 +1,236 @@
+30/05/2024 12:25:52> [INFO][SEBASTiAn.analysis.AndroidAnalysis][initialize()] Analyzing Android application 'MASTG-TEST0014.apk'
+30/05/2024 12:26:28> [ERROR][CryptoEcbCipher][check_vulnerability()] Error during 'CryptoEcbCipher' vulnerability check: list index out of range
+30/05/2024 12:26:33> [ERROR][IDOS_XAS_FI][check_vulnerability()] Error during 'IDOS_XAS_FI' vulnerability check: [Errno 2] No such file or directory: 'java'
+30/05/2024 12:26:39> [INFO][SEBASTiAn.main][perform_analysis_without_timeout()] Vulnerability analysis finished with 2 failure(s)
+{
+  "platform": "Android",
+  "ascii_obfuscation_rate": 0.0,
+  "short_name_obfuscation_rate": 8.465142353742042,
+  "vulnerabilities": [
+    {
+      "id": "AccessDeviceId",
+      "name": "Getting IMEI and Device ID",
+      "description": "This app has code getting the \"device id (IMEI)\" (using `TelephonyManager.getDeviceId()` ) in order to identify the specific device. This approach has three major drawbacks: i) it is unusable on non-phones devices, ii) it persists across device data wipes, iii) it needs special privilege to be executed (`READ_PHONE_STATE` permission).",
+      "remediation": "We suggest to use different ways of tracking app installations like relying on the \"Installation\" framework.",
+      "references": {
+        "text": "Further information on identifying apps installations and the \"Installation\" framework can be found in the Android Developers Blog [[1]].",
+        "links": {
+          "1": "http://android-developers.blogspot.tw/2011/03/identifying-app-installations.html"
+        }
+      },
+      "owasp": [
+        "M1",
+        "M7"
+      ],
+      "cvss": {
+        "attack_vector": "Local",
+        "attack_complexity": "Low",
+        "privileges_required": "Low",
+        "user_interaction": "None",
+        "scope": "Unchanged",
+        "confidentiality_impact": "Low",
+        "integrity_impact": "None",
+        "availability_impact": "None"
+      },
+      "code": [
+        {
+          "what": "Landroid/telephony/TelephonyManager;->getDeviceId()Ljava/lang/String;",
+          "where": "Landroidx/core/telephony/TelephonyManagerCompat;->getImei(Landroid/telephony/TelephonyManager;)Ljava/lang/String;",
+          "full_path": "Landroidx/core/telephony/TelephonyManagerCompat;->getImei(Landroid/telephony/TelephonyManager;)Ljava/lang/String; --> Landroid/telephony/TelephonyManager;->getDeviceId()Ljava/lang/String;"
+        }
+      ]
+    },
+    {
+      "id": "AccessInternetWithoutPermission",
+      "name": "Accessing the Internet Checking",
+      "description": "This app contains code for Internet accessing but does not have `\"android.permission.INTERNET\"` use-permission in `AndroidManifest.xml`. This may be caused by an app misconfiguration or by a malicious app that tries to access the network interface without having the proper permission.",
+      "remediation": "Please revise the application code and grant the proper permission if needed. If you are not sure about the app behavior, we suggest not to use this application.",
+      "references": {
+        "text": "Further information on connection to the network in the Android ecosystem can be found in the official documentation [[1]].",
+        "links": {
+          "1": "https://developer.android.com/training/basics/network-ops/connecting.html"
+        }
+      },
+      "owasp": [
+        "M7"
+      ],
+      "cvss": {
+        "attack_vector": "Local",
+        "attack_complexity": "Low",
+        "privileges_required": "High",
+        "user_interaction": "None",
+        "scope": "Changed",
+        "confidentiality_impact": "High",
+        "integrity_impact": "Low",
+        "availability_impact": "None"
+      },
+      "code": [
+        {
+          "what": "Ljava/net/HttpURLConnection;",
+          "where": "Lorg/bouncycastle/x509/PKIXCertPathReviewer;",
+          "full_path": "Lorg/bouncycastle/x509/PKIXCertPathReviewer; --> Ljava/net/HttpURLConnection;"
+        }
+      ]
+    },
+    {
+      "id": "CheckPermission",
+      "name": "CheckPermission call with app process PID or UID",
+      "description": "A component that uses checkPermission to verify access control at run-time will need to obtain the PID and UID of the calling component before calling checkPermission. The Binder API provides methods getCallingPID() and getCallingUID() to determine the calling component's PID and UID, respectively. However, these methods do not always return the calling PID and UID. When an application is started, the system creates a thread of execution called main. The system does not create a separate thread for each component instance. All components that run in the same process are instantiated in the main thread, and system calls to each component are dispatched from that thread. If Binder.getCallingPID() and Binder.getCallingPID() are called from the main thread, they do not return the PID and UID of the process in which the calling component is running. Instead, they return the PID and UID of the process in which the protected component is running. In such a scenario, if the process in which the protected component is running is granted permission, checkPermission will always be true. A malicious component can exploit this vulnerability to access the protected component.",
+      "remediation": "",
+      "references": {
+        "text": "Further information about this problem and possible countermeasures can be found in Android Reference Guide [[1]].",
+        "links": {
+          "1": "https://developer.android.com/reference/android/content/Context.html#checkPermission(java.lang.String,%20int,%20int)"
+        }
+      },
+      "owasp": [
+        "M7"
+      ],
+      "cvss": {
+        "attack_vector": "Network",
+        "attack_complexity": "High",
+        "privileges_required": "High",
+        "user_interaction": "Required",
+        "scope": "Unchanged",
+        "confidentiality_impact": "Low",
+        "integrity_impact": "Low",
+        "availability_impact": "None"
+      },
+      "code": [
+        {
+          "what": "Landroid/content/Context;->checkPermission(Ljava/lang/String; I I)I",
+          "where": "Landroidx/core/content/ContextCompat;->checkSelfPermission(Landroid/content/Context; Ljava/lang/String;)I",
+          "full_path": "Landroidx/core/content/pm/ShortcutManagerCompat;->requestPinShortcut(Landroid/content/Context; Landroidx/core/content/pm/ShortcutInfoCompat; Landroid/content/IntentSender;)Z --> Landroidx/core/content/pm/ShortcutManagerCompat;->isRequestPinShortcutSupported(Landroid/content/Context;)Z --> Landroidx/core/content/ContextCompat;->checkSelfPermission(Landroid/content/Context; Ljava/lang/String;)I --> Landroid/content/Context;->checkPermission(Ljava/lang/String; I I)I"
+        }
+      ]
+    },
+    {
+      "id": "CryptoSmallIterationCount",
+      "name": "Small iteration count for key derivation",
+      "description": "An iteration count smaller than 1000 passed to `PBEParameterSpec` and `PBEKeySpec` constructors is insecure.",
+      "remediation": "A minimum of 1000 iterations is recommended according to RFC 2898. This will increase the cost of exhaustive search for passwords significantly, without a noticeable impact in the cost of deriving individual keys.",
+      "references": {
+        "text": "Further information can be found on the Android Developer Guide [[1]] and in paper [[2]].",
+        "links": {
+          "1": "https://developer.android.com/reference/javax/crypto/spec/PBEKeySpec.html",
+          "2": "https://dl.acm.org/doi/10.1145/2508859.2516693"
+        }
+      },
+      "owasp": [
+        "M7"
+      ],
+      "cvss": {
+        "attack_vector": "Local",
+        "attack_complexity": "High",
+        "privileges_required": "High",
+        "user_interaction": "None",
+        "scope": "Unchanged",
+        "confidentiality_impact": "Low",
+        "integrity_impact": "None",
+        "availability_impact": "None"
+      },
+      "code": [
+        {
+          "what": "small number of iterations (1) passed to PBEKeySpec",
+          "where": "Lorg/bouncycastle/openssl/jcajce/PEMUtilities;->getKey(Lorg/bouncycastle/jcajce/util/JcaJceHelper; [C Ljava/lang/String; I [B Z)Ljavax/crypto/SecretKey;",
+          "full_path": "Lorg/bouncycastle/openssl/jcajce/JcePEMEncryptorBuilder;->build([C)Lorg/bouncycastle/openssl/PEMEncryptor; --> Lorg/bouncycastle/openssl/jcajce/JcePEMEncryptorBuilder$1;->encrypt([B)[B --> Lorg/bouncycastle/openssl/jcajce/PEMUtilities;->crypt(Z Lorg/bouncycastle/jcajce/util/JcaJceHelper; [B [C Ljava/lang/String; [B)[B --> Lorg/bouncycastle/openssl/jcajce/PEMUtilities;->getKey(Lorg/bouncycastle/jcajce/util/JcaJceHelper; [C Ljava/lang/String; I [B Z)Ljavax/crypto/SecretKey; --> Ljavax/crypto/spec/PBEKeySpec;-><init>([C [B I I)V"
+        }
+      ]
+    },
+    {
+      "id": "ExternalStorage",
+      "name": "External Storage Accessing",
+      "description": "Found external storage access API. Please remember not to write security-critical files to external storage.",
+      "remediation": "Please revise all the external storage access in order to identify eventual leaks of critical information.",
+      "references": {
+        "text": "Further information on writing files can be found in the official documentation [[1]].",
+        "links": {
+          "1": "https://developer.android.com/training/basics/data-storage/files.html"
+        }
+      },
+      "owasp": [
+        "M2",
+        "M7"
+      ],
+      "cvss": {
+        "attack_vector": "Local",
+        "attack_complexity": "Low",
+        "privileges_required": "Low",
+        "user_interaction": "None",
+        "scope": "Unchanged",
+        "confidentiality_impact": "Low",
+        "integrity_impact": "Low",
+        "availability_impact": "None"
+      },
+      "code": [
+        {
+          "what": "Landroid/os/Environment;->getExternalStorageDirectory()Ljava/io/File;",
+          "where": "Landroidx/core/content/FileProvider;->parsePathStrategy(Landroid/content/Context; Ljava/lang/String; I)Landroidx/core/content/FileProvider$PathStrategy;",
+          "full_path": "Landroidx/core/content/FileProvider;->attachInfo(Landroid/content/Context; Landroid/content/pm/ProviderInfo;)V --> Landroidx/core/content/FileProvider;->getPathStrategy(Landroid/content/Context; Ljava/lang/String; I)Landroidx/core/content/FileProvider$PathStrategy; --> Landroidx/core/content/FileProvider;->parsePathStrategy(Landroid/content/Context; Ljava/lang/String; I)Landroidx/core/content/FileProvider$PathStrategy; --> Landroid/os/Environment;->getExternalStorageDirectory()Ljava/io/File;"
+        }
+      ]
+    },
+    {
+      "id": "InsecureConnection",
+      "name": "SSL Connection Checking",
+      "description": "The application contains URLs that are **NOT** under SSL. This is a security hazard since information exchanged with those URLs can be intercepted and altered by a malicious user.",
+      "remediation": "Please carefully revise each URL and use SSL if possible. Make sure that **ALL** data displayed and sent through HTTP is not security-relevant, including Session Cookies.",
+      "references": {
+        "text": "For further information on using Android with HTTPS and SSL please refer to the official guide [[1]].",
+        "links": {
+          "1": "https://developer.android.com/training/articles/security-ssl.html"
+        }
+      },
+      "owasp": [
+        "M3"
+      ],
+      "cvss": {
+        "attack_vector": "Network",
+        "attack_complexity": "High",
+        "privileges_required": "None",
+        "user_interaction": "None",
+        "scope": "Unchanged",
+        "confidentiality_impact": "High",
+        "integrity_impact": "High",
+        "availability_impact": "Low"
+      },
+      "code": [
+        {
+          "what": "http://www.bouncycastle.org)",
+          "where": "Lorg/bouncycastle/LICENSE;-><clinit>()V",
+          "full_path": "Lorg/bouncycastle/LICENSE;-><clinit>()V"
+        }
+      ]
+    },
+    {
+      "id": "ObfuscationMissing",
+      "name": "Not sufficient code obfuscation",
+      "description": "The app seems not using sufficient code obfuscation.",
+      "remediation": null,
+      "references": null,
+      "owasp": [
+        "M7",
+        "M9"
+      ],
+      "cvss": {
+        "attack_vector": "Local",
+        "attack_complexity": "High",
+        "privileges_required": "Low",
+        "user_interaction": "Required",
+        "scope": "Unchanged",
+        "confidentiality_impact": "High",
+        "integrity_impact": "High",
+        "availability_impact": "None"
+      },
+      "code": [
+        {
+          "what": "ASCII Obfuscation: 0.00% Renaming Obfuscation: 8.47%",
+          "where": "application",
+          "full_path": "application"
+        }
+      ]
+    }
+  ],
+  "duration": "47.4 seconds"
+}
+[0m
