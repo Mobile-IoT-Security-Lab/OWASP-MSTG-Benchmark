@@ -1,4 +1,38 @@
 # [MASTG-TEST-0032: Testing WebView Protocol Handlers](https://mas.owasp.org/MASTG/tests/android/MASVS-PLATFORM/MASTG-TEST-0032)
+
+## Implementation
+
+- aggiunte network config file:
+    
+    ```xml
+    <?xml version="1.0" encoding="utf-8"?>
+    <network-security-config>
+        <domain-config cleartextTrafficPermitted="true">
+            <domain includeSubdomains="true">10.0.2.2</domain>
+        </domain-config>
+    </network-security-config>
+    ```
+    
+    la seguente app fa una load sulla web view di un contenuto salvato sull’external storage `home.html` :
+    
+    ```xml
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Login</title>
+    </head>
+    <body>
+        <p>For the login on Poste follow this <a href="https://securelogin.poste.it/jod-fcc/fcc-authentication.html">link</a></p>
+    
+    </body>
+    </html>
+    ```
+    
+    rendendo quindi a chiunque la possibilità di sovrascrivere quel file
+
+
 ## Overview
 To test for WebView protocol handlers check the app for WebView usage and evaluate whether or not the WebView should have resource access. If resource access is necessary you need to verify that it's implemented following best practices.
 

@@ -1,4 +1,11 @@
 # [MASTG-TEST-0030: Testing for Vulnerable Implementation of PendingIntent](https://mas.owasp.org/MASTG/tests/android/MASVS-PLATFORM/MASTG-TEST-0030)
+
+## Implementation
+
+- create applicazione che quando crea una notifica viene mandato un pending Intent con flag MUTABLE
+- Tale applicazione risulta vulnerabile appunto Proprio per questa flag MUTABLE del pending intent che permette la sua modifica.
+- Per triggerare la vulnerabilità del seguente test ho creato un’applicazione `EXPLOIT-MASTG-TEST0030` in essa è stato implementato un notification listener che quando vi ene triggerata la notifica dalla prima applicazione cattura il pendingIntent e lo modifica andando and aprire l’applicazione del telefono per fare una chiamata, questo è possibile perchè nella prima applicazione è stato lasciato “accidentalmente” il permesso per poter eseguire chiamate.
+
 ## Overview
 When testing Pending Intents you must ensure that they are immutable and that the app explicitly specifies the exact package, action, and component that will receive the base intent.
 MASVS-PLATFORM-1 / MSTG-PLATFORM-4 / May 08, 2023

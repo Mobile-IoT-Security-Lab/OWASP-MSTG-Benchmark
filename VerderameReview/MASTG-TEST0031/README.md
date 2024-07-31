@@ -1,5 +1,11 @@
 # [MASTG-TEST-0031: Testing JavaScript Execution in WebViews](https://mas.owasp.org/MASTG/tests/android/MASVS-PLATFORM/MASTG-TEST-0031)
 
+## Implementation
+
+- Creata app che permette di scrivere in un editText cio che vorremo cercare su internet e il risultato viene poi loadato sulla web view (`https://…`):
+    - Abilitato internet Access (Manifest) →`<uses-permission android:name="android.permission.INTERNET" />`
+    - Abilitato js → `view.getSettings().setJavaScriptEnabled(true);`
+
 ## Overview
 
 To test for JavaScript execution in WebViews check the app for WebView usage and evaluate whether or not each WebView should allow JavaScript execution. If JavaScript execution is required for the app to function normally, then you need to ensure that the app follows the all best practices.

@@ -1,5 +1,17 @@
 # [MASTG-TEST-0037: Testing WebViews Cleanup](https://mas.owasp.org/MASTG/tests/android/MASVS-PLATFORM/MASTG-TEST-0037)
+## Implementation
 
+- creato app che visualizza sito di https://talos-sec.com/
+- l’app risulta vulnerable in quanto non applica le seguenti best practice;
+    - **Initialization**: an app might be initializing the WebView in a way to avoid storing certain information by using `setDomStorageEnabled`, `setAppCacheEnabled` or `setDatabaseEnabled` from [`android.webkit.WebSettings` ↗](https://developer.android.com/reference/android/webkit/WebSettings). The DOM Storage (for using the HTML5 local storage), Application Caches and Database Storage APIs are disabled by default, but apps might set these settings explicitly to "true".
+    - **Cache**: Android's WebView class offers the [`clearCache` ↗](https://developer.android.com/reference/android/webkit/WebView#clearCache(boolean)) method which can be used to clear the cache for all WebViews used by the app. It receives a boolean input parameter (`includeDiskFiles`) which will wipe all stored resource including the RAM cache. However if it's set to false, it will only clear the RAM cache. Check the app for usage of the `clearCache` method and verify its input parameter. Additionally, you may also check if the app is overriding `onRenderProcessUnresponsive` for the case when the WebView might become unresponsive, as the `clearCache` method might also be called from there.
+    - **WebStorage APIs**: [`WebStorage.deleteAllData` ↗](https://developer.android.com/reference/android/webkit/WebStorage#deleteAllData) can be also used to clear all storage currently being used by the JavaScript storage APIs, including the Web SQL Database and the HTML5 Web Storage APIs.
+        
+        > Some apps will need to enable the DOM storage in order to display some HTML5 sites that use local storage. This should be carefully investigated as this might contain sensitive data.
+        > 
+    - **Cookies**: any existing cookies can be deleted by using [CookieManager.removeAllCookies ↗](https://developer.android.com/reference/android/webkit/CookieManager#removeAllCookies(android.webkit.ValueCallback%3Cjava.lang.Boolean%3E)).
+    - **File APIs**: proper data deletion in certain directories might not be that straightforward, some apps use a pragmatic solution which is to *manually* delete selected directories known to hold user data. This can be done using the `java.io.File` API such as [`java.io.File.deleteRecursively` ↗](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.io/java.io.-file/delete-recursively.html).
+    
 ## Overview
 
 To test for [WebViews cleanup](https://developer.android.com/guide/webapps/managing-webview) you should inspect all APIs related to WebView data deletion and try to fully track the data deletion process.

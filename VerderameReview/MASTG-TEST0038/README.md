@@ -1,4 +1,11 @@
 # [MASTG-TEST-0038: Making Sure that the App is Properly Signed](https://mas.owasp.org/MASTG/tests/android/MASVS-RESILIENCE/MASTG-TEST-0038)
+
+## Implementation
+
+- Creata app che controlla se il dispositive è rootato o no
+- se il dispositive è rootato non ti fa vedere nulla
+- se il dispositive non è rootato viene mostrato un segreto nascosto
+
 ## Overview
 MASVS-RESILIENCE-2 / MSTG-CODE-1 / May 08, 2023
 ## Static Analysis

@@ -1,4 +1,14 @@
 # [MASTG-TEST-0019: Testing Data Encryption on the Network](https://mas.owasp.org/MASTG/tests/android/MASVS-NETWORK/MASTG-TEST-0019)
+## Implementation
+- creato app che :
+1. fare richiesto su url con http e non https e la visualizza su una webview
+2. per fare le richieste ho dovuto mettere nel manifest, dentro application 
+`android:usesCleartextTraffic="true"`
+3. saltare host name verification
+4. per sicurezza levato anche gestione TLS error
+5. Usa API level bassa in modo tale che la network securuty configuration viene saltata
+    1. settato `minSdk = 19`
+
 ## Overview
 MASVS-NETWORK-1 / MSTG-NETWORK-1 / April 27, 2024
 ## Static Analysis

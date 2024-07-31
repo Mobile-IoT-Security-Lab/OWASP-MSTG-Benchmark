@@ -1,4 +1,63 @@
 # [MASTG-TEST-0033: Testing for Java Objects Exposed Through WebViews](https://mas.owasp.org/MASTG/tests/android/MASVS-PLATFORM/MASTG-TEST-0033)
+
+## Implementation
+
+- seguito la seguente guida: https://redfoxsec.com/blog/exploiting-android-webview-vulnerabilities/
+- creato app che utilizza Javascript Bridge displayando nella webView un file `index.html` presente nella internal storage che chiama funzione `init()` che richiama:
+    
+    ```html
+    <!-- index.html --!>
+    <!DOCTYPE >
+    <html xmlns="http://www.w3.org/1999/xhtml" debug="true">
+        <head>
+            <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+            <meta name="viewport" 
+              content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+            <meta name="apple-mobile-web-app-capable" content="yes">
+            <meta name="viewport" content="target-densitydpi=device-dpi" />
+            <script type="text/javascript">
+               function init()
+               {
+            	   var testVal = document.getElementById('mytextId').value;
+            	   AndroidFunction.showToast(testVal);
+               }
+            </script>
+        </head>
+        <body>        
+            <div style="float: left;width: 50%;">
+               <input type="text" style="width: 180px;" 
+                       name="myText" id="mytextId" />
+               
+            </div>
+            <div style="clear: both;height: 3px;"> </div>
+            <div>
+              <input value="submit" type="button" name="submit" 
+                id="btnSubmit" onclick="javascript:return init();" /> 
+            </div>  
+        </body>
+    </html>
+    
+    ```
+    
+    ```java
+        @JavascriptInterface
+        public void showToast(String val) {
+            String webMessage = val;
+            if( val.equals(returnString())){
+                Toast.makeText(mContext, "Correct!", Toast.LENGTH_SHORT).show();
+    
+            }
+            else{
+                Toast.makeText(mContext, "Wrong Secret", Toast.LENGTH_SHORT).show();
+    
+            }
+        }
+    ```
+    
+    Tale funzione controlla che il valore inserito sia uguale alla parola Segreta `Secret String` 
+    
+- Essendoci javascript e le interfaccie abilitate e l’attività esportata l’applicazione risulta vulnerabile
+
 ## Overview 
 To test for Java objects exposed through WebViews check the app for WebViews having JavaScript enabled and determine whether the WebView is creating any JavaScript interfaces aka. "JavaScript Bridges". Finally, check whether an attacker could potentially inject malicious JavaScript code.
 

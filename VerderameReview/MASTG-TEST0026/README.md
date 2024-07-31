@@ -1,4 +1,25 @@
 # [MASTG-TEST-0026: Testing Implicit Intents](https://mas.owasp.org/MASTG/tests/android/MASVS-CODE/MASTG-TEST-0026/)
+
+## Implementation
+
+- Creato app che dopo aver fatto il login ti permetto di “aggiugere “una credit card
+- L’activity `AddCardActivity` ha come name dell’intent:
+    
+    ```java
+            <activity
+                android:name=".AddCardActivity"
+                android:exported="false" >
+                <intent-filter>
+                    <action android:name="com.victim.ADD_CARD_ACTION" />
+                    <category android:name="android.intent.category.DEFAULT" />
+                </intent-filter>
+            </activity>
+    ```
+    
+- per l’exploit è stata seguita la seguente guida citata nell’owasp : [https://blog.oversecured.com/Interception-of-Android-implicit-intents](https://blog.oversecured.com/Interception-of-Android-implicit-intents#insecure-activity-launches)
+    
+    in breve si crea un’altra app che avrà intent name uguale a quella della vittima ma con la priorità maggiore diconseguenza quando l’intent verrà lanciato l’app che ha priorità maggiore lo catturerà.
+
 ## Overview
 When testing for implicit intents you need to check if they are vulnerable to injection attacks or potentially leaking sensitive data.
 MASVS-CODE-4 / MSTG-PLATFORM-2 / May 08, 2023

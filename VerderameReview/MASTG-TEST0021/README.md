@@ -1,5 +1,38 @@
 # [MASTG-TEST-0021: Testing Endpoint Identify Verification](https://mas.owasp.org/MASTG/tests/android/MASVS-NETWORK/MASTG-TEST-0021)
+## Implementation
+**Verifying the Target SDK Version**
 
+- creato app che visualizza in webview `https://www.example.com` con
+
+  `targetSdkVersion: '23'` 
+
+- per ragioni di sicurezza `targetSdkVersion` in apktool.yml deve essere uguale o superiore a `24`.
+- Tuttavia, anche se `targetSdkVersion >=24`, lo sviluppatore può disabilitare le protezioni predefinite utilizzando una configurazione di sicurezza di rete personalizzata definendo un trust Anchor personalizzato **costringendo l'app a fidarsi delle CA fornite dall'utente**.
+- la guida dice di andare a controller le network conf e ispezionare qualsiasi `<trust-anchors>` personalizzato che definisca `<certificates src="user">` (che dovrebbe essere evitato).
+- ma creando il file risulta vulnerable in quanto lascio l’accesso a tutti perchè ho target SDK 23
+- non viene eseguita analisi dei certificati tramite `TrustManager`
+- ignora TLS issues:
+    
+    ```java
+    WebView myWebView = (WebView) findViewById(R.id.webview);
+    myWebView.setWebViewClient(new WebViewClient(){
+        @Override
+        public void onReceivedSslError(WebView view, SslErrorHandler handler, SslError error) {
+            //Ignore TLS certificate errors and instruct the WebViewClient to load the website
+            handler.proceed();
+        }
+    });
+    ```
+    
+- disabilitato HostName Verifier
+    
+    ```java
+            final HostnameVerifier NO_VERIFY = new HostnameVerifier() {
+                public boolean verify(String hostname, SSLSession session) {
+                    return true;
+                }
+            };
+    ```
 ## Overview
 MASVS-NETWORK-1 / MSTG-NETWORK-3 / September 29, 2023
 ## Static Analysis

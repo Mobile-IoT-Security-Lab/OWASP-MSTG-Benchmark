@@ -1,4 +1,15 @@
 # [MASTG-TEST-0027: Testing for URL Loading in WebViews](https://mas.owasp.org/MASTG/tests/android/MASVS-CODE/MASTG-TEST-0027)
+
+## Implementation
+
+- creato ap che tramite login permette di visualizzare una webview vulnerabile.
+- aggiunta la seguente configurazione nel manifest
+    
+    `<meta-data    android:name="android.webkit.WebView.EnableSafeBrowsing"    android:value="false" />`
+    
+- L'app consente agli utenti di fare clic sui collegamenti all'interno di WebView, che dovrebbe aprirsi nel browser Web predefinito. Tuttavia, lo sviluppatore dell'app decide di ignorare il comportamento predefinito e gestire la navigazione della pagina all'interno dell'app stessa, senza convalidare adeguatamente gli URL.
+- In questo esempio, il metodo `ShouldOverrideUrlLoading` del WebViewClient personalizzato restituisce sempre true, il che significa che gestisce tutto il caricamento degli URL all'interno del WebView stesso senza un'adeguata convalida. Questo comportamento potrebbe potenzialmente consentire il caricamento di URL dannosi all'interno dell'app, causando vulnerabilità della sicurezza come attacchi di phishing o caricamento di contenuti dannosi.
+
 ## Overview
 In order to test for URL loading in WebViews you need to carefully analyze handling page navigation, especially when users might be able to navigate away from a trusted environment. The default and safest behavior on Android is to let the default web browser open any link that the user might click inside the WebView. However, this default logic can be modified by configuring a WebViewClient which allows navigation requests to be handled by the app itself.
 

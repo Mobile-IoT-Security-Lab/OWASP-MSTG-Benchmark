@@ -1,4 +1,22 @@
 # [MASTG-TEST-0043: Memory Corruption Bugs](https://mas.owasp.org/MASTG/tests/android/MASVS-CODE/MASTG-TEST-0043)
+## Implementation
+
+- creato Timer app seguendo la seguente guida: https://medium.com/android-news/9-ways-to-avoid-memory-leaks-in-android-b6d81648e35e
+- il timer non viene mai cancellato creando cosi un memory leak
+- bisognerebbe aggiungere :
+
+```java
+  /*
+     * Fix 1: Cancel Timer when 
+     * activity might be completed
+     * */  
+   @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        cancelTimer();
+    }
+}
+```
 
 ## Overview
 MASVS-CODE-4 / MSTG-CODE-8 / May 08, 2023

@@ -1,5 +1,18 @@
 # [MASTG-TEST-0022: Testing Custom Certificate Stores and Certificate Pinning](https://mas.owasp.org/MASTG/tests/android/MASVS-NETWORK/MASTG-TEST-0022)
+## Implementation 
 
+- creato app con due bottini:
+    - SSL pinning
+        - manda richiesta a [www.example.com](http://www.example.com) pinnando I certificate create([https://gist.github.com/pollux-/696657b75b45f1755f9105580b125c0](https://gist.github.com/pollux-/696657b75b45f1755f9105580b125c08)) ed aggiunti nel `network_security_config.xml`
+        - restituisce un Toast
+            - OK
+            - Errore
+    - No SSL pinning
+        - manda richiesta a [www.example.com](http://www.example.com) pinnando I certificati
+        - restituisce un Toast
+            - OK
+            - Errore
+            
 ## Overview
 MASVS-NETWORK-2 / MSTG-NETWORK-4 / April 27, 2024
 ## Static Analysis

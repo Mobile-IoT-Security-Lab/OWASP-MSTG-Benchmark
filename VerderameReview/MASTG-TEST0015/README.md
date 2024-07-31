@@ -1,4 +1,9 @@
 # [MASTG-TEST-0015: Testing the Purposes of Keys](https://mas.owasp.org/MASTG/tests/android/MASVS-CRYPTO/MASTG-TEST-0015)
+## Implementation
+
+- creare app di registrazion e login che usa encrypt con AES con key harcoded nella classe Crypt  .
+- Questo frammento di codice mostra un'app Android vulnerabile che genera una chiave simmetrica e la utilizza sia per la crittografia che per la decrittografia. Ciò viola il principio dell'utilizzo delle chiavi per scopi specifici. In un'applicazione sicura, è necessario utilizzare chiavi separate per la crittografia e la decrittografia.
+- Per migliorare la sicurezza di questa app, dovresti generare chiavi separate per la crittografia e la decrittografia e garantire che ciascuna chiave venga utilizzata solo per lo scopo previsto. Inoltre, è necessario implementare un'adeguata gestione degli errori e il rilevamento delle eccezioni.
 
 ## Overview
 MASVS-CRYPTO-2 / MSTG-CRYPTO-5 / May 13, 2024

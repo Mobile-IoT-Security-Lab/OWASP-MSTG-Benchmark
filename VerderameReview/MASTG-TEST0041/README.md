@@ -1,4 +1,10 @@
 # [MASTG-TEST-0041: Testing for Debugging Code and Verbose Error Logging](https://mas.owasp.org/MASTG/tests/android/MASVS-RESILIENCE/MASTG-TEST-0041)
+
+## Implementation
+
+- create app che permette all’utente di cercare un URL e visualizzarlo all’interno della webview see l’url cercato restituisce come response code 200 .
+- l’app ha sempre la strict mode abilitata, senza di essa quando viene fatto il check dell’url e poi mandato alla webview, l’applicazione crasherebbe ma con la strict mode abilitata funziona,in quanto la richiesta get occuperebbe per troppo tempo l’UI thread.
+
 ## Overview
 MASVS-RESILIENCE-3 / MSTG-CODE-4 / May 08, 2023
 ## Static Analysis

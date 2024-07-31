@@ -1,4 +1,16 @@
 # [MASTG-TEST-0044: Make Sure That Free Security Features Are Activated](https://mas.owasp.org/MASTG/tests/android/MASVS-CODE/MASTG-TEST-0044)
+
+## Implementation
+
+- create app che tramite libreria nativa esegue la somma di due numeri.
+- la vulnerabilità risiede all’interno della libreria dove appunto abbiamo il canary disabilitato
+- Per disattivare il canary è stato aggiunto nel file di sistema `CMakeList.txt` generato da android studio le seguenti righe di codice:
+    
+    ```java
+    set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -fno-stack-protector")
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fno-stack-protector")
+    ```
+
 ## Overview
 MASVS-CODE-4 / MSTG-CODE-9 / May 08, 2023
 ## Static Analysis

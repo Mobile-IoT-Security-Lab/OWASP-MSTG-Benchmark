@@ -1,4 +1,11 @@
 # [MASTG-TEST-0034: Testing Object Persistence](https://mas.owasp.org/MASTG/tests/android/MASVS-CODE/MASTG-TEST-0034)
+
+## Implementation
+
+- create app che permette di creare lista di oggetti json contenendo `username` e `email` salvandoli in un file .json
+- In questo esempio, la classe `Activity` serializza un elenco di oggetti Utente e lo salva senza alcuna crittografia o protezione HMAC. Successivamente, recupera i dati serializzati e li deserializza senza eseguire alcuna convalida o protezione contro l'accesso non autorizzato.
+- Ciò rende l'app vulnerabile ad attacchi quali intercettazione dei dati, manomissione e accesso non autorizzato. Per rendere questa app più sicura, è necessario implementare la crittografia, l'HMAC e meccanismi di convalida adeguati durante la serializzazione e la deserializzazione. Inoltre, i dati sensibili come le credenziali dell'utente non devono essere archiviati in testo normale.
+
 ## Overview
 To test for object persistence being used for storing sensitive information on the device, first identify all instances of object serialization and check if they carry any sensitive data. If yes, check if is properly protected against eavesdropping or unauthorized modification.
 

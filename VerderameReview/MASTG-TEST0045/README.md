@@ -1,4 +1,9 @@
 # [MASTG-TEST-0045: Testing Root Detection](https://mas.owasp.org/MASTG/tests/android/MASVS-RESILIENCE/MASTG-TEST-0045)
+
+## Implementation
+
+- Creato app che NON controlla se il dispositive è rootato
+
 ## Overview 
 MASVS-RESILIENCE-1 / MSTG-RESILIENCE-1 / May 08, 2023
 ## Bypassing Root Detection

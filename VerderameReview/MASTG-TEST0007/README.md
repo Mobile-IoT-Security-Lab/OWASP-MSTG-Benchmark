@@ -1,4 +1,12 @@
 # [MASTG-TEST-0007: Determining Whether Sensitive Stored Data Has Been Exposed via IPC Mechanisms](https://mas.owasp.org/MASTG/tests/android/MASVS-PLATFORM/MASTG-TEST-0007)
+## Implementation 
+
+- create app  che permette:
+- registazione e autenticazione utente
+- se l’autenticazione va a buon fine restituisce un toast con la stringa Logged In
+- inoltre permette di aggiungere tramite un content provider Utenti format da Username e pwd all’interno di un db, inoltre permette di verificare se dato uno username e pwd esso è present nel db.
+- la funzione che controlla se username e pwd sono nel db  che è vuilnerabile a sql injection  `' or 1=1 ) -- -`
+- risultando quindi logged in e mostrando nel logcat tuttti gli utenti registrati.
 
 ## Overview
 MASVS-PLATFORM-1 / MSTG-STORAGE-6 / May 08, 2023

@@ -1,5 +1,13 @@
 # [MASTG-TEST-0010: Finding Sensitive Information in Auto-Generated Screenshots](https://mas.owasp.org/MASTG/tests/android/MASVS-PLATFORM/MASTG-TEST-0010)
+## Implementation
 
+- Creato fake login form, senza aggiungere
+    
+    `getWindow().setFlags(WindowManager.LayoutParams.FLAG_SECURE,
+    WindowManager.LayoutParams.FLAG_SECURE);`
+    
+    in questo modo è possibile generare screenshot che catturano informazioni sensibili come username e password, il che rende insicura l’applicazione.
+    
 ## Overview
 MASVS-PLATFORM-3 / MSTG-STORAGE-9 / May 08, 2023
 ## Static Analysis

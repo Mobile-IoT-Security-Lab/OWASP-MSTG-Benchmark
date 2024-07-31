@@ -1,4 +1,11 @@
 # [MASTG-TEST-0016: Testing Random Number Generation](https://mas.owasp.org/MASTG/tests/android/MASVS-CRYPTO/MASTG-TEST-0016)
+
+## Implementation
+
+- Creato registration / login app
+- le credenziali vengono salvate e controllate in un file di testo all’interno della memoria interna `credentials.txt`
+- quando viene fatto login viene generato un token di sessione usando la funzione di `Java.Util.random` , questo token viene associato allo username e viene salvato nelle shared preferences.
+
 ## Overview
 MASVS-CRYPTO-1 / MSTG-CRYPTO-6 / June 02, 2024
 ## Static Analysis

@@ -1,4 +1,9 @@
 # [MASTG-TEST-0011: Testing Memory for Sensitive Data](https://mas.owasp.org/MASTG/tests/android/MASVS-STORAGE/MASTG-TEST-0011)
+## Implementation
+
+- Creato app Note Manager con login ( admin,1234)
+- Le note vengono salvate in un file di testo note.txt e queste vengono encryptate usando la key ( `Talos` ) triggerando la vulnerabilità **Sensitive Data Handling**( The application stores the encryption key in memory as a **`String`** object.)
+- Quando viene fatto log out il metodo non libera correttamente l’encryption key dalla memoria  `this.encryptionKey = null;` triggerando la vulnerabilità **User Authentication**( The application doesn't clear sensitive data from memory when the user signs out, leaving the encryption key and potentially decrypted notes accessible in memory until the application is closed)
 
 ## Overview
 

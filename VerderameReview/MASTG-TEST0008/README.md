@@ -1,4 +1,11 @@
 # [MASTG-TEST-0008: Checking for Sensitive Data Disclosure Through the User Interface](https://mas.owasp.org/MASTG/tests/android/MASVS-PLATFORM/MASTG-TEST-0008)
+
+## Implementation
+
+- Creato shop che chiede in input Credit Card Number e Pin i quali non vengono offuscati mentre vengono scritti , schiacciando il bottone buy a coffe viene inviata una notifica con CN e Pin in chiaro
+
+Unione di [Determining Whether the Keyboard Cache Is Disabled for Text Input Fields](https://mas.owasp.org/MASTG/tests/android/MASVS-STORAGE/MASTG-TEST-0006/) di [Determining Whether Sensitive Data Is Shared with Third Parties via Embedded Services](https://mas.owasp.org/MASTG/tests/android/MASVS-STORAGE/MASTG-TEST-0005/)
+
 ## Overview
 MASVS-PLATFORM-3 / MSTG-STORAGE-7 / May 08, 2023
 ## Static Analysis

@@ -1,4 +1,10 @@
 # [MASTG-TEST-0013: Testing Symmetric Cryptography](https://mas.owasp.org/MASTG/tests/android/MASVS-CRYPTO/MASTG-TEST-0013)
+
+## Implementation
+
+- creata app che crypta e decrypta un testo utilizzando AES
+- Possiamo chiaramente individuare l'uso di una chiave di cifratura statica che è codificata direttamente e inizializzata nell'array di byte statico `keyBytes` .
+
 ## Overview
 MASVS-CRYPTO-1 / MSTG-CRYPTO-1 / May 13, 2024
 ## Static  Analysis

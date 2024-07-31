@@ -1,4 +1,14 @@
 # [MASTG-TEST-0002: Testing Local Storage for Input Validation](https://mas.owasp.org/MASTG/tests/android/MASVS-CODE/MASTG-TEST-0002s)
+
+## Implementation
+
+In questo esempio, abbiamo un semplice sistema di accesso dove il nome utente dell'utente viene memorizzato utilizzando SharedPreferences.
+
+Dopo un accesso riuscito(Username: admin), il flag isLoggedIn viene anche memorizzato per indicare se l'utente ha effettuato l'accesso o meno.
+Tuttavia, non vi è alcuna validazione di input o controllo di integrità durante la lettura dei dati memorizzati da SharedPreferences. Questo rende l'applicazione vulnerabile agli attacchi di manipolazione dei dati, dove un attaccante potrebbe modificare il nome utente memorizzato o il flag isLoggedIn per ottenere accesso non autorizzato o manipolare il comportamento dell'applicazione.
+
+Ho sfruttato la vulnerabilità andando a modificare I valori nelle shared preferences.
+
 ## Overview
 For any publicly accessible data storage, any process can override the data. This means that input validation needs to be applied the moment the data is read back again.
 

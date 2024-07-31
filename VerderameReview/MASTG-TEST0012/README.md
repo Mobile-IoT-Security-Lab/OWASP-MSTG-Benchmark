@@ -1,5 +1,9 @@
 # [MASTG-TEST-0012: Testing the Device-Access-Security Policy](https://mas.owasp.org/MASTG/tests/android/MASVS-STORAGE/MASTG-TEST-0012)
 
+## Implementation
+- Creato Timer con API level ( Android 5.1)
+- Per testare la policy di sicurezza di accesso al dispositivo applicata dall'app, è necessario fornire una copia scritta della policy. La politica dovrebbe definire i controlli disponibili e la loro applicazione. Ad esempio, un controllo potrebbe richiedere che l'app funzioni solo su Android 6.0 (livello API 23) o una versione più recente, chiudendo l'app o visualizzando un avviso se la versione di Android è inferiore alla 6.0.
+
 ## Overview
 
 Apps that process or query sensitive information should run in a trusted and secure environment. To create this environment, the app can check the device for the following:

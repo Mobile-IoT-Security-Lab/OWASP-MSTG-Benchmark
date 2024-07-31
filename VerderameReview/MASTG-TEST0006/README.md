@@ -1,4 +1,19 @@
 # [MASTG-TEST-0006: Determining Whether the Keyboard Cache Is Disabled for Text Input Fields](https://mas.owasp.org/MASTG/tests/android/MASVS-STORAGE/MASTG-TEST-0006)
+
+## Implementation
+
+- Creato Fake Login ovvero qualsiasi username e pwd vanno bene, non vengono fatti controlli sulle credenziali
+
+Sebastian **non suggerisce** l’aggiunta all’EditText di un inputType
+
+```java
+ <EditText
+        android:id="@+id/KeyBoardCache"
+        android:inputType="textNoSuggestions" />
+```
+
+The code for all input fields that take sensitive information should include this XML attribute to [disable the keyboard suggestions ↗](https://developer.android.com/reference/android/text/InputType.html#TYPE_TEXT_FLAG_NO_SUGGESTIONS).
+
 ## Overview
 MASVS-STORAGE-2 / MSTG-STORAGE-5 / May 08, 2023
 ## Static Analysis

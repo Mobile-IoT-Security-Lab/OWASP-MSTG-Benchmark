@@ -1,4 +1,12 @@
 # [MASTG-TEST-0028: Testing Deep Links](https://mas.owasp.org/MASTG/tests/android/MASVS-PLATFORM/MASTG-TEST-0028)
+
+## Implementation 
+
+- creata app con `minSdkVersion` uguale a 26
+- nella seguente app abbiamo un login(admin,1234)che ti permette di accedere ad una webView
+- la vunerabilità nella seguente app è che si puo bypassare il login generando un intent da terminale e si puo modificare anche quello che puo essere visualizzato nella webView
+- seguito principalmente la seguente guida: https://z4ki.medium.com/android-deep-links-exploitation-4abade4d45b4
+
 ## Overview
 Any existing deep links (including App Links) can potentially increase the app attack surface. This includes many risks ↗ such as link hijacking, sensitive functionality exposure, etc.
 

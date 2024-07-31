@@ -1,4 +1,10 @@
 # [MASTG-TEST-0048: Testing Reverse Engineering Tools Detection](https://mas.owasp.org/MASTG/tests/android/MASVS-RESILIENCE/MASTG-TEST-0048)
+
+## Implmentation
+
+- create app che permette di fare Login ( admin,1234) e visualizzare dopo il login una webview.
+- l’applicazione risulta vulnerabile in quanto non fa controlli per evitare o per avvertire che l’app è vulnerabile all’utilizzo di reverse engineering tools o frameworks
+
 ## Overview 
 MASVS-RESILIENCE-4 / MSTG-RESILIENCE-4 / May 11, 2024
 ## Effectiveness Assessment

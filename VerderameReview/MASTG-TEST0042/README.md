@@ -1,4 +1,11 @@
 # [MASTG-TEST-0042: Checking for Weaknesses in Third Party Libraries](https://mas.owasp.org/MASTG/tests/android/MASVS-CODE/MASTG-TEST-0042)
+
+## Implementation
+
+- creato app vuota
+- la seguente app dovrebbe aver installato il seguente plugin → `dependency check:` https://plugins.gradle.org/plugin/org.owasp.dependencycheck
+- questa è un analisi sul source code o pipeline di sviluppo , descrizione e basta no altre attività
+
 ## Overview
 
 MASVS-CODE-3 / MSTG-CODE-5 / September 29, 2023

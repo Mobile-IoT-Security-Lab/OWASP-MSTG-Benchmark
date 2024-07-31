@@ -1,4 +1,10 @@
 # [MASTG-TEST-0051: Testing Obfuscation](https://mas.owasp.org/MASTG/tests/android/MASVS-RESILIENCE/MASTG-TEST-0051)
+
+## Implementation
+
+- Creata applicazione che permette di compare caffè ma il credit è zero.
+- per comprare un caffè bisogna inserire il promo code, harcodato nel codice.
+
 ## Overview
 MASVS-RESILIENCE-3 / MSTG-RESILIENCE-9 / May 13, 2024
 ## Static Analysis

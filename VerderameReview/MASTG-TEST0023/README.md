@@ -1,4 +1,15 @@
 # [MASTG-TEST-0023: Testing the Security Provider](https://mas.owasp.org/MASTG/tests/android/MASVS-NETWORK/MASTG-TEST-0023)
+
+## Implementation
+
+Creata app (login + webview) senza questo nel gradle file:
+
+`*implementation* ("com.google.android.gms:play-services-gcm:17.0.0")`
+
+di conseguenza non sappiamo Se i servizi Google Play sono disponibili, dunque l’app risulta vulnerabile.
+
+l’app fa un semplice login.(admin,1234)
+
 ## Overview
 MASVS-NETWORK-1 / MSTG-NETWORK-6 / May 08, 2023
 ## Static Analysis

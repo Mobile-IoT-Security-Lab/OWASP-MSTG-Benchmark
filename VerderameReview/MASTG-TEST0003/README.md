@@ -1,5 +1,10 @@
 # [MASTG-TEST-0003: Testing Logs for Sensitive Data](https://mas.owasp.org/MASTG/tests/android/MASVS-STORAGE/MASTG-TEST-0003)
 
+## Implementation
+
+- Creato Fake Login ovvero qualsiasi username e pwd vanno bene, non vengono fatti controlli sulle credenziali
+- Aggiunti nella Activity sono presenti  log che mostrano nel logcat panel Pwd e una stringa ( super segreta)
+
 ## Overview
 
 This test case focuses on identifying any sensitive application data within both system and application logs. The following checks should be performed:

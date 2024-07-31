@@ -1,5 +1,10 @@
 # [MASTG-TEST-0046: Testing Anti-Debugging Detection](https://mas.owasp.org/MASTG/tests/android/MASVS-RESILIENCE/MASTG-TEST-0046)
 
+## Implementation
+
+- create app che permette di fare Login ( admin,1234) e visualizzare dopo il login una webview.
+- l’applicazione risulta vulnerabile in quanto `android:debuggable=true` e viene controllato se il debugger è attacato senza pero chiudere l’applicazione in caso affermativo.
+
 ## Overview
 
 MASVS-RESILIENCE-4 / MSTG-RESILIENCE-2 / May 01, 2024

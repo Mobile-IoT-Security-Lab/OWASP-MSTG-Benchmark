@@ -1,4 +1,9 @@
 # [MASTG-TEST-0025: Testing for Injection Flaws](https://mas.owasp.org/MASTG/tests/android/MASVS-CODE/MASTG-TEST-0025)
+## Implementation
+
+- preso spunto da https://github.com/payatu/diva-android
+- creato login che controlla da un db sql nell’internal storage
+- non viene fatta nessuna sanificazione dell’input di conseguenza il codice è susciettibile a SQL injection ( `' or 1=1 -- -` )
 
 ## Overview
 

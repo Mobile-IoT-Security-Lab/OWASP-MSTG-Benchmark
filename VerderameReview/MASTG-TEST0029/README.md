@@ -1,5 +1,12 @@
 # [MASTG-TEST-0029: Testing for Sensitive Functionality Exposure Through IPC](https://mas.owasp.org/MASTG/tests/android/MASVS-PLATFORM/MASTG-TEST-0029)
 
+## Implementation
+
+- create PWD Manager a cui si puo accedere tramite Login che controlla credenziali attraverso file `credentials.txt` (admin,1234)
+- `PwdManager.class` contiene tutte le password salvate su `pwd.txt` e da la possibilità di salvare nuove password che verranno displayate nell’attività
+- La vulnerabiltà è present nel manifest che definisce l’attività PwdManager come `android:exported="true"`
+- In questo modo da terminale è possibile aprire l’attivita `PwdManager` senza passare dal login.
+
 ## Overview
 
 To test for [sensitive functionality exposure through IPC](https://owasp.org/www-project-mobile-security-testing-guide/mas/0x07a-Testing-for-Sensitive-Functionality-Exposure-Through-IPC.html) mechanisms you should first enumerate all the IPC mechanisms the app uses and then try to identify whether sensitive data is leaked when the mechanisms are used.

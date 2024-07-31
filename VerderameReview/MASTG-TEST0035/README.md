@@ -1,4 +1,25 @@
 # [MASTG-TEST-0035: Testing for Overlay Attacks](https://mas.owasp.org/MASTG/tests/android/MASVS-PLATFORM/MASTG-TEST-0035)
+
+## Implementation
+
+- create app che permette di fare login e visualizza una webview
+- creato exploit che fa l’inflate del layout di editText e button
+- Importante: nel Manifest viene settato permesso
+    
+    `<uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />`
+    
+    Senza questo permesso è impossible fare inflate di layout da parte di Malicious Application
+    
+- L’app non fa I seguenti controlli di conseguenza risulta vulnerable:
+- Per avviare l'analisi statica è possibile verificare nell'app i seguenti metodi e attributi (elenco non esaustivo):
+- Sostituisci `onFilterTouchEventForSecurity` per un controllo più preciso e per implementare una policy di sicurezza personalizzata per le visualizzazioni.
+- Imposta l'attributo di layout `android:filterTouchesWhenObscured`  su true o chiama `setFilterTouchesWhenObscured` .
+- Seleziona `FLAG_WINDOW_IS_OBSCURED`  (a partire dal livello API 9) o `FLAG_WINDOW_IS_PARTIALLY_OBSCURED`  (a partire dal livello API 29).
+
+- Trigger Vulnerability:
+    - Creata app `EXPLOIT-MASTG-TEST0035` che attiva un service in bg che controlla quando l’app `MASTG-TEST0035` viene lanciata.
+    - Non appena `MASTG-TEST0035` viene lanciata viene subito overlayato il layout.
+    
 ## Overview
 To test for overlay attacks you need to check the app for usage of certain APIs and attributed typically used to protect against overlay attacks as well as check the Android version that app is targeting.
 

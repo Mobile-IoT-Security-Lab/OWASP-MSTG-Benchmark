@@ -1,4 +1,10 @@
 # [MASTG-TEST-0049: Testing Emulator Detection](https://mas.owasp.org/MASTG/tests/android/MASVS-RESILIENCE/MASTG-TEST-0049)
+
+## Implementation
+
+- create app che permette di fare Login ( admin,1234) e visualizzare dopo il login una webview.
+- l’applicazione risulta vulnerabile in quanto non fa controlli se l’app runna su l’emulatore
+
 ## Overview
 
 MASVS-RESILIENCE-1 / MSTG-RESILIENCE-5 / May 11, 2024

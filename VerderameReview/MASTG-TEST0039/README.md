@@ -1,4 +1,11 @@
 # [MASTG-TEST-0039: Testing whether the App is Debuggable](https://mas.owasp.org/MASTG/tests/android/MASVS-RESILIENCE/MASTG-TEST-0039)
+
+## Implementation
+
+- Creata app che quando viene aperta salva in un file di testo 10 username e pwd generati casualmenti
+- per fare il login bisogna conoscere uno dei seguenti username e pwd
+- generator apk in debug mode
+
 ## Overview
 MASVS-RESILIENCE-4 / MSTG-CODE-2 / May 08, 2023
 # Static Analysis
