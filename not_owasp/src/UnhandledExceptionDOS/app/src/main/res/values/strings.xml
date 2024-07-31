@@ -1,6 +1,0 @@
-<resources>
-    <string name="app_name">UnhandledException-DOS</string>
-    <string name="overview">An application is susceptible to a denial of service attack if it contains code that, in certain situations, may throw exceptions and the app developer does not handle the exception.
-
-Problem: It is the responsibility of the app developer to handle exceptions explicitly if the code in the app has the potential to throw them under certain conditions. If necessary, a malicious app may attempt to run the portion of the code that raises an exception but is not managed by an app developer by giving some arbitrary inputs.</string>
-</resources>

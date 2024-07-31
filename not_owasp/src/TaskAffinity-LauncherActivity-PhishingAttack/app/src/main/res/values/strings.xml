@@ -1,6 +1,0 @@
-<resources>
-    <string name="app_name">TaskAffinity-LauncherActivity-PhishingAttack</string>
-    <string name="overview"> An Android system can be asked to launch an activity (X) in a certain task (T). When an activity X begins with such a request, it will begin in task T. The package name specified in the manifest part of the app manifest is the name of the default task for an application.
-
-Problem: A malicious program\'s launcher activity, activity M, has the ability to leverage task affinity to begin in the same task as a benign app. This gives activity M the ability to attack the benign app with a phishing or denial-of-service (DOS) attack. </string>
-</resources>

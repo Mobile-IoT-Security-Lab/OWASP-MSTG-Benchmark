@@ -1,4 +1,0 @@
-<resources>
-    <string name="app_name">TaskAffinityAndReparenting-PhishingAndDoSAttack</string>
-    <string name="overview">Example: Benign and malicious apps illustrate this vulnerability. Due to the malicious app\'s taskAffinity being set to "edu.ksu.cs.benign" for NonLauncherActivity, NonLauncherActivity will always begin in the task edu.ksu.cs.benign. By default, the task edu.ksu.cs.benign will also be where all Benign app activities begin. Starting an activity of the Benign app will display NonLauncherActivity if NonLauncherActivity was started (and not stopped) previously since android:allowTaskReparenting is set true for NonLauncherActivity. When a malicious software is launched after a benign app has been launched, NonLauncherActivity will appear to steal the user\'s credentials because it resembles the screen of the benign app perfectly.</string>
-</resources>

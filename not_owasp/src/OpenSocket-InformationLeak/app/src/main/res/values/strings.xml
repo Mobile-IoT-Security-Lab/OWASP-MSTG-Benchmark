@@ -1,8 +1,0 @@
-<resources>
-    <string name="app_name">OpenSocket-InformationLeak</string>
-    <string name="overview">A program can wait for a connection from a distant server by listening on a port. After establishing a successful connection with the remote server, the application uploads or downloads code and data from the server.
-
-Problem: The application runs the risk of connecting to a malicious remote server rather than the intended server if it doesn\'t first confirm the identification of the host it is connected to before taking any action.
-</string>
-    <string name="port">8080</string>
-</resources>

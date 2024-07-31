@@ -1,6 +1,0 @@
-<resources>
-    <string name="app_name">OrderedBroadcast-DataInjection</string>
-    <string name="overview">To receive broadcasts that are ordered, a broadcast receiver can register. All broadcast receivers registered to receive an ordered broadcast reply to it in priority order when it is sent. Receivers with higher priority (number) reply first and pass the request on to those with lower priority (number); for example, a priority 1 receiver will get the request before a priority 0 receiver. The sequence is arbitrary if more than one recipient has the same priority.
-
-Problem: A malevolent receiver with a high priority can intercept the message, alter it, and then forward it to lower priority receivers since higher priority receivers respond first and forward it to lower priority receivers.</string>
-</resources>

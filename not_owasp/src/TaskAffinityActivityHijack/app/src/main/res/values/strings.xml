@@ -1,6 +1,0 @@
-<resources>
-    <string name="app_name">TaskAffinity-ActivityHijack</string>
-    <string name="overview">We described in TaskAffinity-PhishingAttack how a harmful activity can contaminate a job that consists of benign activities. Malicious programs can use task poisoning to take control of innocent operations by using the back button.
-
-Problem: When a user views the activity of a malicious app that shares the same task affinity as a benign app, the malicious activity gets integrated into the benign task. In the event that this happens, the user can travel from a benign activity A to a malicious activity M by using the back button rather than the intended benign activity C. As a result, innocuous activity C will have been taken over by malignant activity M.\n ( Any credential is fine )</string>
-</resources>

@@ -1,6 +1,0 @@
-<resources>
-    <string name="app_name">UnsafeIntentURLImpl-InformationExposure</string>
-    <string name="overview">Android enables an Android component to be launched by an intent from a webpage seen within an Android app. The purpose must be encoded as a valid URI U by webpage X and loaded into component C so that X can be shown. The resource that U points to loads when the user interacts with webpage X and performs an action.
-
-Problem: A malicious web page may incorporate an intent to an installed harmful component in the device if an application\'s component C, which displays web pages, does not sanitize the URI before acting on it. The user interacts with the malicious component when she clicks on the URI.</string>
-</resources>

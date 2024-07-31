@@ -1,8 +1,0 @@
-<resources>
-    <string name="app_name">TaskAffinity-PhishingAttack</string>
-    <string name="overview">Android\'s task system is a collection of activities that are launched when a user starts an activity. The activity at the top of the stack is displayed to the user, and if the user presses the back button, the activity is removed, or the task is moved to the background. However, activities can override this default behavior by requesting Android to group itself with another task or start itself in a new task.
-
-Malicious apps can request to launch/start themselves in the same task as benign apps, potentially leading to phishing attacks. For example, if a malicious activity M has an affinity for task T, all calls to start activity B will resolve into calls to start activity M, causing the user to navigate to activity M instead of activity B. This vulnerability is demonstrated by the pair of benign and malicious apps in TaskAffinity-PhishingAttack/Benign and TaskAffinity-PhishingAttack/Malicious.
-
-The benign app allows users to navigate to the ImageEditor Activity, which is started in a new task called "com.example.taskaffinity_phishingattack.editImage". The malicious app, MalActivity, hides the malicious behavior and provides useful functionality to the user. When the user returns to the benign app, MalActivity displays a screen similar to the login screen of the benign image editor app.</string>
-</resources>
