@@ -1,4 +1,0 @@
-<resources>
-    <string name="app_name">MASTG-TEST-0006</string>
-    <string name="overview"> This test case is focused on ensuring that sensitive information input fields in an Android application are properly configured to prevent keyboard caching. It involves checking the layout definition of activities to verify that TextViews with input fields have the appropriate XML attributes set to disable keyboard suggestions, specifically using android:inputType=&quot;textNoSuggestions&quot;.  </string>
-</resources>

@@ -1,8 +1,0 @@
-<resources>
-    <string name="app_name">MASTG-TEST0034</string>
-    <string name="overview">To test for object persistence being used for storing sensitive information on the device,
-        first identify all instances of object serialization and check if they carry any sensitive data.
-        If yes, check if is properly protected against eavesdropping or unauthorized modification.
-
-</string>
-</resources>

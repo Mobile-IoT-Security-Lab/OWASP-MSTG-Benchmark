@@ -1,7 +1,0 @@
-<resources>
-    <string name="app_name">MASTG-TEST0029</string>
-    <string name="overview">To test for sensitive functionality exposure through IPC mechanisms
-        you should first enumerate all the IPC mechanisms the app uses and then try to identify whether sensitive data is leaked when the mechanisms are used.
-        (admin,1234)
-</string>
-</resources>

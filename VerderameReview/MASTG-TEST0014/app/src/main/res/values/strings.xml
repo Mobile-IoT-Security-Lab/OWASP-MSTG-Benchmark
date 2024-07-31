@@ -1,4 +1,0 @@
-<resources>
-    <string name="app_name">MASTG-TEST-0014</string>
-    <string name="overview">This test case focuses on identifying potentially sensitive data crypted with insecure protocols. (Admin,1234)</string>
-</resources>

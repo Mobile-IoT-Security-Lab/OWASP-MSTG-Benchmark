@@ -1,6 +1,0 @@
-<resources>
-    <string name="app_name">MASTG-TEST0033</string>
-    <string name="overview">To test for Java objects exposed through WebViews check the app for WebViews having JavaScript enabled and determine whether the WebView is creating any JavaScript interfaces aka. "JavaScript Bridges". Finally, check whether an attacker could potentially inject malicious JavaScript code.
-
-</string>
-</resources>

@@ -1,4 +1,0 @@
-<resources>
-    <string name="app_name">MASTG-TEST0041</string>
-    <string name="overview">To determine whether StrictMode is enabled, you can look for the StrictMode.setThreadPolicy or StrictMode.setVmPolicy methods. Most likely, they will be in the onCreate method.</string>
-</resources>

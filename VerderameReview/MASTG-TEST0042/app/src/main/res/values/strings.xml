@@ -1,5 +1,0 @@
-<resources>
-    <string name="app_name">MASTG-TEST0042</string>
-    <string name="overview">
-Il test descritto qui è focalizzato sulla conduzione di controlli di vulnerabilità e analisi per le librerie di terze parti utilizzate nei progetti software. L\'obiettivo è identificare e rimediare a eventuali debolezze di sicurezza introdotte da queste dipendenze.\nQuesta è un analisi sul source code o pipeline di sviluppo </string>
-</resources>

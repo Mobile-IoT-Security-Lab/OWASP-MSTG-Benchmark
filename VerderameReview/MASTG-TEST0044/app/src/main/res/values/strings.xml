@@ -1,4 +1,0 @@
-<resources>
-    <string name="app_name">MASTG-TEST0044</string>
-    <string name="overview">Test the app native libraries to determine if they have the PIE and stack smashing protections enabled.\nYou can use radare2\'s rabin2 to get the binary information\nrabin2 -I lib/x86_64/libnative-lib.so | grep -E "canary|pic"</string>
-</resources>

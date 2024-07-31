@@ -1,4 +1,0 @@
-<resources>
-    <string name="app_name">MASTG-TEST0038</string>
-    <string name="overview">Signing an app ensures its integrity. When an app is signed, it means that the code of the app has not been altered or tampered with after it was signed. This helps in ensuring that the app behaves as intended and hasn\'t been modified by malicious parties</string>
-</resources>

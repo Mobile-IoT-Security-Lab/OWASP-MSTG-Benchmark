@@ -1,4 +1,0 @@
-<resources>
-    <string name="app_name">MASTG-TEST0016</string>
-    <string name="overview">This test case focuses on showing an insecure mechanism of Login session through the Java.Util.Random Library</string>
-</resources>

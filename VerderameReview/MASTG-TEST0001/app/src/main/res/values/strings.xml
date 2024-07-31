@@ -1,5 +1,0 @@
-<resources>
-    <string name="app_name">MASTG-TEST0001</string>
-    <string name="pwd_super_secret">Talos2024</string>
-    <string name="overview">This test case focuses on identifying potentially sensitive data stored by an application and verifying if it is securely stored.</string>
-</resources>

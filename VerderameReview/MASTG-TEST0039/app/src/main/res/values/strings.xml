@@ -1,4 +1,0 @@
-<resources>
-    <string name="app_name">MASTG-TEST0039</string>
-    <string name="overview">In order to have a Secure App you should avoid that the app is debuggable.Check AndroidManifest.xml to determine whether the android:debuggable attribute has been set</string>
-</resources>

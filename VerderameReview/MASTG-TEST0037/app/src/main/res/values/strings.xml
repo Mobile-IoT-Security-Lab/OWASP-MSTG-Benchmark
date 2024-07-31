@@ -1,4 +1,0 @@
-<resources>
-    <string name="app_name">MASTG-TEST0037</string>
-    <string name="overview">To test for WebViews cleanup you should inspect all APIs related to WebView data deletion and try to fully track the data deletion process.</string>
-</resources>

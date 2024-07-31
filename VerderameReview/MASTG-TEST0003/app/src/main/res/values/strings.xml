@@ -1,7 +1,0 @@
-<resources>
-    <string name="app_name">MASTG-TEST-0003</string>
-    <string name="explanation">This test case focuses on identifying any sensitive application data within both system and application logs.\n The following checks should be performed:\n
-        &#8226; Analyze source code for logging related code. \n
-        &#8226; Check application data directory for log files. \n
-        &#8226; Gather system messages and logs and analyze for any sensitive data. \nAs a general recommendation to avoid potential sensitive application data leakage, logging statements should be removed from production releases unless deemed necessary to the application or explicitly identified as safe, e.g. as a result of a security audit.  </string>
-</resources>

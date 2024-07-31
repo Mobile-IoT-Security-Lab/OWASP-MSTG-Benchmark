@@ -1,4 +1,0 @@
-<resources>
-    <string name="app_name">MASTG-TEST0018</string>
-    <string name="overview">Note that there are quite some vendor/third party SDKs, which provide biometric support, but which have their own insecurities. Be very cautious when using third party SDKs to handle sensitive authentication logic.</string>
-</resources>

@@ -1,5 +1,0 @@
-<resources>
-    <string name="app_name">MASTG-TEST0040</string>
-    <string name="overview">Symbols are usually stripped during the build process, so you need the compiled bytecode and libraries to make sure that unnecessary metadata has been discarded.
-    \nopen the file in your favorite disassembler and check the symbol tables manually.</string>
-</resources>

@@ -1,4 +1,0 @@
-<resources>
-    <string name="app_name">MASTG-TEST0022</string>
-    <string name="overview">The vulnerability involves potential expiration of certificate pinning configurations, leading to disabled pinning in Android apps. Correct implementation requires TrustManager with a loaded KeyStore to validate certificates against expected public keys or entire chains. Third-party libraries like OkHttp integrate pinning via CertificatePinner for HTTPS connections, while WebView components implement pinning logic within WebViewClient handlers. Xamarin apps use ServicePointManager to enforce pinning by comparing public keys, and Cordova-based apps rely on plugins like PhoneGap SSL Certificate Checker for certificate verification against predefined fingerprints.</string>
-</resources>

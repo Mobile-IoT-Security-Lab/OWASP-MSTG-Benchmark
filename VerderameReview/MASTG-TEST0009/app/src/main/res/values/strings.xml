@@ -1,4 +1,0 @@
-<resources>
-    <string name="app_name">MASTG-TEST-0009</string>
-   <string name="overview">This test case focuses on showing data leakage vulnerability through the backup vulnerability</string>
-</resources>

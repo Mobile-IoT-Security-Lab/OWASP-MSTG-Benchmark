@@ -1,4 +1,0 @@
-<resources>
-    <string name="app_name">MASTG-TEST0013</string>
-    <string name="overview">This code violates the principles of secure key management as the key is hardcoded and readily accessible within the code, making it vulnerable to extraction by an attacker. Additionally, it\'s used directly for encryption and decryption without any further protection or obfuscation, which is also insecure.  This is a simplified example for demonstration purposes. In real-world scenarios, cryptographic vulnerabilities could have more complexity and may involve multiple files and classes.</string>
-</resources>

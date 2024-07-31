@@ -1,7 +1,0 @@
-<resources>
-    <string name="app_name">MASTG-TEST0030</string>
-    <string name="channel_name">MASTG-TEST0030-CHANNEL</string>
-    <string name="channel_description">MASTG-TEST0030-CHANNEL</string>
-    <string name="overview">When testing Pending Intents you must ensure that they are immutable and that the app explicitly specifies the exact package, action, and component that will receive the base intent.</string>
-
-</resources>

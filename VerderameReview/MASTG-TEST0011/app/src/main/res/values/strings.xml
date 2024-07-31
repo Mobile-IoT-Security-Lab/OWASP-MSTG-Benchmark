@@ -1,4 +1,0 @@
-<resources>
-    <string name="app_name">MASTG-TEST0011</string>
-    <string name="overview">The aim of the test outlined in the original text is to identify and mitigate potential vulnerabilities related to the handling of sensitive data in memory within an application. It focuses on analyzing how sensitive information is managed within the application\'s memory space and aims to ensure that such data is adequately protected and not exposed to unauthorized access or disclosure.</string>
-</resources>

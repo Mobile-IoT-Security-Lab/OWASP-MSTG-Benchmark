@@ -1,6 +1,0 @@
-<resources>
-    <string name="app_name">MASTG-TEST0051</string>
-    <string name="channel_name">MASTG-TEST-0051_Channel</string>
-    <string name="channel_description">MASTG-TEST-0051_Channel_Description</string>
-    <string name="overview">In order to have a secure App is important to obfuscate the code inside it!</string>
-</resources>

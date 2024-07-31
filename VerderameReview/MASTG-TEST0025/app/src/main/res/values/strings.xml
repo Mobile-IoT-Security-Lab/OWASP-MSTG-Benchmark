@@ -1,6 +1,0 @@
-<resources>
-    <string name="app_name">MASTG-TEST0025</string>
-    <string name="overview">You can use ContentProviders to access database information,
-        and you can probe services to see if they return data. If data is not validated properly,
-        the content provider may be prone to SQL injection while other apps are interacting with it.</string>
-</resources>

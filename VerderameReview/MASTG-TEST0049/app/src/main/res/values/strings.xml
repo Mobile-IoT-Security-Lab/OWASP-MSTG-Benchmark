@@ -1,6 +1,0 @@
-<resources>
-    <string name="app_name">MASTG-TEST0049</string>
-    <string name="overview">Patch the emulator detection functionality. Disable the unwanted behavior by simply overwriting the associated bytecode or native code with NOP instructions.\n
-Use Frida or Xposed APIs to hook file system APIs on the Java and native layers.\n Return innocent-looking values (preferably taken from a real device) instead of the telltale emulator values.\n For example, you can override the TelephonyManager.getDeviceID method to return an IMEI value.
-</string>
-</resources>

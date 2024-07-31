@@ -1,4 +1,0 @@
-<resources>
-    <string name="app_name">MASTG-TEST0002</string>
-    <string name="overview">For any publicly accessible data storage, any process can override the data. This means that input validation needs to be applied the moment the data is read back again.</string>
-</resources>

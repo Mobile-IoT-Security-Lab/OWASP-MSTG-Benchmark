@@ -1,4 +1,0 @@
-<resources>
-    <string name="app_name">MASTG-TEST0023</string>
-    <string name="overview">Applications based on the Android SDK should depend on GooglePlayServices. For example, in the gradle build file, you will find compile \'com.google.android.gms:play-services-gcm:x.x.x\' in the dependencies block.\nYou need to make sure that the ProviderInstaller class is called with either installIfNeeded or installIfNeededAsync.</string>
-</resources>

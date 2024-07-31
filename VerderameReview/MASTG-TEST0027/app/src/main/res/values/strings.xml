@@ -1,9 +1,0 @@
-<resources>
-    <string name="app_name">MASTG-TEST0027</string>
-    <string name="overview">In order to test for URL loading in WebViews you need to carefully analyze handling page navigation,
-        especially when users might be able to navigate away from a trusted environment.
-        The default and safest behavior on Android is to let the default web browser open any link that the user might click inside the WebView.
-        However,this default logic can be modified by configuring a WebViewClient which allows navigation requests to be handled by the app itself. (admin,1234)</string>
-</resources>
-
-

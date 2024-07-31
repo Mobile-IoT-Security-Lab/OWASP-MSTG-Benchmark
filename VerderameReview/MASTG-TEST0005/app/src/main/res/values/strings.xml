@@ -1,7 +1,0 @@
-<resources>
-    <string name="app_name">MASTG-TEST-0005</string>
-    <string name="channel_name">MASTG-TEST-0005_Channel</string>
-    <string name="channel_description">MASTG-TEST-0005_Channel_Description</string>
-    <string name="overview">This test case focuses on identifying potentially sensitive data showed by a NotificationManager system .</string>
-
-</resources>

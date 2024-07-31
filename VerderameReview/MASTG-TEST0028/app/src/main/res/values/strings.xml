@@ -1,4 +1,0 @@
-<resources>
-    <string name="app_name">MASTG-TEST0028</string>
-    <string name="overview">This test case focuses on identifying potentially sensitive data crypted with insecure Any existing deep links (including App Links) can potentially increase the app attack surface. This includes many risks  such as link hijacking, sensitive functionality exposure, etc.  All deep links must be enumerated and verified for correct website association. The actions they perform must be well tested, especially all input data, which should be deemed untrustworthy and thus should always be validated. (Admin,1234)</string>
-</resources>

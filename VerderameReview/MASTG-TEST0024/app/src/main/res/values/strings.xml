@@ -1,4 +1,0 @@
-<resources>
-    <string name="app_name">MASTG-TEST0024</string>
-    <string name="overview">When testing app permissions the goal is to try and reduce the amount of permissions used by your app to the absolute minimum. While going through each permission, remember that it is best practice first to try and evaluate whether your app needs to use this permission because many functionalities such as taking a photo can be done without, limiting the amount of access to sensitive data. If permissions are required you will then make sure that the request/response to access the permission is handled handled correctly.</string>
-</resources>

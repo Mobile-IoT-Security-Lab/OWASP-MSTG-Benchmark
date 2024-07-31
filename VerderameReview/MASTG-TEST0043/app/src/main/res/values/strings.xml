@@ -1,4 +1,0 @@
-<resources>
-    <string name="app_name">MASTG-TEST0043</string>
-    <string name="overview">Note that there can be Memory leaks in Java/Kotlin code as well. Look for various items, such as: BroadcastReceivers which are not unregistered, static references to Activity or View classes, Singleton classes that have references to Context, Inner Class references, Anonymous Class references, AsyncTask references, Handler references, Threading done wrong, TimerTask references</string>
-</resources>

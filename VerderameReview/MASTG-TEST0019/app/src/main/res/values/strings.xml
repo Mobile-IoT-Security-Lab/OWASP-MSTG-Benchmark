@@ -1,6 +1,0 @@
-<resources>
-    <string name="app_name">MASTG-TEST0019</string>
-    <string name="overview">First, you should identify all network requests in the source code and ensure that no plain HTTP URLs are used.\n
-    Next, even when using a low-level API which is supposed to make secure connections be aware that it has to be securely implemented\n
-    Next, you should ensure that the app is not allowing cleartext HTTP traffic\nAll of the above cases must be carefully analyzed as a whole. For example, even if the app does not permit cleartext traffic in its Android Manifest or Network Security Configuration, it might actually still be sending HTTP traffic. That could be the case if it\'s using a low-level API </string>
-</resources>
