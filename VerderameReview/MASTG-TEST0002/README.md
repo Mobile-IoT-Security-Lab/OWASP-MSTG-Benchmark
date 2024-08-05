@@ -1,5 +1,9 @@
 # [MASTG-TEST-0002: Testing Local Storage for Input Validation](https://mas.owasp.org/MASTG/tests/android/MASVS-CODE/MASTG-TEST-0002s)
 
+## Note
+
+- vulnerabilità non chiara e non è chiaro il modo con cui potrebbe essere individuata
+
 ## Implementation
 
 In questo esempio, abbiamo un semplice sistema di accesso dove il nome utente dell'utente viene memorizzato utilizzando SharedPreferences.

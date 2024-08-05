@@ -1,4 +1,11 @@
 # [MASTG-TEST-0005: Determining Whether Sensitive Data Is Shared with Third Parties via Notifications](https://mas.owasp.org/MASTG/tests/android/MASVS-STORAGE/MASTG-TEST-0005)
+
+## Note
+
+- questo è il problema della sensitive data (da valutare un attimo)
+- TrueSeeing la butta dentro il calderore del Detected Logging
+- MobFS e ApkHunt trovano il notification Manager ma ovviamente non sa dire se i dati sono sensitive o no
+
 ## Implementation
 
 - Creato SHOP che inserendo Credit Card Number e Pin schiacciando il bottone buy a coffe manda una notifica, dicendo che il caffè è stato comprato ma viene mostrato anche pin e numero di carta, il che rende insicura l’app.

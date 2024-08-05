@@ -1,5 +1,12 @@
 # [MASTG-TEST-0004: Determining Whether Sensitive Data Is Shared with Third Parties via Embedded Services](https://mas.owasp.org/MASTG/tests/android/MASVS-STORAGE/MASTG-TEST-0004)
 
+## Note
+
+- Non mi è chiaro come APKHunt trovi la vulnerabilità
+- Il test sembra più suggerire un approccio source code più che blackbox
+- questo è il problema della sensitive data (da valutare un attimo)
+
+
 ## Implementation 
 
 - creato semplice form html che manda richiesta POST a flask API che controlla solamente che i dati mandati non siano vuoti.

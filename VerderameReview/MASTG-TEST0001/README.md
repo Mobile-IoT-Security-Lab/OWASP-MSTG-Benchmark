@@ -1,6 +1,12 @@
 # [MASTG-TEST-0001: Testing Local Storage for Sensitive Data](https://mas.owasp.org/MASTG/tests/android/MASVS-STORAGE/MASTG-TEST-0001)
 
-## Implemenatation
+## Note
+
+- sharedpreference dovrebbe usare mode world readable or writable
+- bisognerebbe includere hardcoded cryptographic keys come da esempio MASTG
+
+
+## Implementation
 - 
     - creato app che salva Username e pwd all’interno delle shared preferences.
     - al click del button vengono recuperate le credenziali dalle shared preferences e dispayate.

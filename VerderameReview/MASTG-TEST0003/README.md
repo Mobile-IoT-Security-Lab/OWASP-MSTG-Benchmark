@@ -1,5 +1,11 @@
 # [MASTG-TEST-0003: Testing Logs for Sensitive Data](https://mas.owasp.org/MASTG/tests/android/MASVS-STORAGE/MASTG-TEST-0003)
 
+## Note
+
+- TrueSeeing identifica genericamente logging...credo lo faccia indipendentemente dal fatto che ci sia o no la stringa
+- TODO aggiungere anche system.out.println e le altre funzioni di log
+
+
 ## Implementation
 
 - Creato Fake Login ovvero qualsiasi username e pwd vanno bene, non vengono fatti controlli sulle credenziali
