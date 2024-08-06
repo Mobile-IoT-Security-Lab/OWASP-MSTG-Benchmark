@@ -1,5 +1,11 @@
 # [MASTG-TEST-0024: Testing for App Permissions](https://mas.owasp.org/MASTG/tests/android/MASVS-PLATFORM/MASTG-TEST-0024)
 
+
+## Note
+
+vedere bene la vulnerabilità che non ho capito
+
+
 ## Implementation
 
 - create camera app che fa foto e salva la foto all’interno della internal storage

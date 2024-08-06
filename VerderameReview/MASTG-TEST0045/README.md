@@ -1,5 +1,10 @@
 # [MASTG-TEST-0045: Testing Root Detection](https://mas.owasp.org/MASTG/tests/android/MASVS-RESILIENCE/MASTG-TEST-0045)
 
+## Note
+
+Rivedere vulnerabilità app
+
+
 ## Implementation
 
 - Creato app che NON controlla se il dispositive è rootato

@@ -1,5 +1,9 @@
 # [MASTG-TEST-0027: Testing for URL Loading in WebViews](https://mas.owasp.org/MASTG/tests/android/MASVS-CODE/MASTG-TEST-0027)
 
+## Note
+
+Aggiungere anche shouldInterceptRequest per essere completi
+
 ## Implementation
 
 - creato ap che tramite login permette di visualizzare una webview vulnerabile.

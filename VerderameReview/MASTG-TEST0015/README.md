@@ -1,4 +1,11 @@
 # [MASTG-TEST-0015: Testing the Purposes of Keys](https://mas.owasp.org/MASTG/tests/android/MASVS-CRYPTO/MASTG-TEST-0015)
+
+## Note
+
+Se la chiave è simmetrica vuol dire che viene usata sia per decifrare che per cifrare in uno stesso contesto; la vulnerabilità sarebbe se viene usata in più di un contesto!
+
+Rivedere quindi i risultati accordingly
+
 ## Implementation
 
 - creare app di registrazion e login che usa encrypt con AES con key harcoded nella classe Crypt  .

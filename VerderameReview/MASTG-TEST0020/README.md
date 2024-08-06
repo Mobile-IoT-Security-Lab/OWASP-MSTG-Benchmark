@@ -1,5 +1,10 @@
 # [MASTG-TEST-0020: Testing the TLS Settings](https://mas.owasp.org/MASTG/tests/android/MASVS-NETWORK/MASTG-TEST-0020)
 
+## Nota
+
+la vulnerabilità non deve essre qeusta mausare ad esempio TLS 1.0 o 1.1 si veda il link sotto
+
+
 ## Implementation
 - create app che permette all’utente di cercare un URL e visualizzarlo all’interno della webview see l’url cercato restituisce come response code 200 .
 - permesso http `android:usesCleartextTraffic="true">`

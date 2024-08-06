@@ -1,5 +1,10 @@
 # [MASTG-TEST-0018: Testing Biometric Authentication](https://mas.owasp.org/MASTG/tests/android/MASVS-AUTH/MASTG-TEST-0018/)
 
+## Note
+
+- Non sono sicuro si possa fare staticamente
+
+
 ## Implementation
 - creato app che richiede autenticazione attraverso impronta digitale.
 - se l’utente si autentica correttamente verrà reindirizzato ad un attività con webview.

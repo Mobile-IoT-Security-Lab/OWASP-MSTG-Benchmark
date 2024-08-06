@@ -1,5 +1,10 @@
 # [MASTG-TEST-0042: Checking for Weaknesses in Third Party Libraries](https://mas.owasp.org/MASTG/tests/android/MASVS-CODE/MASTG-TEST-0042)
 
+
+## Note
+
+Dovresti fare una app che include una libreria con un CVE noto e vedere se strumetno la analizza
+
 ## Implementation
 
 - creato app vuota

@@ -1,5 +1,9 @@
 # [MASTG-TEST-0051: Testing Obfuscation](https://mas.owasp.org/MASTG/tests/android/MASVS-RESILIENCE/MASTG-TEST-0051)
 
+## Nota
+
+non ho capito la logica dell'app (è necessaria?)
+
 ## Implementation
 
 - Creata applicazione che permette di compare caffè ma il credit è zero.

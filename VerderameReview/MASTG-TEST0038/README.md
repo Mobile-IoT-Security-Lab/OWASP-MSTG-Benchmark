@@ -1,5 +1,9 @@
 # [MASTG-TEST-0038: Making Sure that the App is Properly Signed](https://mas.owasp.org/MASTG/tests/android/MASVS-RESILIENCE/MASTG-TEST-0038)
 
+##
+Non capisco vulnerabilità implementata
+
+
 ## Implementation
 
 - Creata app che controlla se il dispositive è rootato o no

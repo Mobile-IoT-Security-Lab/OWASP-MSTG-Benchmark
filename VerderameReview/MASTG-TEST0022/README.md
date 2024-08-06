@@ -1,4 +1,11 @@
 # [MASTG-TEST-0022: Testing Custom Certificate Stores and Certificate Pinning](https://mas.owasp.org/MASTG/tests/android/MASVS-NETWORK/MASTG-TEST-0022)
+
+## Nota
+
+Implementazione test parziale
+da rivedere la vulnerabilità
+
+
 ## Implementation 
 
 - creato app con due bottini:

@@ -1,5 +1,10 @@
 # [MASTG-TEST-0028: Testing Deep Links](https://mas.owasp.org/MASTG/tests/android/MASVS-PLATFORM/MASTG-TEST-0028)
 
+## Nota
+
+mobfs28 è vuoto
+P perchè trova deeplink ma non può essere validato e sanitizzato
+
 ## Implementation 
 
 - creata app con `minSdkVersion` uguale a 26

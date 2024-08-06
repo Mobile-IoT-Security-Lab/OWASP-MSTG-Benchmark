@@ -1,4 +1,10 @@
 # [MASTG-TEST-0037: Testing WebViews Cleanup](https://mas.owasp.org/MASTG/tests/android/MASVS-PLATFORM/MASTG-TEST-0037)
+
+## Nota 
+
+rivedere l'applicazione perchè non sembra la vulnerabilità
+
+
 ## Implementation
 
 - creato app che visualizza sito di https://talos-sec.com/

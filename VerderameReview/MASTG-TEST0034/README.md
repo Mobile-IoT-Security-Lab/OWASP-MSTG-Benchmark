@@ -1,5 +1,10 @@
 # [MASTG-TEST-0034: Testing Object Persistence](https://mas.owasp.org/MASTG/tests/android/MASVS-CODE/MASTG-TEST-0034)
 
+## Note
+
+Check come mai ==>> The Object Persistence/Serialization instances in apkhunt non funziona
+
+
 ## Implementation
 
 - create app che permette di creare lista di oggetti json contenendo `username` e `email` salvandoli in un file .json
