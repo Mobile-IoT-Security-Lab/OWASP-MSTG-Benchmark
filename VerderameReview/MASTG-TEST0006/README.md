@@ -1,10 +1,5 @@
 # [MASTG-TEST-0006: Determining Whether the Keyboard Cache Is Disabled for Text Input Fields](https://mas.owasp.org/MASTG/tests/android/MASVS-STORAGE/MASTG-TEST-0006)
 
-## Nota
-
-- rivedere insieme implementazione
-
-
 ## Implementation
 
 - Creato Fake Login ovvero qualsiasi username e pwd vanno bene, non vengono fatti controlli sulle credenziali

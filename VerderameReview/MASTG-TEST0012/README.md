@@ -2,7 +2,10 @@
 
 ## Nota 
 
-non ho capito cosa hai implementato
+- Rimuovere il timer
+- pagina che richiede user e password
+- l'app è vulnerabile perchè non verifica la presenza del pin del dispositivo e/o il rooting
+
 
 ## Implementation
 - Creato Timer con API level ( Android 5.1)

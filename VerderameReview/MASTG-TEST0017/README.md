@@ -1,5 +1,11 @@
 # [MASTG-TEST-0017: Testing Confirm Credentials](https://mas.owasp.org/MASTG/tests/android/MASVS-AUTH/MASTG-TEST-0017/)
 
+https://developer.android.com/reference/android/security/keystore/KeyGenParameterSpec.Builder#setUserAuthenticationParameters(int,%20int)
+
+https://codeql.github.com/codeql-query-help/java/java-android-insecure-local-key-gen/
+
+verificare che venga impostato il timeout per la cosa
+
 ## Implementation
 
 - Creato app with simple login/logout (admin) , nelle shared preference allo user name viene associato un flag `isLoggedIn` (boolean).

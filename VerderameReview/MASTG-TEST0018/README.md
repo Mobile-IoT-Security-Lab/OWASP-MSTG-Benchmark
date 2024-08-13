@@ -4,6 +4,8 @@
 
 - Non sono sicuro si possa fare staticamente
 
+https://codeql.github.com/codeql-query-help/java/java-android-insecure-local-key-gen/
+
 
 ## Implementation
 - creato app che richiede autenticazione attraverso impronta digitale.

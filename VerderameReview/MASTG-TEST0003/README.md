@@ -2,7 +2,7 @@
 
 ## Note
 
-- TrueSeeing identifica genericamente logging...credo lo faccia indipendentemente dal fatto che ci sia o no la stringa
+- TrueSeeing identifica genericamente logging...credo lo faccia indipendentemente dal fatto che ci sia o no la stringa (quindi è parziale)
 - TODO aggiungere anche system.out.println e le altre funzioni di log
 
 

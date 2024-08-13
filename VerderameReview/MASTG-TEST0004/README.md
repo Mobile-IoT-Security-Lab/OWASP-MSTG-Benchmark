@@ -3,8 +3,8 @@
 ## Note
 
 - Non mi è chiaro come APKHunt trovi la vulnerabilità
-- Il test sembra più suggerire un approccio source code più che blackbox
-- questo è il problema della sensitive data (da valutare un attimo)
+- includere libreria che serve per inviare dati (versione vulnerabile), cifrare alcuni dati altri no (email e password);
+- interfaccia nativa per raccogliere user e password
 
 
 ## Implementation 

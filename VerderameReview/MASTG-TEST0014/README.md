@@ -1,8 +1,8 @@
 # [MASTG-TEST-0014: Testing the Configuration of Cryptographic Standard Algorithms](https://mas.owasp.org/MASTG/tests/android/MASVS-CRYPTO/MASTG-TEST-0014)
 ## Implementation 
 - creato login ,le credenziali sono salvate ,(Admin,1234), all’interno delle shared preferences
-- Creato Password manager che encrypta le password usando MD5 di Bouncy Castle ( algoritmo obsolete e insicuro)
-- Esso risulta vulnerabile in quanto non viene usato il provider di default ma bensi uno custom che potrebbe avere delle vulnerabiltà :
+- usare una chiave per le sharedpref
+- usare la stessa chiave per creare un altro file shared pref e/o per inviare dati via internet.
 
 ```bash
 //DEFAULT
