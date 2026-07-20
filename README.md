@@ -3,7 +3,7 @@
 
 # Publication
 More details about HideDroid can be found in the paper The OWApp Benchmark: An OWASP-Compliant Vulnerable Android App Dataset:
-
+```
 @INPROCEEDINGS{11129474,
   author={Ferrari, Luca and Pagano, Franceso and Verderame, Luca and Merlo, Alessio},
   booktitle={2025 IEEE European Symposium on Security and Privacy Workshops (EuroS&PW)}, 
@@ -14,7 +14,7 @@ More details about HideDroid can be found in the paper The OWApp Benchmark: An O
   pages={569-580},
   keywords={Accuracy;Source coding;Pipelines;Benchmark testing;Application security;Mobile applications;Cryptography;Standards;Faces;Android Security;Vulnerability Assessment;OWASP;SAST;App Benchmark},
   doi={10.1109/EuroSPW67616.2025.00072}}
-
+```
 
 
 The Benchmarking Suite for Mobile Security Applications (OWApp) is a comprehensive framework designed to automate and enhance the benchmarking process for mobile applications, particularly within the context of security analysis. Figure 1 gives an overview of this framework, which is structured into three parts. This suite is built upon a structured workflow that includes three primary scripts, each serving a distinct role in the overall process: the **Download Script**, the **Tools Script**, the **Compile Script** and the **Running Script**.  
