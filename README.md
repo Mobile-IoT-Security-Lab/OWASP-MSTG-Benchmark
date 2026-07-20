@@ -1,4 +1,3 @@
-![Logo](./images/OWAppLogo.png)
 # OWApp Benchmark Suite
 
 # Publication
