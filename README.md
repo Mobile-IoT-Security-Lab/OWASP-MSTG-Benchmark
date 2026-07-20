@@ -1,7 +1,7 @@
 # OWApp Benchmark Suite
 
 # Publication
-More details about HideDroid can be found in the paper The OWApp Benchmark: An OWASP-Compliant Vulnerable Android App Dataset:
+More details about OWApp can be found in the paper The OWApp Benchmark: An OWASP-Compliant Vulnerable Android App Dataset:
 ```
 @INPROCEEDINGS{11129474,
   author={Ferrari, Luca and Pagano, Franceso and Verderame, Luca and Merlo, Alessio},
