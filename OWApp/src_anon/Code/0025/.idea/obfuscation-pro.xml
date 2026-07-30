@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ObfuscationProSettings">
+    <option name="detectedTool" value="R8" />
+    <option name="firstDetectionNotificationShown" value="true" />
+    <option name="moduleSettings">
+      <list>
+        <b />
+      </list>
+    </option>
+    <option name="primaryConfigPath" value="$PROJECT_DIR$/app/proguard-rules.pro" />
+  </component>
+</project>

@@ -36,10 +36,8 @@ public class MainActivity extends AppCompatActivity {
                 startTimer();
             }
         });
-    } /*
-     * Mistake 1: Cancel Timer is never called
-     * even though activity might be completed
-     * */
+    }
+
     public void cancelTimer() {
         if(countDownTimer != null) countDownTimer.cancel();
     }

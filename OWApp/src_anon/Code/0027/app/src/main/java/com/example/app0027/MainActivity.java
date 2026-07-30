@@ -102,11 +102,11 @@ public class MainActivity extends AppCompatActivity {
         return false; // Credentials not found or error occurred
     }
     public void CreateFile(){
-        String fileName = "credentials.txt"; // Name of the file to create
+        String fileName = "credentials.txt";
         String fileContents = "Username: admin Password: 1234";
 
         try {
-            Context context = this; // Replace getContext() with your app's context retrieval
+            Context context = this;
 
             FileOutputStream fos = context.openFileOutput(fileName, Context.MODE_PRIVATE);
             fos.write(fileContents.getBytes());

@@ -79,12 +79,11 @@ public class MainActivity extends AppCompatActivity {
                 if (parts.length == 4 && parts[0].equals("Username:") && parts[2].equals("Password:")) {
                     String storedUsername = parts[1];
                     String storedPassword = parts[3];
-                    // Remove any trailing spaces
                     storedUsername = storedUsername.trim();
                     storedPassword = storedPassword.trim();
 
                     if (enteredUsername.equals(storedUsername) && enteredPassword.equals(storedPassword)) {
-                        return true; // Credentials match
+                        return true;
                     }
                 }
             }
@@ -105,7 +104,7 @@ public class MainActivity extends AppCompatActivity {
                 e.printStackTrace();
             }
         }
-        return false; // Credentials not found or error occurred
+        return false;
     }
 
     public void CreateFile() {
@@ -125,16 +124,12 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void createSharedPreferenceFile() {
-        // Initializing SharedPreferences
         SharedPreferences sharedPreferences = getSharedPreferences("session", MODE_PRIVATE);
-// Creating an Editor object to edit (write to the file)
         SharedPreferences.Editor editor = sharedPreferences.edit();
 
-// Storing data as key-value pairs
         editor.putString("username", "admin");
         editor.putInt("pwd", 1234);
 
-// Applying the changes (you can use apply() for asynchronous or commit() for synchronous saving)
         editor.apply();
 
     }

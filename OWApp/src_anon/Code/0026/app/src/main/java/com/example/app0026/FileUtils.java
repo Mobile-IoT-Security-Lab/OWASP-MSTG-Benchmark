@@ -39,14 +39,11 @@ public class FileUtils {
 
             out = new File(externalStorageDir, "" + System.currentTimeMillis());
 
-            // Open input stream from the content URI
             inputStream = context.getContentResolver().openInputStream(uri);
 
             if (inputStream != null) {
-                // Create an output stream to the destination file
                 outputStream = new FileOutputStream(out);
 
-                // Copy data from input stream to output stream
                 byte[] buffer = new byte[1024];
                 int length;
                 while ((length = inputStream.read(buffer)) > 0) {
@@ -59,7 +56,6 @@ public class FileUtils {
             e.printStackTrace();
             return null;
         } finally {
-            // Close streams in the finally block to avoid resource leaks
             try {
                 if (inputStream != null) {
                     inputStream.close();

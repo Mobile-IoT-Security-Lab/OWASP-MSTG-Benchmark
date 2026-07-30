@@ -88,16 +88,12 @@ public class Decrypt extends AppCompatActivity {
 
     private String decryptDataDES(byte[] encryptedData) {
         try {
-            // Create a DES key from the byte array
             SecretKeySpec secretKeySpec = new SecretKeySpec(keyBytesDES, "DES");
 
-            // Create a Cipher instance for DES decryption
             Cipher cipher = Cipher.getInstance("DES");
 
-            // Initialize the cipher in decryption mode with the key
             cipher.init(Cipher.DECRYPT_MODE, secretKeySpec);
 
-            // Decrypt the data and convert it back to a string
             return new String(cipher.doFinal(Base64.decode(encryptedData, Base64.DEFAULT)));
         } catch (Exception e) {
             e.printStackTrace();
