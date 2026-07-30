@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python3 /private/tmp/claude-501/-Users-lucaferrari-Desktop-work-OWApp-Benchmarking-Suite/ee0e521c-7ec1-47c0-8d4c-174d24b4c9e6/scratchpad/anonymize.py)",
+      "Bash(python3 -c ' *)"
+    ]
+  }
+}
